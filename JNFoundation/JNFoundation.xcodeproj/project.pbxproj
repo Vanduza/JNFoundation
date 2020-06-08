@@ -11,6 +11,8 @@
 		DCEDD43F248E7F5C0044C736 /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCEDD435248E7F5C0044C736 /* JNFoundation.framework */; };
 		DCEDD444248E7F5C0044C736 /* JNFoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD443248E7F5C0044C736 /* JNFoundationTests.swift */; };
 		DCEDD446248E7F5C0044C736 /* JNFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEDD438248E7F5C0044C736 /* JNFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DCEDD482248E97E90044C736 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD481248E97E90044C736 /* Plugin.swift */; };
+		DCEDD486248E99660044C736 /* NSObject+className.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD485248E99660044C736 /* NSObject+className.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 		DCEDD43E248E7F5C0044C736 /* JNFoundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JNFoundationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD443248E7F5C0044C736 /* JNFoundationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNFoundationTests.swift; sourceTree = "<group>"; };
 		DCEDD445248E7F5C0044C736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCEDD481248E97E90044C736 /* Plugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
+		DCEDD485248E99660044C736 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +100,14 @@
 		DCEDD437248E7F5C0044C736 /* JNFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				DCEDD483248E98D00044C736 /* utils */,
+				DCEDD480248E971D0044C736 /* net */,
+				DCEDD47F248E97180044C736 /* nc */,
+				DCEDD47E248E97000044C736 /* mf */,
+				DCEDD47D248E96F90044C736 /* db */,
 				DCEDD438248E7F5C0044C736 /* JNFoundation.h */,
 				DCEDD439248E7F5C0044C736 /* Info.plist */,
+				DCEDD481248E97E90044C736 /* Plugin.swift */,
 			);
 			path = JNFoundation;
 			sourceTree = "<group>";
@@ -109,6 +119,50 @@
 				DCEDD445248E7F5C0044C736 /* Info.plist */,
 			);
 			path = JNFoundationTests;
+			sourceTree = "<group>";
+		};
+		DCEDD47D248E96F90044C736 /* db */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		DCEDD47E248E97000044C736 /* mf */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = mf;
+			sourceTree = "<group>";
+		};
+		DCEDD47F248E97180044C736 /* nc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = nc;
+			sourceTree = "<group>";
+		};
+		DCEDD480248E971D0044C736 /* net */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		DCEDD483248E98D00044C736 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				DCEDD484248E99400044C736 /* ext */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		DCEDD484248E99400044C736 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				DCEDD485248E99660044C736 /* NSObject+className.swift */,
+			);
+			path = ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +228,7 @@
 				TargetAttributes = {
 					DCEDD434248E7F5C0044C736 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 					DCEDD43D248E7F5C0044C736 = {
 						CreatedOnToolsVersion = 11.5;
@@ -246,6 +301,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCEDD482248E97E90044C736 /* Plugin.swift in Sources */,
+				DCEDD486248E99660044C736 /* NSObject+className.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7YWGQ7FU5F;
@@ -400,6 +458,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JNFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,6 +467,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanduza.JNFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -417,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 7YWGQ7FU5F;
@@ -425,6 +487,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JNFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,6 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanduza.JNFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -441,6 +505,7 @@
 		DCEDD44D248E7F5C0044C736 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWGQ7FU5F;
 				INFOPLIST_FILE = JNFoundationTests/Info.plist;
@@ -459,6 +524,7 @@
 		DCEDD44E248E7F5C0044C736 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWGQ7FU5F;
 				INFOPLIST_FILE = JNFoundationTests/Info.plist;

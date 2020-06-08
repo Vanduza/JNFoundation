@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */; };
 		DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD45B248E7FC00044C736 /* AppDelegate.swift */; };
-		DCEDD45E248E7FC00044C736 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD45D248E7FC00044C736 /* SceneDelegate.swift */; };
 		DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD45F248E7FC00044C736 /* ViewController.swift */; };
 		DCEDD463248E7FC00044C736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEDD461248E7FC00044C736 /* Main.storyboard */; };
 		DCEDD465248E7FC10044C736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEDD464248E7FC10044C736 /* Assets.xcassets */; };
@@ -32,7 +31,6 @@
 		B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD458248E7FC00044C736 /* JNFoundationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JNFoundationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD45B248E7FC00044C736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCEDD45D248E7FC00044C736 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DCEDD45F248E7FC00044C736 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCEDD462248E7FC00044C736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCEDD464248E7FC10044C736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				DCEDD45B248E7FC00044C736 /* AppDelegate.swift */,
-				DCEDD45D248E7FC00044C736 /* SceneDelegate.swift */,
 				DCEDD45F248E7FC00044C736 /* ViewController.swift */,
 				DCEDD461248E7FC00044C736 /* Main.storyboard */,
 				DCEDD464248E7FC10044C736 /* Assets.xcassets */,
@@ -271,7 +268,6 @@
 			files = (
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
-				DCEDD45E248E7FC00044C736 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWGQ7FU5F;
 				INFOPLIST_FILE = JNFoundationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,7 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanduza.JNFoundationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -454,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWGQ7FU5F;
 				INFOPLIST_FILE = JNFoundationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanduza.JNFoundationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
