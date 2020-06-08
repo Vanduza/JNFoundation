@@ -1,0 +1,47 @@
+PODS:
+  - CleanJSON (1.0.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
+  - SQLiteRepairKit (1.2.2):
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDB.swift (1.0.8.2):
+    - SQLiteRepairKit (~> 1.2.0)
+    - WCDBOptimizedSQLCipher (~> 1.2.0)
+  - WCDBOptimizedSQLCipher (1.2.1)
+
+DEPENDENCIES:
+  - CleanJSON
+  - RxCocoa
+  - RxSwift
+  - SnapKit
+  - WCDB.swift
+
+SPEC REPOS:
+  trunk:
+    - CleanJSON
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SQLiteRepairKit
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
+
+SPEC CHECKSUMS:
+  CleanJSON: 6fd9a37e489a673adf9c8ebd7b67aff21a582163
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
+  WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
+  WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
+
+PODFILE CHECKSUM: 02e5e21edabf5363019cd09e6520af670aae6546
+
+COCOAPODS: 1.9.1
