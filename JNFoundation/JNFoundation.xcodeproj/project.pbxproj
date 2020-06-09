@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		28EA14B5AD977FF9EBDB9696 /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */; };
+		DC68FE24248F202C004628FD /* Collection+safeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE23248F202C004628FD /* Collection+safeIndex.swift */; };
+		DC68FE27248F25DD004628FD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE26248F25DD004628FD /* DBManager.swift */; };
+		DC68FE2A248F27DD004628FD /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE29248F27DD004628FD /* Net.swift */; };
+		DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */; };
+		DC68FE2F248F292C004628FD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE2E248F292C004628FD /* Event.swift */; };
 		DCEDD43F248E7F5C0044C736 /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCEDD435248E7F5C0044C736 /* JNFoundation.framework */; };
 		DCEDD444248E7F5C0044C736 /* JNFoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD443248E7F5C0044C736 /* JNFoundationTests.swift */; };
 		DCEDD446248E7F5C0044C736 /* JNFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEDD438248E7F5C0044C736 /* JNFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +34,11 @@
 		71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo_JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		DC68FE23248F202C004628FD /* Collection+safeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+safeIndex.swift"; sourceTree = "<group>"; };
+		DC68FE26248F25DD004628FD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		DC68FE29248F27DD004628FD /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
+		DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNNotificationCenter.swift; sourceTree = "<group>"; };
+		DC68FE2E248F292C004628FD /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DCEDD435248E7F5C0044C736 /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD438248E7F5C0044C736 /* JNFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNFoundation.h; sourceTree = "<group>"; };
 		DCEDD439248E7F5C0044C736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +87,31 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		DC68FE25248F25CF004628FD /* db */ = {
+			isa = PBXGroup;
+			children = (
+				DC68FE26248F25DD004628FD /* DBManager.swift */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		DC68FE28248F27D2004628FD /* net */ = {
+			isa = PBXGroup;
+			children = (
+				DC68FE29248F27DD004628FD /* Net.swift */,
+			);
+			path = net;
+			sourceTree = "<group>";
+		};
+		DC68FE2B248F2888004628FD /* nc */ = {
+			isa = PBXGroup;
+			children = (
+				DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */,
+				DC68FE2E248F292C004628FD /* Event.swift */,
+			);
+			path = nc;
+			sourceTree = "<group>";
+		};
 		DCEDD42B248E7F5C0044C736 = {
 			isa = PBXGroup;
 			children = (
@@ -100,11 +135,10 @@
 		DCEDD437248E7F5C0044C736 /* JNFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				DC68FE2B248F2888004628FD /* nc */,
+				DC68FE28248F27D2004628FD /* net */,
+				DC68FE25248F25CF004628FD /* db */,
 				DCEDD483248E98D00044C736 /* utils */,
-				DCEDD480248E971D0044C736 /* net */,
-				DCEDD47F248E97180044C736 /* nc */,
-				DCEDD47E248E97000044C736 /* mf */,
-				DCEDD47D248E96F90044C736 /* db */,
 				DCEDD438248E7F5C0044C736 /* JNFoundation.h */,
 				DCEDD439248E7F5C0044C736 /* Info.plist */,
 				DCEDD481248E97E90044C736 /* Plugin.swift */,
@@ -121,34 +155,6 @@
 			path = JNFoundationTests;
 			sourceTree = "<group>";
 		};
-		DCEDD47D248E96F90044C736 /* db */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = db;
-			sourceTree = "<group>";
-		};
-		DCEDD47E248E97000044C736 /* mf */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = mf;
-			sourceTree = "<group>";
-		};
-		DCEDD47F248E97180044C736 /* nc */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = nc;
-			sourceTree = "<group>";
-		};
-		DCEDD480248E971D0044C736 /* net */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = net;
-			sourceTree = "<group>";
-		};
 		DCEDD483248E98D00044C736 /* utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEDD485248E99660044C736 /* NSObject+className.swift */,
+				DC68FE23248F202C004628FD /* Collection+safeIndex.swift */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -302,7 +309,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCEDD482248E97E90044C736 /* Plugin.swift in Sources */,
+				DC68FE2A248F27DD004628FD /* Net.swift in Sources */,
+				DC68FE24248F202C004628FD /* Collection+safeIndex.swift in Sources */,
+				DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */,
 				DCEDD486248E99660044C736 /* NSObject+className.swift in Sources */,
+				DC68FE2F248F292C004628FD /* Event.swift in Sources */,
+				DC68FE27248F25DD004628FD /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
