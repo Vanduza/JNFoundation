@@ -40,13 +40,32 @@ public class Plugin {
         _dbManager = dbm
     }
     
+    public func getDBManager() -> DBManager? {
+        return _dbManager
+    }
+    
+    public func getNotificationCenter() -> JNNotificationCenter {
+        return _nc
+    }
+    
+    public func setMainNet(_ net: Net) {
+        guard _mainNet == nil else {
+            fatalError("不能重复定义主网络")
+        }
+        _mainNet = net
+    }
+    
+    public func getName() -> Name {
+        return _name
+    }
+    
     private init(name: Name) {
         _name = name
     }
     
+    private lazy var _nc: JNNotificationCenter = JNNotificationCenter.init(plugin: self)
     private var _dbManager: DBManager? = nil
-    //NotificationCenter
     private var _nets: [String: Net] = [:]
-    //ModelFactory
+    private var _mainNet: Net?
     private let _name: Name
 }

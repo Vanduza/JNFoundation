@@ -13,6 +13,14 @@
 		DC68FE2A248F27DD004628FD /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE29248F27DD004628FD /* Net.swift */; };
 		DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */; };
 		DC68FE2F248F292C004628FD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE2E248F292C004628FD /* Event.swift */; };
+		DCECC203248FDAD2006D6E41 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC202248FDAD2006D6E41 /* ModelFactory.swift */; };
+		DCECC205248FDB7F006D6E41 /* ModelAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC204248FDB7F006D6E41 /* ModelAble.swift */; };
+		DCECC207248FDC80006D6E41 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC206248FDC80006D6E41 /* Table.swift */; };
+		DCECC209248FDDA7006D6E41 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC208248FDDA7006D6E41 /* Me.swift */; };
+		DCECC20B248FE04C006D6E41 /* JNPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20A248FE04C006D6E41 /* JNPrint.swift */; };
+		DCECC20D248FE334006D6E41 /* KeyValueStringTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20C248FE334006D6E41 /* KeyValueStringTable.swift */; };
+		DCECC20F248FE573006D6E41 /* VersionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20E248FE573006D6E41 /* VersionTable.swift */; };
+		DCECC211248FE5EC006D6E41 /* KeyValueLongTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC210248FE5EC006D6E41 /* KeyValueLongTable.swift */; };
 		DCEDD43F248E7F5C0044C736 /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCEDD435248E7F5C0044C736 /* JNFoundation.framework */; };
 		DCEDD444248E7F5C0044C736 /* JNFoundationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD443248E7F5C0044C736 /* JNFoundationTests.swift */; };
 		DCEDD446248E7F5C0044C736 /* JNFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEDD438248E7F5C0044C736 /* JNFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +47,14 @@
 		DC68FE29248F27DD004628FD /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNNotificationCenter.swift; sourceTree = "<group>"; };
 		DC68FE2E248F292C004628FD /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DCECC202248FDAD2006D6E41 /* ModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
+		DCECC204248FDB7F006D6E41 /* ModelAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAble.swift; sourceTree = "<group>"; };
+		DCECC206248FDC80006D6E41 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		DCECC208248FDDA7006D6E41 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
+		DCECC20A248FE04C006D6E41 /* JNPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNPrint.swift; sourceTree = "<group>"; };
+		DCECC20C248FE334006D6E41 /* KeyValueStringTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStringTable.swift; sourceTree = "<group>"; };
+		DCECC20E248FE573006D6E41 /* VersionTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionTable.swift; sourceTree = "<group>"; };
+		DCECC210248FE5EC006D6E41 /* KeyValueLongTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueLongTable.swift; sourceTree = "<group>"; };
 		DCEDD435248E7F5C0044C736 /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD438248E7F5C0044C736 /* JNFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JNFoundation.h; sourceTree = "<group>"; };
 		DCEDD439248E7F5C0044C736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +107,10 @@
 			isa = PBXGroup;
 			children = (
 				DC68FE26248F25DD004628FD /* DBManager.swift */,
+				DCECC206248FDC80006D6E41 /* Table.swift */,
+				DCECC20C248FE334006D6E41 /* KeyValueStringTable.swift */,
+				DCECC20E248FE573006D6E41 /* VersionTable.swift */,
+				DCECC210248FE5EC006D6E41 /* KeyValueLongTable.swift */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -110,6 +130,16 @@
 				DC68FE2E248F292C004628FD /* Event.swift */,
 			);
 			path = nc;
+			sourceTree = "<group>";
+		};
+		DCECC201248FDA72006D6E41 /* mf */ = {
+			isa = PBXGroup;
+			children = (
+				DCECC202248FDAD2006D6E41 /* ModelFactory.swift */,
+				DCECC204248FDB7F006D6E41 /* ModelAble.swift */,
+				DCECC208248FDDA7006D6E41 /* Me.swift */,
+			);
+			path = mf;
 			sourceTree = "<group>";
 		};
 		DCEDD42B248E7F5C0044C736 = {
@@ -135,6 +165,7 @@
 		DCEDD437248E7F5C0044C736 /* JNFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				DCECC201248FDA72006D6E41 /* mf */,
 				DC68FE2B248F2888004628FD /* nc */,
 				DC68FE28248F27D2004628FD /* net */,
 				DC68FE25248F25CF004628FD /* db */,
@@ -159,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEDD484248E99400044C736 /* ext */,
+				DCECC20A248FE04C006D6E41 /* JNPrint.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -195,6 +227,7 @@
 				DCEDD431248E7F5C0044C736 /* Sources */,
 				DCEDD432248E7F5C0044C736 /* Frameworks */,
 				DCEDD433248E7F5C0044C736 /* Resources */,
+				DCECC1FF248FD7D0006D6E41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -301,6 +334,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DCECC1FF248FD7D0006D6E41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# 格式自动调整\nif which swiftlint >/dev/null; then\nswiftlint autocorrect\necho \"格式调整完成\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -308,12 +358,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCECC209248FDDA7006D6E41 /* Me.swift in Sources */,
 				DCEDD482248E97E90044C736 /* Plugin.swift in Sources */,
 				DC68FE2A248F27DD004628FD /* Net.swift in Sources */,
+				DCECC20F248FE573006D6E41 /* VersionTable.swift in Sources */,
 				DC68FE24248F202C004628FD /* Collection+safeIndex.swift in Sources */,
 				DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */,
 				DCEDD486248E99660044C736 /* NSObject+className.swift in Sources */,
 				DC68FE2F248F292C004628FD /* Event.swift in Sources */,
+				DCECC207248FDC80006D6E41 /* Table.swift in Sources */,
+				DCECC211248FE5EC006D6E41 /* KeyValueLongTable.swift in Sources */,
+				DCECC20B248FE04C006D6E41 /* JNPrint.swift in Sources */,
+				DCECC20D248FE334006D6E41 /* KeyValueStringTable.swift in Sources */,
+				DCECC203248FDAD2006D6E41 /* ModelFactory.swift in Sources */,
+				DCECC205248FDB7F006D6E41 /* ModelAble.swift in Sources */,
 				DC68FE27248F25DD004628FD /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
