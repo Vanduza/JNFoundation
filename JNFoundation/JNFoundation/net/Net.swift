@@ -14,6 +14,22 @@ public final class Net {
         _baseUrl = baseUrl
     }
 
-    private let _plugin: Plugin
+    public func setHttpBuilder<T: PostStringHttpBuilder>(_ builder: T) {
+        _httpBuilder = builder
+    }
+
+    public func getHttpBuilder() -> PostStringHttpBuilder {
+        guard let builder = _httpBuilder else {
+            fatalError("call setHttpBuilder first!")
+        }
+        return builder
+    }
+
+    func getBaseUrl() -> String {
+        return _baseUrl
+    }
+
+    private weak var _plugin: Plugin?
     private let _baseUrl: String
+    private var _httpBuilder: PostStringHttpBuilder?
 }

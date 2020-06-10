@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28EA14B5AD977FF9EBDB9696 /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */; };
+		DC5C8D9C2490DA3800A69F0A /* PostStringHttpBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5C8D9B2490DA3800A69F0A /* PostStringHttpBuilder.swift */; };
 		DC68FE24248F202C004628FD /* Collection+safeIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE23248F202C004628FD /* Collection+safeIndex.swift */; };
 		DC68FE27248F25DD004628FD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE26248F25DD004628FD /* DBManager.swift */; };
 		DC68FE2A248F27DD004628FD /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE29248F27DD004628FD /* Net.swift */; };
@@ -18,7 +19,7 @@
 		DCECC205248FDB7F006D6E41 /* ModelAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC204248FDB7F006D6E41 /* ModelAble.swift */; };
 		DCECC207248FDC80006D6E41 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC206248FDC80006D6E41 /* Table.swift */; };
 		DCECC209248FDDA7006D6E41 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC208248FDDA7006D6E41 /* Me.swift */; };
-		DCECC20B248FE04C006D6E41 /* JNPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20A248FE04C006D6E41 /* JNPrint.swift */; };
+		DCECC20B248FE04C006D6E41 /* JPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20A248FE04C006D6E41 /* JPrint.swift */; };
 		DCECC20D248FE334006D6E41 /* KeyValueStringTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20C248FE334006D6E41 /* KeyValueStringTable.swift */; };
 		DCECC20F248FE573006D6E41 /* VersionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC20E248FE573006D6E41 /* VersionTable.swift */; };
 		DCECC211248FE5EC006D6E41 /* KeyValueLongTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC210248FE5EC006D6E41 /* KeyValueLongTable.swift */; };
@@ -43,6 +44,7 @@
 		71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo_JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		DC5C8D9B2490DA3800A69F0A /* PostStringHttpBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStringHttpBuilder.swift; sourceTree = "<group>"; };
 		DC68FE23248F202C004628FD /* Collection+safeIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+safeIndex.swift"; sourceTree = "<group>"; };
 		DC68FE26248F25DD004628FD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		DC68FE29248F27DD004628FD /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
@@ -53,7 +55,7 @@
 		DCECC204248FDB7F006D6E41 /* ModelAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAble.swift; sourceTree = "<group>"; };
 		DCECC206248FDC80006D6E41 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		DCECC208248FDDA7006D6E41 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
-		DCECC20A248FE04C006D6E41 /* JNPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNPrint.swift; sourceTree = "<group>"; };
+		DCECC20A248FE04C006D6E41 /* JPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JPrint.swift; sourceTree = "<group>"; };
 		DCECC20C248FE334006D6E41 /* KeyValueStringTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStringTable.swift; sourceTree = "<group>"; };
 		DCECC20E248FE573006D6E41 /* VersionTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionTable.swift; sourceTree = "<group>"; };
 		DCECC210248FE5EC006D6E41 /* KeyValueLongTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueLongTable.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				DC68FE29248F27DD004628FD /* Net.swift */,
+				DC5C8D9B2490DA3800A69F0A /* PostStringHttpBuilder.swift */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -192,7 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEDD484248E99400044C736 /* ext */,
-				DCECC20A248FE04C006D6E41 /* JNPrint.swift */,
+				DCECC20A248FE04C006D6E41 /* JPrint.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -372,8 +375,9 @@
 				DC68FE2F248F292C004628FD /* Event.swift in Sources */,
 				DCECC207248FDC80006D6E41 /* Table.swift in Sources */,
 				DCECC211248FE5EC006D6E41 /* KeyValueLongTable.swift in Sources */,
-				DCECC20B248FE04C006D6E41 /* JNPrint.swift in Sources */,
+				DCECC20B248FE04C006D6E41 /* JPrint.swift in Sources */,
 				DCECC20D248FE334006D6E41 /* KeyValueStringTable.swift in Sources */,
+				DC5C8D9C2490DA3800A69F0A /* PostStringHttpBuilder.swift in Sources */,
 				DCECC203248FDAD2006D6E41 /* ModelFactory.swift in Sources */,
 				DCECC205248FDB7F006D6E41 /* ModelAble.swift in Sources */,
 				DC68FE27248F25DD004628FD /* DBManager.swift in Sources */,
