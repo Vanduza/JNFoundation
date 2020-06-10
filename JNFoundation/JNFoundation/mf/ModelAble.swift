@@ -14,34 +14,34 @@ public protocol ModelAble: class {
     var plugin: Plugin { get }
     func inited()
     func willDeinited()
-    
+
     func getAllTables() -> [Table]
     func clearAllData()
-    
+
     var needClearWhenUidChanged: Bool { get }
     var shareDB: Database { get }
     var selfDB: Database { get }
 }
 
 extension ModelAble {
-    var needClearWhenUidChanged: Bool {
+    public var needClearWhenUidChanged: Bool {
         return true
     }
-    
-    var shareDB: Database {
-        guard let dbm = plugin.getDBManager() else {
-            fatalError("call Plugin.setDBManager first!")
-        }
-        return dbm.
+    public var shareDB: Database {
+        return plugin.getDBManager().getShareDB()
     }
-    
-    func clearAllData() {
+
+    public var selfDB: Database {
+        return plugin.getDBManager().getSelfDB()
+    }
+
+    public func clearAllData() {
         let tables = getAllTables()
         for table in tables {
             table.clear()
         }
     }
-    
+
     public func inited() {}
     public func willDeinited() {}
 }

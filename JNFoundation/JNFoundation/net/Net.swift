@@ -13,7 +13,7 @@ public final class Net {
         _plugin = plugin
         _baseUrl = baseUrl
     }
-    
+
     private let _plugin: Plugin
     private let _baseUrl: String
 }

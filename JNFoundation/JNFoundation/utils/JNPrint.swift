@@ -10,6 +10,6 @@ import Foundation
 
 func JNPrint(_ message: String) {
     #if DEBUG
-    print("JNFoundation:",#file,#line,message)
+    print("JNFoundation:", #file, #line, message)
     #endif
 }

@@ -13,6 +13,7 @@
 		DC68FE2A248F27DD004628FD /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE29248F27DD004628FD /* Net.swift */; };
 		DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */; };
 		DC68FE2F248F292C004628FD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68FE2E248F292C004628FD /* Event.swift */; };
+		DC73298D2490707300298B7C /* String+md5.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC73298C2490707300298B7C /* String+md5.swift */; };
 		DCECC203248FDAD2006D6E41 /* ModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC202248FDAD2006D6E41 /* ModelFactory.swift */; };
 		DCECC205248FDB7F006D6E41 /* ModelAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC204248FDB7F006D6E41 /* ModelAble.swift */; };
 		DCECC207248FDC80006D6E41 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCECC206248FDC80006D6E41 /* Table.swift */; };
@@ -47,6 +48,7 @@
 		DC68FE29248F27DD004628FD /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
 		DC68FE2C248F28A1004628FD /* JNNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNNotificationCenter.swift; sourceTree = "<group>"; };
 		DC68FE2E248F292C004628FD /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DC73298C2490707300298B7C /* String+md5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+md5.swift"; sourceTree = "<group>"; };
 		DCECC202248FDAD2006D6E41 /* ModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelFactory.swift; sourceTree = "<group>"; };
 		DCECC204248FDB7F006D6E41 /* ModelAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelAble.swift; sourceTree = "<group>"; };
 		DCECC206248FDC80006D6E41 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				DCEDD485248E99660044C736 /* NSObject+className.swift */,
 				DC68FE23248F202C004628FD /* Collection+safeIndex.swift */,
+				DC73298C2490707300298B7C /* String+md5.swift */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				DCECC209248FDDA7006D6E41 /* Me.swift in Sources */,
 				DCEDD482248E97E90044C736 /* Plugin.swift in Sources */,
 				DC68FE2A248F27DD004628FD /* Net.swift in Sources */,
+				DC73298D2490707300298B7C /* String+md5.swift in Sources */,
 				DCECC20F248FE573006D6E41 /* VersionTable.swift in Sources */,
 				DC68FE24248F202C004628FD /* Collection+safeIndex.swift in Sources */,
 				DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */,

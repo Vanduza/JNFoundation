@@ -13,24 +13,38 @@ public class KeyValueStringTable: TableAble {
     public struct Entity: TableCodable {
         var key: String
         var value: String
-        
+
         public enum CodingKeys: String, CodingTableKey {
-            public typealias Root = Entity;
-            public static let objectRelationalMapping = TableBinding(CodingKeys.self);
-            
-            case key, value;
-            
+            public typealias Root = Entity
+            public static let objectRelationalMapping = TableBinding(CodingKeys.self)
+
+            case key, value
+
             public static var columnConstraintBindings: [CodingKeys: ColumnConstraintBinding]? {
                 return [key: ColumnConstraintBinding(isPrimary: true)]
             }
         }
     }
-    
-    public var db: Database
-    
-    public var name: String
-    
-    public var version: Int
-    
-    
+
+    public init(onDB: Database, withName: String) {
+        db = onDB
+        name = withName
+    }
+
+    public func getValueBy(key: String) -> String? {
+        let object: Entity? = (try? db.getObject(fromTable: name, where: Entity.Properties.key == key)) ?? nil
+
+        return object?.value
+    }
+
+    public func set(value: String, forKey: String) {
+        try? db.insertOrReplace(objects: Entity(key: forKey, value: value), intoTable: name)
+    }
+
+    public func delete(key: String) {
+        try? db.delete(fromTable: name, where: Entity.Properties.key == key)
+    }
+
+    public let db: Database
+    public let name: String
 }
