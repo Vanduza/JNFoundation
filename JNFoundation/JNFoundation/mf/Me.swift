@@ -45,12 +45,14 @@ public class Me: ModelAble {
     public func setUid(_ uid: String) {
         if _uid == uid {
             //发送uid初始化的通知
+            plugin.getNc().post(UidSetEvent())
             return
         }
 
         _uid = uid
         _table.set(value: uid, forKey: Key.uid.rawValue)
         //发送一系列通知uidchanged
+        plugin.getNc().post(UidChanedEvent())
     }
 
     public var needClearWhenUidChanged: Bool = false
