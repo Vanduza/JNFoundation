@@ -40,7 +40,7 @@ public class Plugin {
         return _dbManager
     }
 
-    public func getNotificationCenter() -> JNNotificationCenter {
+    public func getNc() -> JNNotificationCenter {
         return _nc
     }
 

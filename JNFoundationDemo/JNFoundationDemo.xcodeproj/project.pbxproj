@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */; };
+		DCB53C8D2491191000E3F8BD /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB53C8C2491191000E3F8BD /* JNFoundation.framework */; };
+		DCB53C8E2491191000E3F8BD /* JNFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCB53C8C2491191000E3F8BD /* JNFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */; };
 		DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD45B248E7FC00044C736 /* AppDelegate.swift */; };
 		DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD45F248E7FC00044C736 /* ViewController.swift */; };
 		DCEDD463248E7FC00044C736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEDD461248E7FC00044C736 /* Main.storyboard */; };
@@ -26,9 +29,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DCB53C8F2491191000E3F8BD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DCB53C8E2491191000E3F8BD /* JNFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		73A08427F3CE235A51F0F468 /* Pods-CommonPods-JNFoundationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB53C8C2491191000E3F8BD /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPlugin.swift; sourceTree = "<group>"; };
 		DCEDD458248E7FC00044C736 /* JNFoundationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JNFoundationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD45B248E7FC00044C736 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCEDD45F248E7FC00044C736 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */,
+				DCB53C8D2491191000E3F8BD /* JNFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +120,7 @@
 				DCEDD464248E7FC10044C736 /* Assets.xcassets */,
 				DCEDD466248E7FC10044C736 /* LaunchScreen.storyboard */,
 				DCEDD469248E7FC10044C736 /* Info.plist */,
+				DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */,
 			);
 			path = JNFoundationDemo;
 			sourceTree = "<group>";
@@ -116,6 +137,7 @@
 		FF0A1CFE80A97552C30B2CBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCB53C8C2491191000E3F8BD /* JNFoundation.framework */,
 				B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */,
 			);
 			name = Frameworks;
@@ -133,6 +155,7 @@
 				DCEDD455248E7FC00044C736 /* Frameworks */,
 				DCEDD456248E7FC00044C736 /* Resources */,
 				C7981C6778D3B45B00E03C22 /* [CP] Embed Pods Frameworks */,
+				DCB53C8F2491191000E3F8BD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,6 +291,7 @@
 			files = (
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
+				DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
