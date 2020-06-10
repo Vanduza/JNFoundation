@@ -13,10 +13,6 @@ public class JNNotificationCenter {
         _plugin = plugin
     }
 
-    public func getPlugin() -> Plugin {
-        return _plugin
-    }
-
     public func addObserver<T: Event, Observer>(_ observer: Observer, using: @escaping (T) -> Void) {
 
     }
@@ -31,5 +27,5 @@ public class JNNotificationCenter {
         }
     }
 
-    private let _plugin: Plugin
+    private weak var _plugin: Plugin?
 }

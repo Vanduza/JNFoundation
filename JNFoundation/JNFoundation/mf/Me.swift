@@ -58,3 +58,14 @@ public class Me: ModelAble {
     private lazy var _table: KeyValueStringTable = KeyValueStringTable(onDB: shareDB, withName: "me")
     private var _uid: String?
 }
+// MARK: - 通知类型定义
+/**
+ * uid变化要引起很多基础模块的初始化
+ * 所以发两个事件：
+ * 1. UidSetEvent: 业务层即将执行UidChanged事件，即使uid没有变化也要发此事件
+ * 2. UidChangedEvent: uid发生改变，业务应监听此事件
+ */
+extension Me {
+    final class UidSetEvent: Event {}
+    final class UidChanedEvent: Event {}
+}
