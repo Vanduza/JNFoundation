@@ -33,9 +33,9 @@ public class DBManager {
         let selfDB = Database(withPath: self.getSelfDBPath())
         self._selfDB = selfDB
         //数据库加密, 暂不需要加密
-//        if let pwd = getSelfDBPwd() {
-//            self._selfDB!.setCipher(key: pwd.data(using: .ascii));
-//        }
+        if let pwd = getSelfDBPwd() {
+            self._selfDB?.setCipher(key: pwd.data(using: .ascii))
+        }
 
         VersionTable.createAt(db: selfDB)
     }
@@ -44,11 +44,6 @@ public class DBManager {
         self._shareDB?.close()
         let shareDB = Database(withPath: self.getShareDBPath())
         self._shareDB = shareDB
-        //数据库加密, 暂不需要加密
-//        if let pwd = getShareDBPwd() {
-//            self._shareDB!.setCipher(key: pwd.data(using: .ascii));
-//        }
-
         VersionTable.createAt(db: shareDB)
     }
 
@@ -82,6 +77,10 @@ public class DBManager {
         return _builder.getPlugin()
     }
 
+    private func getSelfDBPwd() -> String? {
+        return _builder.getPassword()
+    }
+
     private let _builder: Builder
 
     private var _shareDB: Database?
@@ -102,6 +101,10 @@ class Builder {
 
     func setPassword(_ pwd: String) {
         _password = pwd
+    }
+
+    func getPassword() -> String? {
+        return _password
     }
 
     var enablePassword: Bool = false
