@@ -28,7 +28,7 @@ public protocol API: class {
     var request: APIRequest { get }
     var response: APIResponse? { get }
     var code: APICode { get set }
-    
+
     var nc: JNNotificationCenter { get }
     var mf: ModelFactory { get }
     var net: Net { get }
@@ -38,7 +38,7 @@ extension API {
     public var nc: JNNotificationCenter {
         return net.getPlugin().getNc()
     }
-    
+
     public var mf: ModelFactory {
         return net.getPlugin().getMf()
     }
@@ -55,10 +55,10 @@ public protocol APIable: API {
     func parse(json: String) -> Observable<Void>
     func setModel(_ postModelEvent: Bool) -> Observable<Void>
     func processToken(_ response: String)
-    
-    var needSetModel: Bool { get set };
-    var shouldPostModelEvent: Bool { get set };
-    
+
+    var needSetModel: Bool { get set }
+    var shouldPostModelEvent: Bool { get set }
+
     var needToken: Bool { get }
     var disposebag: DisposeBag { get }
 }
@@ -73,7 +73,7 @@ extension APIable {
     func send() -> Observable<Self> {
         return sendImpl()
     }
-    
+
     private func sendImpl() -> Observable<Self> {
         let token = net.getToken()
         self.request.token = token
@@ -91,10 +91,10 @@ extension APIable {
             nc.post(Net.Net401Event.init(net: net))
             return Observable.just(self)
         }
-        
+
         JPrint("url: \(net.getBaseUrl() + getUrl())")
         let url = net.getBaseUrl()+getUrl()
-        
+
         return Observable<Self>.create { (observer) in
             self.net.getHttpBuilder()
                 .setNeedToken(self.needToken)
@@ -110,7 +110,7 @@ extension APIable {
                     observer.onError(Net.NetError.responseEmpty)
                     return
                 }
-                
+
                 let res: _ResponseCode? = JsonTool.fromJson(response, toClass: _ResponseCode.self)
                 sself.code = res?.code ?? APICode.ELSE_ERROR
                 if sself.code == .TOKEN_EXPIRE_CODE {
@@ -132,15 +132,15 @@ extension APIable {
                     observer.onError(Net.NetError.tokenExpired)
                     return
                 }
-                
+
                 //取消401
                 sself.net.set401(false)
-                
+
                 if sself.code != .SUCCESS, sself.code != .NOT_MODIFIED {
                     observer.onError(Net.NetError.decodeJsonError)
                     return
                 }
-                
+
                 //给上层一次处理token的机会，解析数据时可能需要token
                 sself.processToken(token)
                 sself.parse(json: response).subscribe(onNext: { [weak sself] (_) in
@@ -166,22 +166,22 @@ extension APIable {
     }
 }
 
-fileprivate struct _ResponseCode: Decodable {
+private struct _ResponseCode: Decodable {
     init(from decoder: Decoder) throws {
         do {
-            let values = try decoder.container(keyedBy: CodingKeys.self);
-            let codeV = try values.decode(Int.self, forKey: .code);
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            let codeV = try values.decode(Int.self, forKey: .code)
             code = APICode.init(rawValue: codeV) ?? APICode.ELSE_ERROR
-            message = try? values.decode(String.self, forKey: .message);
+            message = try? values.decode(String.self, forKey: .message)
         } catch let error as DecodingError {
             JPrint(error)
         }
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case code, message
     }
-    
+
     var code: APICode = .ELSE_ERROR
     var message: String?
 }

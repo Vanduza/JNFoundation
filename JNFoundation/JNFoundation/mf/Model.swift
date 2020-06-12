@@ -12,6 +12,6 @@ open class Model {
     public required init(plugin: Plugin) {
         self.plugin = plugin
     }
-    
+
     public var plugin: Plugin
 }

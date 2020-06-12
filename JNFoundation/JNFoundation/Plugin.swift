@@ -16,6 +16,7 @@ public class Plugin {
         public func hash(into hasher: inout Hasher) {
             hasher.combine(String.init(describing: self))
         }
+        public init() {}
     }
 
     public enum PluginError: Error {
@@ -48,15 +49,15 @@ public class Plugin {
         return _mf
     }
 
-    public func setMainNet(_ net: Net) {
+    public func getName() -> Name {
+        return _name
+    }
+
+    func setMainNet(_ net: Net) {
         guard _mainNet == nil else {
             fatalError("不能重复定义主网络")
         }
         _mainNet = net
-    }
-
-    public func getName() -> Name {
-        return _name
     }
 
     private init(name: Name) {

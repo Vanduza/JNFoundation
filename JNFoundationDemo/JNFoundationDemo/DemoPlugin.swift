@@ -10,12 +10,17 @@ import Foundation
 import JNFoundation
 
 class DemoPluginName: Plugin.Name {
+    static let shared: DemoPluginName = DemoPluginName()
+    static let BaseUrl = "test base url"
     func setup() {
         do {
             try Plugin.register(pluginName: self)
-        } catch let err {
-            print("Plugin.registerError:", err)
+        } catch let err as Plugin.PluginError {
+            print(err)
+        } catch {
+            print(error)
         }
+        Net.init(plugin: self.getPlugin(), baseUrl: DemoPluginName.BaseUrl).setToMainNet().setHttpBuilder(StubHttpBuilder())
     }
     
     func getPlugin() -> Plugin {

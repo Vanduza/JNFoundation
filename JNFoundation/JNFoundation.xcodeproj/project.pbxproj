@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28EA14B5AD977FF9EBDB9696 /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */; };
+		AF41C1041BF16C4E9DD3F9F2 /* Pods_CommonPods_JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB20AAE538260C0808689B1C /* Pods_CommonPods_JNFoundation.framework */; };
 		DC43B9562493122B000613C0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B9552493122B000613C0 /* API.swift */; };
 		DC43B9582493183C000613C0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B9572493183C000613C0 /* Token.swift */; };
 		DC43B95A249318EF000613C0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B959249318EF000613C0 /* Model.swift */; };
@@ -47,8 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo_JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		681050F9951C783710CA248F /* Pods-CommonPods-JNFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundation.release.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundation/Pods-CommonPods-JNFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; sourceTree = "<group>"; };
+		AB20AAE538260C0808689B1C /* Pods_CommonPods_JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; sourceTree = "<group>"; };
 		DC43B9552493122B000613C0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		DC43B9572493183C000613C0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		DCEDD445248E7F5C0044C736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCEDD481248E97E90044C736 /* Plugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		DCEDD485248E99660044C736 /* NSObject+className.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+className.swift"; sourceTree = "<group>"; };
+		FED033DFBA221A3C852DCC43 /* Pods-CommonPods-JNFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundation.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundation/Pods-CommonPods-JNFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28EA14B5AD977FF9EBDB9696 /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework in Frameworks */,
+				AF41C1041BF16C4E9DD3F9F2 /* Pods_CommonPods_JNFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +106,7 @@
 		3B7D9C9106287F332A470209 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				71CCFD69514ED415075248AB /* Pods_CommonPods_JNFoundationDemo_JNFoundation.framework */,
+				AB20AAE538260C0808689B1C /* Pods_CommonPods_JNFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +116,8 @@
 			children = (
 				8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */,
 				D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */,
+				FED033DFBA221A3C852DCC43 /* Pods-CommonPods-JNFoundation.debug.xcconfig */,
+				681050F9951C783710CA248F /* Pods-CommonPods-JNFoundation.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -351,7 +355,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CommonPods-JNFoundationDemo-JNFoundation-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CommonPods-JNFoundation-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -549,7 +553,7 @@
 		};
 		DCEDD44A248E7F5C0044C736 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */;
+			baseConfigurationReference = FED033DFBA221A3C852DCC43 /* Pods-CommonPods-JNFoundation.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -578,7 +582,7 @@
 		};
 		DCEDD44B248E7F5C0044C736 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */;
+			baseConfigurationReference = 681050F9951C783710CA248F /* Pods-CommonPods-JNFoundation.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

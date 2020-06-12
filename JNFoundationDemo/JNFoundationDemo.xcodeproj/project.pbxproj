@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */; };
+		DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B96A24935E06000613C0 /* StubConnect.swift */; };
 		DCB53C8D2491191000E3F8BD /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB53C8C2491191000E3F8BD /* JNFoundation.framework */; };
 		DCB53C8E2491191000E3F8BD /* JNFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DCB53C8C2491191000E3F8BD /* JNFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		73A08427F3CE235A51F0F468 /* Pods-CommonPods-JNFoundationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC43B96A24935E06000613C0 /* StubConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubConnect.swift; sourceTree = "<group>"; };
 		DCB53C8C2491191000E3F8BD /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPlugin.swift; sourceTree = "<group>"; };
 		DCEDD458248E7FC00044C736 /* JNFoundationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JNFoundationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,14 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		DC43B96924935DAC000613C0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DC43B96A24935E06000613C0 /* StubConnect.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		DCEDD44F248E7FBF0044C736 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 		DCEDD45A248E7FC00044C736 /* JNFoundationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DC43B96924935DAC000613C0 /* API */,
 				DCEDD45B248E7FC00044C736 /* AppDelegate.swift */,
 				DCEDD45F248E7FC00044C736 /* ViewController.swift */,
 				DCEDD461248E7FC00044C736 /* Main.storyboard */,
@@ -289,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */,
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
 				DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */,

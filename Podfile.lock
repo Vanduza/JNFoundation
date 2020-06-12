@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.1)
   - CleanJSON (1.0.1)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -15,6 +16,7 @@ PODS:
   - WCDBOptimizedSQLCipher (1.2.1)
 
 DEPENDENCIES:
+  - Alamofire
   - CleanJSON
   - RxCocoa
   - RxSwift
@@ -23,6 +25,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - CleanJSON
     - RxCocoa
     - RxRelay
@@ -33,6 +36,7 @@ SPEC REPOS:
     - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   CleanJSON: 6fd9a37e489a673adf9c8ebd7b67aff21a582163
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
@@ -42,6 +46,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 02e5e21edabf5363019cd09e6520af670aae6546
+PODFILE CHECKSUM: f53721daa45ccdcc4eecea74a5eaa39da1ab137f
 
 COCOAPODS: 1.9.1
