@@ -17,7 +17,7 @@ public class JNNotificationCenter {
 
     }
 
-    public func removeObserver<T: Event, Observer>(_ observer: Observer, event: T) {
+    public func removeObserver<Observer>(_ observer: Observer, event: AnyClass) {
 
     }
 
