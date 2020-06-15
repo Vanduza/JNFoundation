@@ -11,7 +11,7 @@ import JNFoundation
 
 class DemoPluginName: Plugin.Name {
     static let shared: DemoPluginName = DemoPluginName()
-    static let BaseUrl = "test base url"
+    static let BaseUrl = "https://api.apiopen.top/"
     func setup() {
         do {
             try Plugin.register(pluginName: self)
@@ -28,5 +28,21 @@ class DemoPluginName: Plugin.Name {
             fatalError("call \(self).setup first!")
         }
         return plugin
+    }
+    
+    func getNet() -> Net {
+        guard let net = getPlugin().getNet(byBaseUrl: DemoPluginName.BaseUrl) else {
+            fatalError("初始化net时，调用一下setToMainNet")
+        }
+        
+        return net
+    }
+    
+    func getMf() -> ModelFactory {
+        return getPlugin().getMf()
+    }
+    
+    func getNc() -> JNNotificationCenter {
+        return getPlugin().getNc()
     }
 }

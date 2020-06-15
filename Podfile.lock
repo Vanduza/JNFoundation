@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
   - CleanJSON (1.0.1)
+  - CryptoSwift (0.15.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
@@ -15,6 +16,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
   - CleanJSON (= 1.0.1)
+  - CryptoSwift (= 0.15.0)
   - RxCocoa (= 4.5.0)
   - RxSwift (= 4.5.0)
   - SnapKit (= 4.2.0)
@@ -24,6 +26,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CleanJSON
+    - CryptoSwift
     - RxCocoa
     - RxSwift
     - SnapKit
@@ -34,6 +37,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CleanJSON: 6fd9a37e489a673adf9c8ebd7b67aff21a582163
+  CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 8fa16bf383a52aa28386579308b4278ba04bcb64
+PODFILE CHECKSUM: 96d0298b283a4731275d30a91bb9f6bbc00e81a2
 
 COCOAPODS: 1.9.1

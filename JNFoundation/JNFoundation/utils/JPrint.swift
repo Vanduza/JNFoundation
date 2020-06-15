@@ -10,6 +10,7 @@ import Foundation
 
 func JPrint(_ items: Any...) {
     #if DEBUG
-    print(#file, #line, items)
+    let file = (#file as NSString).lastPathComponent
+    print(file, #line, items)
     #endif
 }

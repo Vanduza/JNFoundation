@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet weak var resultLabel: UILabel!
+    
+    private let disposeBag: DisposeBag = DisposeBag()
+    
+    @IBAction func sendRequest(_ sender: UIButton) {
+        let req = SinglePoemAPI.Request()
+        SinglePoemAPI.init(request: req).send().subscribe(onNext: { [weak self] (api) in
+            self?.resultLabel.text = api.response?.result
+            }, onError: { (error) in
+                JPrint(error)
+        }).disposed(by: disposeBag)
+    }
 }
 

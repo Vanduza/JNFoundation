@@ -9,8 +9,8 @@
 import Foundation
 import CleanJSON
 
-struct JsonTool {
-    static func fromJson<T: Decodable>(_ json: String, toClass: T.Type) -> T? {
+public struct JsonTool {
+    public static func fromJson<T: Decodable>(_ json: String, toClass: T.Type) -> T? {
         let decoder = CleanJSONDecoder()
         let DecodingErrorKey = "DecodingError:"
         do {
@@ -34,7 +34,7 @@ struct JsonTool {
         }
     }
 
-    static func toJson<T: Encodable>(fromObject: T) -> String {
+    public static func toJson<T: Encodable>(fromObject: T) -> String {
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(fromObject)

@@ -8,6 +8,13 @@
 
 import UIKit
 
+func JPrint(_ items: Any...) {
+    #if DEBUG
+    let file = (#file as NSString).lastPathComponent
+    print(file, #line, items)
+    #endif
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

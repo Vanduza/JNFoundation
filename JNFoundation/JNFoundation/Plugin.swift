@@ -53,15 +53,22 @@ public class Plugin {
         return _name
     }
 
+    public func getNet(byBaseUrl: String) -> Net? {
+        return _nets[byBaseUrl]
+    }
+
     func setMainNet(_ net: Net) {
         guard _mainNet == nil else {
             fatalError("不能重复定义主网络")
         }
+        _nets[net.getBaseUrl()] = net
         _mainNet = net
     }
 
     private init(name: Name) {
         _name = name
+        _dbManager.createShareDB()
+        _dbManager.createSelfDB()
     }
 
     private lazy var _nc: JNNotificationCenter = JNNotificationCenter.init(plugin: self)

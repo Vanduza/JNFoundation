@@ -25,8 +25,10 @@ public protocol APIRequest: class, Encodable {
 public protocol APIResponse: class, Decodable {}
 
 public protocol API: class {
-    var request: APIRequest { get }
-    var response: APIResponse? { get }
+    associatedtype Request: APIRequest
+    associatedtype Response: APIResponse
+    var request: Request { get }
+    var response: Response? { get }
     var code: APICode { get set }
 
     var nc: JNNotificationCenter { get }
@@ -45,10 +47,6 @@ extension API {
 }
 
 public protocol APIable: API {
-    associatedtype Request: APIRequest
-    associatedtype Response: APIResponse
-    var request: Request { get }
-    var response: Response? { get }
     func send() -> Observable<Self>
     func getUrl() -> String
     func getHttpMethod() -> HttpMethod
@@ -64,13 +62,13 @@ public protocol APIable: API {
 }
 
 extension APIable {
-    func getHttpMethod() -> HttpMethod {
+    public func getHttpMethod() -> HttpMethod {
         return .POST
     }
 }
 
 extension APIable {
-    func send() -> Observable<Self> {
+    public func send() -> Observable<Self> {
         return sendImpl()
     }
 
@@ -101,11 +99,13 @@ extension APIable {
                 .setMethod(self.getHttpMethod())
             .setUrl(url)
                 .setContent(JsonTool.toJson(fromObject: self.request)).build()
-            .send().subscribe(onNext: { [weak self] (response: String?) in
-                guard let sself = self else {
-                    observer.onError(Net.NetError.apiReleased)
-                    return
-                }
+            .send().subscribe(onNext: { (response: String?) in
+//                guard let sself = self else {
+//                    observer.onError(Net.NetError.apiReleased)
+//                    return
+//                }
+                let sself = self
+
                 guard let response = response else {
                     observer.onError(Net.NetError.responseEmpty)
                     return
