@@ -19,17 +19,13 @@ class StubConnect: HttpString {
     func send() -> Observable<String?> {
         let headersMap = ["Content-Type":"application/json; charset=utf-8","Accept":"application/json,text/json,text/javascript,text/html"]
         let combineHeaders = headersMap.merging(self._builder.getAllHeaders()) { $1 }
-        let headerArr: [HTTPHeader] = combineHeaders.compactMap { (tuple: (key: String, value: String)) -> HTTPHeader? in
-            return HTTPHeader.init(name: tuple.key, value: tuple.value)
-        }
         
-        let headers: HTTPHeaders = HTTPHeaders.init(headerArr)
         let body = self._builder.getContent().data(using: .utf8)
-        var req = try! URLRequest.init(url: self._builder.getUrl(), method: .post, headers: headers)
+        var req = try! URLRequest.init(url: self._builder.getUrl(), method: .post, headers: combineHeaders)
         req.httpBody = body
         
         return Observable<String?>.create { (observer) in
-            let dataRequest = AF.request(req).responseString { (response: AFDataResponse<String>) in
+            let dataRequest = Alamofire.request(req).responseString { (response: DataResponse<String>) in
                 if let err = response.error {
                     observer.onError(err)
                     return
