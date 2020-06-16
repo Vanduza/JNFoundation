@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         SinglePoemAPI.init(request: req).send().subscribe(onNext: { [weak self] (api) in
             self?.resultLabel.text = api.response?.result
             }, onError: { (error) in
-                JPrint(error)
+                JPrint(items: error)
         }).disposed(by: disposeBag)
     }
 }
