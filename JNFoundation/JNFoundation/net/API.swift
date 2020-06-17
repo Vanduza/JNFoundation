@@ -54,8 +54,8 @@ public protocol APIable: API {
     func setModel(_ postModelEvent: Bool) -> Observable<Void>
     func processToken(_ response: String)
 
-    var needSetModel: Bool { get set }
-    var shouldPostModelEvent: Bool { get set }
+    var needSetModel: Bool { get }
+    var shouldPostModelEvent: Bool { get }
 
     var needToken: Bool { get }
     var disposebag: DisposeBag { get }
@@ -87,10 +87,10 @@ extension APIable {
             //这里考虑异步执行
             net.set401(true)
             nc.post(Net.Net401Event.init(net: net))
+            JPrint("token is empty")
             return Observable.just(self)
         }
 
-        JPrint("url: \(net.getBaseUrl() + getUrl())")
         let url = net.getBaseUrl()+getUrl()
 
         return Observable<Self>.create { (observer) in
@@ -100,10 +100,7 @@ extension APIable {
             .setUrl(url)
                 .setContent(JsonTool.toJson(fromObject: self.request)).build()
             .send().subscribe(onNext: { (response: String?) in
-//                guard let sself = self else {
-//                    observer.onError(Net.NetError.apiReleased)
-//                    return
-//                }
+                //此处不能弱引用self，避免API提前释放，API将在执行完请求的所有流程后释放
                 let sself = self
 
                 guard let response = response else {

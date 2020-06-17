@@ -48,8 +48,8 @@ public class DBManager {
     }
 
     private func getDBPath() -> String {
-        return NSHomeDirectory() + "/Documents/database/"
-        + String.init(describing: _builder.getPlugin().getName()) + "/"
+        let name = String.init(describing: _builder.getPlugin().getName()).replacingOccurrences(of: ".", with: "_")
+        return NSHomeDirectory() + "/Documents/database/\(name)/"
     }
 
     private func getShareDBPath() -> String {
@@ -58,7 +58,8 @@ public class DBManager {
 
     private func getSelfDBPath() -> String {
         let uid = getUid()
-        let md5 = (uid + "jn" + String.init(describing: (getPlugin().getName()))).md5()
+        let name = String.init(describing: (getPlugin().getName())).replacingOccurrences(of: ".", with: "_")
+        let md5 = "\(uid)jn\(name)".md5()
         let dbname: String = String(uid.prefix(6)) + md5
 
         return getDBPath() + dbname + ".db"

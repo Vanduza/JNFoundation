@@ -37,13 +37,19 @@ extension DemoAPIable {
 class DemoAPI {
     func processToken(_ response: String) { }
     
-    var needSetModel: Bool = true
+    var needSetModel: Bool {
+        return true
+    }
     
-    var shouldPostModelEvent: Bool = true
+    var shouldPostModelEvent: Bool {
+        return true
+    }
     
     var disposebag: DisposeBag = DisposeBag()
     
-    var needToken: Bool  = true
+    var needToken: Bool {
+        return true
+    }
     
     var code: APICode = .ELSE_ERROR
 }

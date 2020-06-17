@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */; };
 		DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B96A24935E06000613C0 /* StubConnect.swift */; };
+		DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */; };
 		DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */; };
-		DCBEFC9F24976396004C8E93 /* SinglePoemAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBEFC9E24976396004C8E93 /* SinglePoemAPI.swift */; };
 		DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBEFCA024976554004C8E93 /* DemoAPIable.swift */; };
 		DCBEFCAC24977800004C8E93 /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBEFCAB24977800004C8E93 /* JNFoundation.framework */; };
 		DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD45B248E7FC00044C736 /* AppDelegate.swift */; };
@@ -35,9 +35,9 @@
 		73A08427F3CE235A51F0F468 /* Pods-CommonPods-JNFoundationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43B96A24935E06000613C0 /* StubConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubConnect.swift; sourceTree = "<group>"; };
+		DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAuthorAPI.swift; sourceTree = "<group>"; };
 		DCB53C8C2491191000E3F8BD /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPlugin.swift; sourceTree = "<group>"; };
-		DCBEFC9E24976396004C8E93 /* SinglePoemAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePoemAPI.swift; sourceTree = "<group>"; };
 		DCBEFCA024976554004C8E93 /* DemoAPIable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAPIable.swift; sourceTree = "<group>"; };
 		DCBEFCA42497770C004C8E93 /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCBEFCAB24977800004C8E93 /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,8 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				DC43B96A24935E06000613C0 /* StubConnect.swift */,
-				DCBEFC9E24976396004C8E93 /* SinglePoemAPI.swift */,
 				DCBEFCA024976554004C8E93 /* DemoAPIable.swift */,
+				DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */,
 				DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */,
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
-				DCBEFC9F24976396004C8E93 /* SinglePoemAPI.swift in Sources */,
 				DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
 				DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */,
