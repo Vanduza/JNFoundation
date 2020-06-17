@@ -12,24 +12,23 @@ import CleanJSON
 public struct JsonTool {
     public static func fromJson<T: Decodable>(_ json: String, toClass: T.Type) -> T? {
         let decoder = CleanJSONDecoder()
-        let DecodingErrorKey = "DecodingError:"
         do {
           let result = try decoder.decode(toClass, from: json.data(using: .utf8)!)
           return result
         } catch DecodingError.dataCorrupted(let context) {
-          debugPrint(DecodingErrorKey + context.debugDescription)
+          JPrint(context)
           return nil
         } catch DecodingError.keyNotFound(_, let context) {
-          debugPrint(DecodingErrorKey + context.debugDescription)
+          JPrint(context)
           return nil
         } catch DecodingError.typeMismatch(_, let context) {
-          debugPrint(DecodingErrorKey + context.debugDescription)
+          JPrint(context)
           return nil
         } catch DecodingError.valueNotFound(_, let context) {
-          debugPrint(DecodingErrorKey + context.debugDescription)
+          JPrint(context)
           return nil
         } catch let error {
-          debugPrint(DecodingErrorKey + error.localizedDescription)
+          JPrint(error)
           return nil
         }
     }
@@ -39,7 +38,7 @@ public struct JsonTool {
         do {
             let data = try encoder.encode(fromObject)
             guard let json = String.init(data: data, encoding: .utf8) else {
-                fatalError("check your data is endodable from utf8!")
+                fatalError("check your data is encodable from utf8!")
             }
             return json
         } catch let err {
