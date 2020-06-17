@@ -8,6 +8,7 @@
 
 import Foundation
 import JNFoundation
+import RxSwift
 
 public protocol DemoAPIable: APIable {}
 
@@ -31,4 +32,18 @@ extension DemoAPIable {
     public var needToken: Bool {
         return true
     }
+}
+
+class DemoAPI {
+    func processToken(_ response: String) { }
+    
+    var needSetModel: Bool = true
+    
+    var shouldPostModelEvent: Bool = true
+    
+    var disposebag: DisposeBag = DisposeBag()
+    
+    var needToken: Bool  = true
+    
+    var code: APICode = .ELSE_ERROR
 }

@@ -10,31 +10,13 @@ import Foundation
 import JNFoundation
 import RxSwift
 
-final class SinglePoemAPI: DemoAPIable {
+final class SinglePoemAPI: DemoAPI, DemoAPIable {
     var request: Request
     
     var response: Response?
-    
-
-    func processToken(_ response: String) {
-
-    }
-
-    var needSetModel: Bool = true
-
-    var shouldPostModelEvent: Bool = true
-
-    var disposebag: DisposeBag = DisposeBag()
-    
-    var needToken: Bool {
-        return false
-    }
-
-    var code: APICode
 
     init(request: SinglePoemAPI.Request) {
         self.request = request
-        code = .ELSE_ERROR
     }
 
     func getUrl() -> String {
@@ -47,6 +29,7 @@ final class SinglePoemAPI: DemoAPIable {
     }
 
     func setModel(_ postModelEvent: Bool) -> Observable<Void> {
+        mf.getModel(Me.self).setUid("123")
         return Observable.just(())
     }
     
