@@ -14,8 +14,9 @@ public final class Net {
         _baseUrl = baseUrl
     }
 
-    public func setHttpBuilder<T: PostStringHttpBuilder>(_ builder: T) {
+    public func setHttpBuilder<T: PostStringHttpBuilder>(_ builder: T) -> Net {
         _httpBuilder = builder
+        return self
     }
 
     public func getHttpBuilder() -> PostStringHttpBuilder {
@@ -26,7 +27,6 @@ public final class Net {
     }
 
     public func setToMainNet() -> Net {
-        _plugin?.setMainNet(self)
         _isMainNet = true
         return self
     }

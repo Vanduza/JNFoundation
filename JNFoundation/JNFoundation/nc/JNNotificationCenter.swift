@@ -13,7 +13,7 @@ public class JNNotificationCenter {
         _plugin = plugin
         _nc = NotificationCenter()
     }
-    
+
     private static let EventKey = "event"
 
     public func addObserver<T: Event, Observer>(_ observer: Observer, using: @escaping (T) -> Void) {
@@ -21,7 +21,7 @@ public class JNNotificationCenter {
         let ob = _nc.addObserver(forName: name, object: nil, queue: nil) { (nt: Notification) in
             using(nt.userInfo![JNNotificationCenter.EventKey] as! T)
         }
-        
+
         _map[name.rawValue] = ob
     }
 
@@ -32,7 +32,7 @@ public class JNNotificationCenter {
         _nc.removeObserver(ob)
         _map.removeValue(forKey: name.rawValue)
     }
-    
+
     public func removeObserveAll<Observer>(_ observer: Observer) {
         for tuple in _map {
             _nc.removeObserver(tuple.value)
@@ -51,7 +51,7 @@ public class JNNotificationCenter {
         event.setPlugin(plugin: plugin)
         _nc.post(name: name, object: nil, userInfo: [JNNotificationCenter.EventKey: event])
     }
-    
+
     private func getNotificationNameOf<T: Event>(event: T.Type) -> NSNotification.Name {
         return NSNotification.Name.init(String(describing: type(of: T.self)))
     }

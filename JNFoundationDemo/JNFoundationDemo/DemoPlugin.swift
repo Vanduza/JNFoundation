@@ -12,6 +12,7 @@ import JNFoundation
 class DemoPluginName: Plugin.Name {
     static let shared: DemoPluginName = DemoPluginName()
     static let BaseUrl = "https://api.apiopen.top/"
+    static let RrpcBaseUrl = "https://iot.cn-shanghai.aliyuncs.com/"
     func setup() {
         do {
             try Plugin.register(pluginName: self)
@@ -20,7 +21,10 @@ class DemoPluginName: Plugin.Name {
         } catch {
             print(error)
         }
-        Net.init(plugin: self.getPlugin(), baseUrl: DemoPluginName.BaseUrl).setToMainNet().setHttpBuilder(StubHttpBuilder())
+        let mainNet: Net = Net.init(plugin: self.getPlugin(), baseUrl: DemoPluginName.BaseUrl).setToMainNet().setHttpBuilder(StubHttpBuilder())
+        self.getPlugin().setMainNet(mainNet)
+        let rrpcNet = Net.init(plugin: self.getPlugin(), baseUrl: DemoPluginName.RrpcBaseUrl).setHttpBuilder(RrpcHttpBuilder())
+        self.getPlugin().setNet(rrpcNet)
     }
     
     func getPlugin() -> Plugin {
@@ -30,9 +34,17 @@ class DemoPluginName: Plugin.Name {
         return plugin
     }
     
-    func getNet() -> Net {
+    func getMainNet() -> Net {
         guard let net = getPlugin().getNet(byBaseUrl: DemoPluginName.BaseUrl) else {
             fatalError("初始化net时，调用一下setToMainNet")
+        }
+        
+        return net
+    }
+    
+    func getRrpcNet() -> Net {
+        guard let net = getPlugin().getNet(byBaseUrl: DemoPluginName.RrpcBaseUrl) else {
+            fatalError("请在 DemoPluginName.setup 方法中初始化Net")
         }
         
         return net
@@ -45,4 +57,6 @@ class DemoPluginName: Plugin.Name {
     func getNc() -> JNNotificationCenter {
         return getPlugin().getNc()
     }
+    
+    private var _netMap: [String: Net] = [:]
 }

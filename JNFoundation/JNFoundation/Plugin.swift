@@ -57,12 +57,16 @@ public class Plugin {
         return _nets[byBaseUrl]
     }
 
-    func setMainNet(_ net: Net) {
+    public func setMainNet(_ net: Net) {
         guard _mainNet == nil else {
             fatalError("不能重复定义主网络")
         }
         _nets[net.getBaseUrl()] = net
         _mainNet = net
+    }
+
+    public func setNet(_ net: Net) {
+        _nets[net.getBaseUrl()] = net
     }
 
     private init(name: Name) {
