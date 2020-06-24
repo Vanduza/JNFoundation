@@ -14,7 +14,7 @@ public protocol DemoAPIable: APIable {}
 
 extension DemoAPIable {
     public var net: Net {
-        return DemoPluginName.shared.getNet()
+        return DemoPluginName.shared.getMainNet()
     }
     
     public var nc: JNNotificationCenter {
