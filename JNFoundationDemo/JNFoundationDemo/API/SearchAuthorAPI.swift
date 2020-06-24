@@ -26,15 +26,6 @@ final class SearchAuthorAPI: DemoAPI, DemoAPIable {
     func getUrl() -> String {
         return "searchAuthors"
     }
-    
-    func parse(json: String) -> Observable<Void> {
-        response = JsonTool.fromJson(json, toClass: Response.self)
-        return Observable.just(())
-    }
-    
-    func setModel(_ postModelEvent: Bool) -> Observable<Void> {
-        return Observable.just(())
-    }
 }
 
 extension SearchAuthorAPI {

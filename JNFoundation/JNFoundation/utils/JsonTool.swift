@@ -16,19 +16,19 @@ public struct JsonTool {
           let result = try decoder.decode(toClass, from: json.data(using: .utf8)!)
           return result
         } catch DecodingError.dataCorrupted(let context) {
-          JPrint(context)
+            JPrint(items: context)
           return nil
         } catch DecodingError.keyNotFound(_, let context) {
-          JPrint(context)
+            JPrint(items: context)
           return nil
         } catch DecodingError.typeMismatch(_, let context) {
-          JPrint(context)
+          JPrint(items: context)
           return nil
         } catch DecodingError.valueNotFound(_, let context) {
-          JPrint(context)
+          JPrint(items: context)
           return nil
         } catch let error {
-          JPrint(error)
+          JPrint(items: error)
           return nil
         }
     }
@@ -42,7 +42,7 @@ public struct JsonTool {
             }
             return json
         } catch let err {
-            JPrint(err)
+            JPrint(items: err)
             return ""
         }
     }

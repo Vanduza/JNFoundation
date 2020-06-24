@@ -14,7 +14,7 @@ public protocol DemoAPIable: APIable {}
 
 extension DemoAPIable {
     public var net: Net {
-        return DemoPluginName.shared.getNet()
+        return DemoPluginName.shared.getMainNet()
     }
     
     public var nc: JNNotificationCenter {
@@ -31,6 +31,15 @@ extension DemoAPIable {
     
     public var needToken: Bool {
         return true
+    }
+    
+    func parse(json: String) -> Observable<Void> {
+        self.response = JsonTool.fromJson(json, toClass: Response.self)
+        return Observable.just(())
+    }
+    
+    func setModel(_ postModelEvent: Bool) -> Observable<Void> {
+        return Observable.just(())
     }
 }
 

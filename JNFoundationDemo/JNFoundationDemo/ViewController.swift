@@ -27,6 +27,11 @@ class ViewController: UIViewController {
             }, onError: { (error) in
                 JPrint(items: error)
         }).disposed(by: disposeBag)
+        
+//        let req = RrpcGetInfoAPI.Request.init(deviceName: "Dev001", productKey: "a1blwzzltJu", requestBase64Byte: "charge_data")
+//        RrpcGetInfoAPI.init(request: req).send().subscribe(onNext: { (api) in
+//
+//            }).disposed(by: disposeBag)
     }
 }
 

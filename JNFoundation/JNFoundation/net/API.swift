@@ -28,7 +28,7 @@ public protocol API: class {
     associatedtype Request: APIRequest
     associatedtype Response: APIResponse
     var request: Request { get }
-    var response: Response? { get }
+    var response: Response? { get set }
     var code: APICode { get set }
 
     var nc: JNNotificationCenter { get }
@@ -170,8 +170,8 @@ private struct _ResponseCode: Decodable {
             let codeV = try values.decode(Int.self, forKey: .code)
             code = APICode.init(rawValue: codeV) ?? APICode.ELSE_ERROR
             message = try? values.decode(String.self, forKey: .message)
-        } catch let error as DecodingError {
-            JPrint(error)
+        } catch let err as DecodingError {
+            JPrint(items: err)
         }
     }
 
