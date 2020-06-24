@@ -50,26 +50,30 @@ class RrpcConnect: HttpString {
         
         var dic: [CommonKey: String] = [:]
         let uri = (_builder.getUrl() as NSString).lastPathComponent
-        dic[.Action] = "RRpc"//uri
+        dic[.Action] = uri
         dic[.Format] = "JSON"
         dic[.RegionId] = "cn-shanghai"
-//        dic[.SecureTransport] = "true"
+        dic[.SecureTransport] = "true"
         dic[.SignatureMethod] = "HMAC-SHA1"
-        dic[.SignatureNonce] = "90901d50-b5c5-11ea-bd81-95f8a46056b4"//UUID().uuidString
+        dic[.SignatureNonce] = UUID().uuidString
         dic[.SignatureVersion] = "1.0"
-//        dic[.SourceIp] = NetTool().ipAddress()
+        dic[.SourceIp] = NetTool().getIPAddress(for: .wifi)
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
-        dic[.Timestamp] = encodeURL(string: "2020-06-24T02:51:12Z")//formatter.string(from: Date())
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        formatter.timeZone = TimeZone.init(identifier: "GMT")
+        dic[.Timestamp] = encodeURL(string: formatter.string(from: Date()))
         dic[.Version] = "2018-01-20"
         dic[.Timeout] = "8000"
         dic[.DeviceName] = reqDic?[CommonKey.DeviceName.rawValue]
         dic[.ProductKey] = reqDic?[CommonKey.ProductKey.rawValue]
         dic[.RequestBase64Byte] = reqDic?[CommonKey.RequestBase64Byte.rawValue]
         dic[.AccessKeyId] = accessKeyId
-        let paramString = transform(keyvalues: sortKeysOf(dic: dic))
-        let signatue = getSignature(paramString, with: accessSecret)
-        let result = "?Signature=\(signatue)" + paramString
+        //获取签名时的字典当然不应包括有Signature的键
+        let signatue = getSignature(getParamStringToSign(keyvalues: sortKeysOf(dic: dic)), with: accessSecret)
+        //注意：签名字符串需要再进行url转码
+        dic[.Signature] = encodeURL(string: signatue)
+        let paramString = getParamsString(keyvalues: sortKeysOf(dic: dic))
+        let result = "?" + paramString
         return result
     }
     
@@ -78,17 +82,13 @@ class RrpcConnect: HttpString {
     /// - Returns: 键值对数组
     private func sortKeysOf(dic: [CommonKey: String]) -> [(CommonKey, String)] {
         let newDicArray = dic.sorted(by: { $0.key.rawValue < $1.key.rawValue })
-        JPrint(items: "排序后的键值对:\n")
-        newDicArray.forEach { (tuple: (key: CommonKey, value: String)) in
-            print(tuple.key.rawValue + "=" + tuple.value)
-        }
         return newDicArray
     }
     
     /// 步骤2：将已排序的键值对转换成query字符串，并替换特殊字符(replace("+", "%20").replace("*", "%2A").replace("%7E", "~"))
     /// - Parameter keyvalues: 已排序的键值对数组
     /// - Returns: 转换好的query字符串
-    private func transform(keyvalues: [(CommonKey, String)]) -> String {
+    private func getParamStringToSign(keyvalues: [(CommonKey, String)]) -> String {
         var str: String = ""
         for keyvalue in keyvalues {
             str.append("&")
@@ -97,14 +97,33 @@ class RrpcConnect: HttpString {
             str.append(keyvalue.1)
         }
         let percentStr = str.dropFirst()
-        print("percentStr:\(percentStr)")
         let header = "POST&%2F&"
         let string = encodeURL(string: String(percentStr))
+        //注意：特殊拼接，秘钥计算规则要求前面加上述header
         let result = header + string
-        print(result)
+        print("待签名参数\n", result)
         return result
     }
     
+    /// 获取实际请求将要发出的参数
+    /// - Parameter keyvalues: 键值对数组
+    /// - Returns: 参数字符串
+    private func getParamsString(keyvalues: [(CommonKey, String)]) -> String {
+        var str: String = ""
+        for keyvalue in keyvalues {
+            str.append("&")
+            str.append(keyvalue.0.rawValue)
+            str.append("=")
+            str.append(keyvalue.1)
+        }
+        let result = String(str.dropFirst())
+        print("请求参数:\n", result)
+        return result
+    }
+    
+    /// 将字符串进行URL编码，注意CharacterSet.urlQueryAllowed不会转码"="和"&"
+    /// - Parameter string: 待转码的字符串
+    /// - Returns: 按规则转码后的字符串
     private func encodeURL(string: String) -> String {
         let result = string.addingPercentEncoding(withAllowedCharacters: CharacterSet.init(charactersIn: "!*'();:@&=+$,/?%#[]").inverted)?.replacingOccurrences(of: "+", with: "%20").replacingOccurrences(of: "*", with: "%2A").replacingOccurrences(of: "%7E", with: "~")
         return result ?? ""
