@@ -28,7 +28,7 @@ public protocol API: class {
     associatedtype Request: APIRequest
     associatedtype Response: APIResponse
     var request: Request { get }
-    var response: Response? { get }
+    var response: Response? { get set }
     var code: APICode { get set }
 
     var nc: JNNotificationCenter { get }

@@ -32,6 +32,15 @@ extension DemoAPIable {
     public var needToken: Bool {
         return true
     }
+    
+    func parse(json: String) -> Observable<Void> {
+        self.response = JsonTool.fromJson(json, toClass: Response.self)
+        return Observable.just(())
+    }
+    
+    func setModel(_ postModelEvent: Bool) -> Observable<Void> {
+        return Observable.just(())
+    }
 }
 
 class DemoAPI {
