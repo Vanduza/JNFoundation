@@ -24,7 +24,7 @@ extension Table {
         do {
             try db.delete(fromTable: name)
         } catch let err {
-            JPrint(err)
+            JPrint(items: err)
         }
     }
 

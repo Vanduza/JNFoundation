@@ -170,8 +170,8 @@ private struct _ResponseCode: Decodable {
             let codeV = try values.decode(Int.self, forKey: .code)
             code = APICode.init(rawValue: codeV) ?? APICode.ELSE_ERROR
             message = try? values.decode(String.self, forKey: .message)
-        } catch let error as DecodingError {
-            JPrint(error)
+        } catch let err as DecodingError {
+            JPrint(items: err)
         }
     }
 

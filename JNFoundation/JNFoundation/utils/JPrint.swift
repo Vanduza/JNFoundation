@@ -8,9 +8,9 @@
 
 import Foundation
 
-func JPrint(_ items: Any...) {
+func JPrint(_ file: String = #file, _ line: Int = #line, items: Any...) {
     #if DEBUG
-    let file = (#file as NSString).lastPathComponent
-    print(file, #line, items)
+    let file = (file as NSString).lastPathComponent
+    print(file, line, items)
     #endif
 }
