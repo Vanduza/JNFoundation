@@ -15,7 +15,7 @@ public protocol HttpString {
 }
 
 public enum HttpMethod: String {
-    case POST
+    case POST, GET
 }
 
 public protocol PostStringHttpBuilder {
