@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		AF41C1041BF16C4E9DD3F9F2 /* Pods_CommonPods_JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB20AAE538260C0808689B1C /* Pods_CommonPods_JNFoundation.framework */; };
+		DC0761A724A872EB00C89A33 /* StorableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A624A872EB00C89A33 /* StorableModel.swift */; };
+		DC0761AA24A8769F00C89A33 /* MergeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A924A8769F00C89A33 /* MergeStrategy.swift */; };
+		DC0761AC24A876CF00C89A33 /* JoinMergeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761AB24A876CF00C89A33 /* JoinMergeStrategy.swift */; };
+		DC0761AE24A8773200C89A33 /* Codable+dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761AD24A8773200C89A33 /* Codable+dictionary.swift */; };
+		DC0761B024A87CD600C89A33 /* DictionaryCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761AF24A87CD600C89A33 /* DictionaryCoder.swift */; };
+		DC0761B224A8825600C89A33 /* OverwriteMergeStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761B124A8825600C89A33 /* OverwriteMergeStrategy.swift */; };
+		DC0761B524A883A100C89A33 /* CacheStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761B424A883A100C89A33 /* CacheStrategy.swift */; };
+		DC0761B724A883C600C89A33 /* NoCacheStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761B624A883C600C89A33 /* NoCacheStrategy.swift */; };
+		DC0761B924A8841D00C89A33 /* LRUCacheStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761B824A8841D00C89A33 /* LRUCacheStrategy.swift */; };
+		DC0761BB24A8859000C89A33 /* LFUCacheStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761BA24A8859000C89A33 /* LFUCacheStrategy.swift */; };
 		DC43B9562493122B000613C0 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B9552493122B000613C0 /* API.swift */; };
 		DC43B9582493183C000613C0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B9572493183C000613C0 /* Token.swift */; };
 		DC43B95A249318EF000613C0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B959249318EF000613C0 /* Model.swift */; };
@@ -51,6 +61,16 @@
 		8E025AFEB3238AE266BE0851 /* Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		AB20AAE538260C0808689B1C /* Pods_CommonPods_JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BFCD7A3CCD49F4335B799D /* Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo-JNFoundation/Pods-CommonPods-JNFoundationDemo-JNFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		DC0761A624A872EB00C89A33 /* StorableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableModel.swift; sourceTree = "<group>"; };
+		DC0761A924A8769F00C89A33 /* MergeStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeStrategy.swift; sourceTree = "<group>"; };
+		DC0761AB24A876CF00C89A33 /* JoinMergeStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMergeStrategy.swift; sourceTree = "<group>"; };
+		DC0761AD24A8773200C89A33 /* Codable+dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+dictionary.swift"; sourceTree = "<group>"; };
+		DC0761AF24A87CD600C89A33 /* DictionaryCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryCoder.swift; sourceTree = "<group>"; };
+		DC0761B124A8825600C89A33 /* OverwriteMergeStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverwriteMergeStrategy.swift; sourceTree = "<group>"; };
+		DC0761B424A883A100C89A33 /* CacheStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStrategy.swift; sourceTree = "<group>"; };
+		DC0761B624A883C600C89A33 /* NoCacheStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoCacheStrategy.swift; sourceTree = "<group>"; };
+		DC0761B824A8841D00C89A33 /* LRUCacheStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRUCacheStrategy.swift; sourceTree = "<group>"; };
+		DC0761BA24A8859000C89A33 /* LFUCacheStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFUCacheStrategy.swift; sourceTree = "<group>"; };
 		DC43B9552493122B000613C0 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		DC43B9572493183C000613C0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		DC43B959249318EF000613C0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -123,6 +143,27 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		DC0761A824A8768200C89A33 /* merge */ = {
+			isa = PBXGroup;
+			children = (
+				DC0761A924A8769F00C89A33 /* MergeStrategy.swift */,
+				DC0761AB24A876CF00C89A33 /* JoinMergeStrategy.swift */,
+				DC0761B124A8825600C89A33 /* OverwriteMergeStrategy.swift */,
+			);
+			path = merge;
+			sourceTree = "<group>";
+		};
+		DC0761B324A8839100C89A33 /* cache */ = {
+			isa = PBXGroup;
+			children = (
+				DC0761B424A883A100C89A33 /* CacheStrategy.swift */,
+				DC0761B624A883C600C89A33 /* NoCacheStrategy.swift */,
+				DC0761B824A8841D00C89A33 /* LRUCacheStrategy.swift */,
+				DC0761BA24A8859000C89A33 /* LFUCacheStrategy.swift */,
+			);
+			path = cache;
+			sourceTree = "<group>";
+		};
 		DC68FE25248F25CF004628FD /* db */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,12 +198,15 @@
 		DCECC201248FDA72006D6E41 /* mf */ = {
 			isa = PBXGroup;
 			children = (
+				DC0761B324A8839100C89A33 /* cache */,
+				DC0761A824A8768200C89A33 /* merge */,
 				DCECC202248FDAD2006D6E41 /* ModelFactory.swift */,
 				DCECC204248FDB7F006D6E41 /* ModelAble.swift */,
 				DCECC208248FDDA7006D6E41 /* Me.swift */,
 				DC43B9572493183C000613C0 /* Token.swift */,
 				DC43B959249318EF000613C0 /* Model.swift */,
 				DC43B95B24931D6F000613C0 /* Device.swift */,
+				DC0761A624A872EB00C89A33 /* StorableModel.swift */,
 			);
 			path = mf;
 			sourceTree = "<group>";
@@ -218,6 +262,7 @@
 				DCECC20A248FE04C006D6E41 /* JPrint.swift */,
 				DC43B95F24931E12000613C0 /* KeychainHelper.swift */,
 				DC43B96124932B76000613C0 /* JsonTool.swift */,
+				DC0761AF24A87CD600C89A33 /* DictionaryCoder.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -228,6 +273,7 @@
 				DCEDD485248E99660044C736 /* NSObject+className.swift */,
 				DC68FE23248F202C004628FD /* Collection+safeIndex.swift */,
 				DC73298C2490707300298B7C /* String+md5.swift */,
+				DC0761AD24A8773200C89A33 /* Codable+dictionary.swift */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -389,14 +435,20 @@
 				DC43B96224932B76000613C0 /* JsonTool.swift in Sources */,
 				DCECC209248FDDA7006D6E41 /* Me.swift in Sources */,
 				DCEDD482248E97E90044C736 /* Plugin.swift in Sources */,
+				DC0761B024A87CD600C89A33 /* DictionaryCoder.swift in Sources */,
 				DC68FE2A248F27DD004628FD /* Net.swift in Sources */,
+				DC0761B524A883A100C89A33 /* CacheStrategy.swift in Sources */,
+				DC0761AE24A8773200C89A33 /* Codable+dictionary.swift in Sources */,
 				DC73298D2490707300298B7C /* String+md5.swift in Sources */,
 				DCECC20F248FE573006D6E41 /* VersionTable.swift in Sources */,
 				DC43B96024931E12000613C0 /* KeychainHelper.swift in Sources */,
 				DC68FE24248F202C004628FD /* Collection+safeIndex.swift in Sources */,
+				DC0761B924A8841D00C89A33 /* LRUCacheStrategy.swift in Sources */,
 				DC68FE2D248F28A1004628FD /* JNNotificationCenter.swift in Sources */,
+				DC0761B224A8825600C89A33 /* OverwriteMergeStrategy.swift in Sources */,
 				DCEDD486248E99660044C736 /* NSObject+className.swift in Sources */,
 				DC68FE2F248F292C004628FD /* Event.swift in Sources */,
+				DC0761BB24A8859000C89A33 /* LFUCacheStrategy.swift in Sources */,
 				DCECC207248FDC80006D6E41 /* Table.swift in Sources */,
 				DCECC211248FE5EC006D6E41 /* KeyValueLongTable.swift in Sources */,
 				DCECC20B248FE04C006D6E41 /* JPrint.swift in Sources */,
@@ -405,9 +457,13 @@
 				DC5C8D9C2490DA3800A69F0A /* PostStringHttpBuilder.swift in Sources */,
 				DCECC203248FDAD2006D6E41 /* ModelFactory.swift in Sources */,
 				DC43B95A249318EF000613C0 /* Model.swift in Sources */,
+				DC0761AC24A876CF00C89A33 /* JoinMergeStrategy.swift in Sources */,
+				DC0761A724A872EB00C89A33 /* StorableModel.swift in Sources */,
+				DC0761B724A883C600C89A33 /* NoCacheStrategy.swift in Sources */,
 				DC43B9582493183C000613C0 /* Token.swift in Sources */,
 				DCECC205248FDB7F006D6E41 /* ModelAble.swift in Sources */,
 				DC43B9562493122B000613C0 /* API.swift in Sources */,
+				DC0761AA24A8769F00C89A33 /* MergeStrategy.swift in Sources */,
 				DC68FE27248F25DD004628FD /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

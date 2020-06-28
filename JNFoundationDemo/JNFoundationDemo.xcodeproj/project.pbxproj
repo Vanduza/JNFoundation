@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */; };
+		DC07619D24A82CFF00C89A33 /* GetDeviceInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07619C24A82CFF00C89A33 /* GetDeviceInfoAPI.swift */; };
+		DC07619F24A830AB00C89A33 /* RrpcCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC07619E24A830AB00C89A33 /* RrpcCodeHelper.swift */; };
+		DC0761A124A830B600C89A33 /* ByteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A024A830B600C89A33 /* ByteHelper.swift */; };
+		DC0761A324A84A7D00C89A33 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A224A84A7D00C89A33 /* UserModel.swift */; };
+		DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A424A84AFB00C89A33 /* UserTable.swift */; };
+		DC0761BD24A8949200C89A33 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761BC24A8949200C89A33 /* LoginAPI.swift */; };
 		DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B96A24935E06000613C0 /* StubConnect.swift */; };
 		DC73B99124A2E7980000528E /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC73B99024A2E7980000528E /* NetTool.swift */; };
 		DC7F987A24A1E21B00A969FD /* String+hmac.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F987924A1E21B00A969FD /* String+hmac.swift */; };
@@ -38,6 +44,12 @@
 /* Begin PBXFileReference section */
 		73A08427F3CE235A51F0F468 /* Pods-CommonPods-JNFoundationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC07619C24A82CFF00C89A33 /* GetDeviceInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDeviceInfoAPI.swift; sourceTree = "<group>"; };
+		DC07619E24A830AB00C89A33 /* RrpcCodeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RrpcCodeHelper.swift; sourceTree = "<group>"; };
+		DC0761A024A830B600C89A33 /* ByteHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteHelper.swift; sourceTree = "<group>"; };
+		DC0761A224A84A7D00C89A33 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DC0761A424A84AFB00C89A33 /* UserTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
+		DC0761BC24A8949200C89A33 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		DC43B96A24935E06000613C0 /* StubConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubConnect.swift; sourceTree = "<group>"; };
 		DC73B99024A2E7980000528E /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
 		DC7F987924A1E21B00A969FD /* String+hmac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+hmac.swift"; sourceTree = "<group>"; };
@@ -92,14 +104,34 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		DC07619A24A82C4900C89A33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC0761A224A84A7D00C89A33 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC07619B24A82C5100C89A33 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				DC0761A424A84AFB00C89A33 /* UserTable.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 		DC43B96924935DAC000613C0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				DC0761A024A830B600C89A33 /* ByteHelper.swift */,
+				DC07619E24A830AB00C89A33 /* RrpcCodeHelper.swift */,
 				DC43B96A24935E06000613C0 /* StubConnect.swift */,
 				DCBEFCA024976554004C8E93 /* DemoAPIable.swift */,
 				DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */,
 				DCCA782E24A1AC700024DE0A /* RrpcConnect.swift */,
 				DCCA783024A1B1F30024DE0A /* RrpcGetInfoAPI.swift */,
+				DC07619C24A82CFF00C89A33 /* GetDeviceInfoAPI.swift */,
+				DC0761BC24A8949200C89A33 /* LoginAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -136,6 +168,8 @@
 		DCEDD45A248E7FC00044C736 /* JNFoundationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DC07619B24A82C5100C89A33 /* DB */,
+				DC07619A24A82C4900C89A33 /* Model */,
 				DC7F987824A1E20B00A969FD /* Other */,
 				DC43B96924935DAC000613C0 /* API */,
 				DCEDD45B248E7FC00044C736 /* AppDelegate.swift */,
@@ -317,11 +351,17 @@
 				DCCA782F24A1AC700024DE0A /* RrpcConnect.swift in Sources */,
 				DC73B99124A2E7980000528E /* NetTool.swift in Sources */,
 				DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */,
+				DC0761A124A830B600C89A33 /* ByteHelper.swift in Sources */,
+				DC07619D24A82CFF00C89A33 /* GetDeviceInfoAPI.swift in Sources */,
 				DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */,
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
 				DCCA783124A1B1F30024DE0A /* RrpcGetInfoAPI.swift in Sources */,
+				DC0761A324A84A7D00C89A33 /* UserModel.swift in Sources */,
 				DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */,
+				DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
+				DC0761BD24A8949200C89A33 /* LoginAPI.swift in Sources */,
+				DC07619F24A830AB00C89A33 /* RrpcCodeHelper.swift in Sources */,
 				DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */,
 				DC7F987A24A1E21B00A969FD /* String+hmac.swift in Sources */,
 			);
