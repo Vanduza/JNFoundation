@@ -15,3 +15,10 @@ open class Model {
 
     public var plugin: Plugin
 }
+
+open class ModelEvent: Event {
+    public let ids: [String]
+    public required init(ids: [String]) {
+        self.ids = ids
+    }
+}

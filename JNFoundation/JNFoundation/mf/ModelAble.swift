@@ -16,32 +16,37 @@ public protocol ModelAble: class {
     func willDeinited()
 
     func getAllTables() -> [Table]
-    func clearAllData()
+    func clearAllDataInDB()
 
     var needClearWhenUidChanged: Bool { get }
     var shareDB: Database { get }
     var selfDB: Database { get }
+    var nc: JNNotificationCenter { get }
 }
 
-extension ModelAble {
-    public var needClearWhenUidChanged: Bool {
+public extension ModelAble {
+    var needClearWhenUidChanged: Bool {
         return true
     }
-    public var shareDB: Database {
+    var shareDB: Database {
         return plugin.getDBManager().getShareDB()
     }
 
-    public var selfDB: Database {
+    var selfDB: Database {
         return plugin.getDBManager().getSelfDB()
     }
 
-    public func clearAllData() {
+    var nc: JNNotificationCenter {
+        return plugin.getNc()
+    }
+
+    func clearAllDataInDB() {
         let tables = getAllTables()
         for table in tables {
             table.clear()
         }
     }
 
-    public func inited() {}
-    public func willDeinited() {}
+    func inited() {}
+    func willDeinited() {}
 }
