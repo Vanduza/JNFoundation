@@ -11,7 +11,6 @@ import Foundation
 public class JNNotificationCenter {
     init(plugin: Plugin) {
         _plugin = plugin
-        _nc = NotificationCenter()
     }
 
     private static let EventKey = "event"
@@ -57,6 +56,6 @@ public class JNNotificationCenter {
     }
 
     private weak var _plugin: Plugin?
-    private let _nc: NotificationCenter
+    private let _nc: NotificationCenter = NotificationCenter()
     private var _map: [String: NSObjectProtocol] = [:]
 }
