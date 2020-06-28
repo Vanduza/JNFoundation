@@ -21,7 +21,7 @@ class RrpcConnect: HttpString {
     }
     
     func send() -> Observable<String?> {
-        let headersMap = ["Content-Type":"application/json; charset=utf-8","Accept":"application/json,text/json,text/javascript,text/html"]
+        let headersMap = ["Content-Type": "application/json; charset=utf-8", "Accept": "application/json,text/json,text/javascript,text/html"]
         let combineHeaders = headersMap.merging(self._builder.getAllHeaders()) { $1 }
         let fullUrl = DemoPluginName.RrpcBaseUrl + generateCommomParam()
         JPrint(items: "fullUrl:\(fullUrl)")
@@ -36,6 +36,7 @@ class RrpcConnect: HttpString {
                 
                 if let data = response.data {
                     let json = String.init(data: data, encoding: .utf8)
+                    print("response:\(json!)")
                     observer.onNext(json)
                 }
             }
@@ -46,13 +47,13 @@ class RrpcConnect: HttpString {
     }
     
     private func generateCommomParam() -> String {
-        let reqDic: [String: String]? = try? JSONSerialization.jsonObject(with: _builder.getContent().data(using: .utf8)!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: String]
+        let reqDic: [String: String]? = try! JSONSerialization.jsonObject(with: _builder.getContent().data(using: .utf8)!, options: .mutableContainers) as? [String: String]
         
         var dic: [CommonKey: String] = [:]
         let uri = (_builder.getUrl() as NSString).lastPathComponent
         dic[.Action] = uri
         dic[.Format] = "JSON"
-        dic[.RegionId] = "cn-shanghai"
+        dic[.RegionId] = "eu-central-1"//"cn-shanghai"
         dic[.SecureTransport] = "true"
         dic[.SignatureMethod] = "HMAC-SHA1"
         dic[.SignatureNonce] = UUID().uuidString
@@ -66,10 +67,23 @@ class RrpcConnect: HttpString {
         dic[.Timeout] = "8000"
         dic[.DeviceName] = reqDic?[CommonKey.DeviceName.rawValue]
         dic[.ProductKey] = reqDic?[CommonKey.ProductKey.rawValue]
-        dic[.RequestBase64Byte] = reqDic?[CommonKey.RequestBase64Byte.rawValue]
+        if let str = reqDic?[CommonKey.RequestBase64Byte.rawValue] {
+            var result = ""
+            if let command = Command.init(rawValue: str) {
+                result = RrpcCodeHelper.transformCommandToBase64code(command: command)
+            }else {
+                result = str
+            }
+            print("base64string:\(result)")
+            dic[.RequestBase64Byte] = str
+        }
+        
         dic[.AccessKeyId] = accessKeyId
         //获取签名时的字典当然不应包括有Signature的键
-        let signatue = getSignature(getParamStringToSign(keyvalues: sortKeysOf(dic: dic)), with: accessSecret)
+        let stringToSign = getParamStringToSign(keyvalues: sortKeysOf(dic: dic))
+        print("localSignString:\(stringToSign)")
+        let signatue = getSignature(stringToSign, with: accessSecret)
+        print("signatue:\(signatue)")
         //注意：签名字符串需要再进行url转码
         dic[.Signature] = encodeURL(string: signatue)
         let paramString = getParamsString(keyvalues: sortKeysOf(dic: dic))
@@ -101,7 +115,6 @@ class RrpcConnect: HttpString {
         let string = encodeURL(string: String(percentStr))
         //注意：特殊拼接，秘钥计算规则要求前面加上述header
         let result = header + string
-        print("待签名参数\n", result)
         return result
     }
     
@@ -117,7 +130,6 @@ class RrpcConnect: HttpString {
             str.append(keyvalue.1)
         }
         let result = String(str.dropFirst())
-        print("请求参数:\n", result)
         return result
     }
     

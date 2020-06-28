@@ -12,7 +12,7 @@ import JNFoundation
 class DemoPluginName: Plugin.Name {
     static let shared: DemoPluginName = DemoPluginName()
     static let BaseUrl = "https://api.apiopen.top/"
-    static let RrpcBaseUrl = "https://iot.cn-shanghai.aliyuncs.com/"
+    static let RrpcBaseUrl = "https://iot.eu-central-1.aliyuncs.com/"//"https://iot.cn-shanghai.aliyuncs.com/"
     func setup() {
         do {
             try Plugin.register(pluginName: self)
