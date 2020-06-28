@@ -13,8 +13,8 @@ import Alamofire
 
 class RrpcConnect: HttpString {
     
-    private let accessSecret = "niWObv4UODn43GNqh017oqCoSWYS8Z"
-    private let accessKeyId = "LTAI4G3dDvCb5iLnwsH1qEpi"
+    private let accessSecret = "123"
+    private let accessKeyId = "1234"
     
     required init(builder: PostStringHttpBuilder) {
         _builder = builder
