@@ -28,6 +28,9 @@ final class GetDeviceInfoAPI: DemoAPI, DemoAPIable {
     }
     
     func setModel(_ postModelEvent: Bool) -> Observable<Void> {
+        let fakeUser = UserModel.Item.init(id: "123", name: "小红", gender: 2)
+        let ret = mf.getModel(UserModel.self).setItem(fakeUser)
+        print("save success:\(ret)")
         return Observable.just(())
     }
     

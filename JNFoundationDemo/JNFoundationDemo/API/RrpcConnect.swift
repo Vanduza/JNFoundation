@@ -13,8 +13,8 @@ import Alamofire
 
 class RrpcConnect: HttpString {
     
-    private let accessSecret = "123"
-    private let accessKeyId = "1234"
+    private let accessSecret = "niWObv4UODn43GNqh017oqCoSWYS8Z"
+    private let accessKeyId = "LTAI4G3dDvCb5iLnwsH1qEpi"
     
     required init(builder: PostStringHttpBuilder) {
         _builder = builder
@@ -172,7 +172,13 @@ class RrpcConnect: HttpString {
         RequestBase64Byte
     }
 }
+
 class RrpcHttpBuilder: PostStringHttpBuilder {
+    
+    func getCodeResponseType<RrpcResponseCode>() -> RrpcResponseCode.Type? {
+        return RrpcResponseCode.self
+    }
+    
     func build() -> HttpString {
         let connect = RrpcConnect.init(builder: self)
         return connect
@@ -234,4 +240,24 @@ class RrpcHttpBuilder: PostStringHttpBuilder {
     private var _body: String = ""
     private var _method: HttpMethod = .POST
     private var _needToken = false
+}
+
+struct RrpcResponseCode: CodeResponse {
+    init(from decoder: Decoder) throws {
+        do {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            let codeV = try values.decode(Bool.self, forKey: .Success)
+            code = codeV ? APICode.SUCCESS : APICode.ELSE_ERROR
+            message = try? values.decode(String.self, forKey: .RrpcCode)
+        } catch let err as DecodingError {
+            JPrint(items: err)
+        }
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case Success, RrpcCode
+    }
+    
+    var code: APICode = .ELSE_ERROR
+    var message: String?
 }

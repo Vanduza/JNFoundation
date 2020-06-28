@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        LoginAPI().login()
     }
 
     @IBOutlet weak var resultLabel: UILabel!

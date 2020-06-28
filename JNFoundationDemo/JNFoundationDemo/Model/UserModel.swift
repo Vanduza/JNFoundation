@@ -15,4 +15,28 @@ class UserModel: Model, ModelAble {
     }
     
     private lazy var _table = UserTable.init(db: self.selfDB)
+    
+    func setItem(_ item: Item) -> Bool {
+        let entity = item.toEntity()
+        do {
+            try _table.db.insert(objects: [entity], intoTable: _table.name)
+            return true
+        } catch {
+            JPrint(items: error)
+            return false
+        }
+    }
+}
+
+extension UserModel {
+    struct Item {
+        let id: String
+        let name: String
+        let gender: Int
+        
+        func toEntity() -> UserTable.Entity {
+            let item = UserTable.Entity.init(id: self.id, name: self.name, gender: self.gender)
+            return item
+        }
+    }
 }

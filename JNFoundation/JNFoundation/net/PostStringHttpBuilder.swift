@@ -36,4 +36,6 @@ public protocol PostStringHttpBuilder {
 
     func setNeedToken(_ needToken: Bool) -> PostStringHttpBuilder
     func getIsNeedToken() -> Bool
+
+    func getCodeResponseType() -> CodeResponse.Protocol?
 }
