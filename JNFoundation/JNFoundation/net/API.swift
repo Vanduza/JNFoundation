@@ -17,7 +17,7 @@ public enum APICode: Int {
     case ELSE_ERROR = 501
 }
 
-public protocol CodeResponse: Decodable {
+public protocol CodeResponsable: Decodable {
     var code: APICode { get set }
     var message: String? { get set }
 }
@@ -112,12 +112,8 @@ extension APIable {
                     observer.onError(Net.NetError.responseEmpty)
                     return
                 }
-                let res: CodeResponse?
-                if let CodeResponseType = sself.net.getHttpBuilder().getCodeResponseType() {
-                    res = JsonTool.fromJson(response, toClass: CodeResponseType)
-                } else {
-                    res = JsonTool.fromJson(response, toClass: _ResponseCode.self)
-                }
+                let codeResponseType = sself.net.getHttpBuilder().codeResponseType
+                let res: CodeResponsable? = JsonTool.fromJson(response, toClass: codeResponseType)
                 sself.code = res?.code ?? APICode.ELSE_ERROR
                 if sself.code == .TOKEN_EXPIRE_CODE {
                     //返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
@@ -172,8 +168,17 @@ extension APIable {
     }
 }
 
-private struct _ResponseCode: CodeResponse {
-    init(from decoder: Decoder) throws {
+open class CodeResponse: CodeResponsable {
+    public required init(from decoder: Decoder) throws {}
+
+    public var code: APICode = .ELSE_ERROR
+
+    public var message: String?
+}
+
+public class ResponseCode: CodeResponse {
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
         do {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             let codeV = try values.decode(Int.self, forKey: .code)
@@ -187,7 +192,4 @@ private struct _ResponseCode: CodeResponse {
     enum CodingKeys: String, CodingKey {
         case code, message
     }
-
-    var code: APICode = .ELSE_ERROR
-    var message: String?
 }

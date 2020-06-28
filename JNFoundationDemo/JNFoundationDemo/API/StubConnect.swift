@@ -52,8 +52,8 @@ class StubConnect: HttpString {
 }
 
 class StubHttpBuilder: PostStringHttpBuilder {
-    func getCodeResponseType<T>() -> T.Type? where T : CodeResponse {
-        return nil
+    var codeResponseType: CodeResponse.Type {
+        return ResponseCode.self
     }
     
     func build() -> HttpString {
