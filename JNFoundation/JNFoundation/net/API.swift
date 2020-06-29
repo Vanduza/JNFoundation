@@ -35,6 +35,7 @@ public protocol API: class {
     var request: Request { get }
     var response: Response? { get set }
     var code: APICode { get set }
+    var message: String? { get set }
 
     var nc: JNNotificationCenter { get }
     var mf: ModelFactory { get }
@@ -115,6 +116,7 @@ extension APIable {
                 let codeResponseType = sself.net.getHttpBuilder().codeResponseType
                 let res: CodeResponsable? = JsonTool.fromJson(response, toClass: codeResponseType)
                 sself.code = res?.code ?? APICode.ELSE_ERROR
+                sself.message = res?.message
                 if sself.code == .TOKEN_EXPIRE_CODE {
                     //返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
                     let token = sself.request.token ?? Token.empty
@@ -139,7 +141,8 @@ extension APIable {
                 sself.net.set401(false)
 
                 if sself.code != .SUCCESS, sself.code != .NOT_MODIFIED {
-                    observer.onError(Net.NetError.decodeJsonError)
+                    let err = NSError.init(domain: "Khons", code: sself.code.rawValue, userInfo: [NSLocalizedDescriptionKey: sself.message])
+                    observer.onError(err)
                     return
                 }
 
