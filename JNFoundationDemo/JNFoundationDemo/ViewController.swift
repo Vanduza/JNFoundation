@@ -35,10 +35,6 @@ class ViewController: UIViewController {
 //
 //            }).disposed(by: disposeBag)
         
-        GetDeviceInfoAPI.init(request: GetDeviceInfoAPI.Request.init(deviceName: deviceName, productKey: pkey, requestBase64Byte: "charge_data")).send()
-            .subscribe(onNext: { (api) in
-                
-            }).disposed(by: disposeBag)
     }
 }
 
