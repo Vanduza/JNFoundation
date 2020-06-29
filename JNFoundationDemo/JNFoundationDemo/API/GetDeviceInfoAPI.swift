@@ -31,10 +31,6 @@ final class GetDeviceInfoAPI: DemoAPI, DemoAPIable {
         let fakeUser = UserModel.Item.init(id: "123", name: "小红", gender: 2)
         let ret = mf.getModel(UserModel.self).setItem(fakeUser)
         print("save success:\(ret)")
-        let event = UserModel.ChangedEvent.init(ids: [fakeUser.id])
-        DispatchQueue.main.async {
-            self.nc.post(event)
-        }
         return Observable.just(())
     }
     

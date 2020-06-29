@@ -19,7 +19,7 @@ class UserModel: Model, ModelAble {
     func setItem(_ item: Item) -> Bool {
         let entity = item.toEntity()
         do {
-            try _table.db.insert(objects: [entity], intoTable: _table.name)
+            try _table.db.insertOrReplace(objects: [entity], intoTable: _table.name)
             return true
         } catch {
             JPrint(items: error)
