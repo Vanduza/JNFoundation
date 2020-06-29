@@ -141,7 +141,7 @@ extension APIable {
                 sself.net.set401(false)
 
                 if sself.code != .SUCCESS, sself.code != .NOT_MODIFIED {
-                    let err = NSError.init(domain: "Khons", code: sself.code.rawValue, userInfo: [NSLocalizedDescriptionKey: sself.message])
+                    let err = NSError.init(domain: "", code: sself.code.rawValue, userInfo: [NSLocalizedDescriptionKey: sself.message ?? "no description"])
                     observer.onError(err)
                     return
                 }
