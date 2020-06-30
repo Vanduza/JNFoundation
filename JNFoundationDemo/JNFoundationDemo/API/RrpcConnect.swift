@@ -36,6 +36,7 @@ class RrpcConnect: HttpString {
 
                 if let data = response.data {
                     let json = String.init(data: data, encoding: .utf8)
+                    print("response:", json ?? "empty")
                     observer.onNext(json)
                 }
             }
@@ -45,7 +46,7 @@ class RrpcConnect: HttpString {
         }
     }
     
-    let device = Device.init(regionId: "", deviceName: "", productKey: "")
+    let device = Device.init(regionId: "eu-central-1", deviceName: "Dev001", productKey: "a5uJ1REvX6q")
     
     struct Device {
         let regionId: String
@@ -77,7 +78,16 @@ class RrpcConnect: HttpString {
         dic[.Timeout] = "8000"
         dic[.DeviceName] = device.deviceName
         dic[.ProductKey] = device.productKey
-        dic[.RequestBase64Byte] = reqDic?[CommonKey.RequestBase64Byte.rawValue]
+//        dic[.RequestBase64Byte] = reqDic?[CommonKey.RequestBase64Byte.rawValue]
+        let cryptStr: String
+        if let commandStr = reqDic?[CommonKey.RequestBase64Byte.rawValue], let command = Command.init(rawValue: commandStr) {
+            let cmd = RrpcCodeHelper.transformCommandToBase64code(command: command)
+            cryptStr = encodeURL(string: cmd)
+        } else {
+            cryptStr = ""
+        }
+        print(cryptStr)
+        dic[.RequestBase64Byte] = cryptStr
         dic[.AccessKeyId] = accessKeyId
         //获取签名时的字典当然不应包括有Signature的键
         let signatue = getSignature(getParamStringToSign(keyvalues: sortKeysOf(dic: dic)), with: accessSecret)

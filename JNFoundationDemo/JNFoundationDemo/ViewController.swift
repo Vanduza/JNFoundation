@@ -28,12 +28,14 @@ class ViewController: UIViewController {
 //            }, onError: { (error) in
 //                JPrint(items: error)
 //        }).disposed(by: disposeBag)
-        let deviceName = "Dev001"
-        let pkey = "a5uJ1REvX6q"//"a1blwzzltJu"
+//        let deviceName = "Dev001"
+//        let pkey = "a5uJ1REvX6q"//"a1blwzzltJu"
 //        let req = RrpcGetInfoAPI.Request.init(deviceName: "Dev001", productKey: "a1blwzzltJu", requestBase64Byte: "charge_data")
-//        RrpcGetInfoAPI.init(request: req).send().subscribe(onNext: { (api) in
-//
-//            }).disposed(by: disposeBag)
+        GetChargeDataAPI.init(request: GetChargeDataAPI.Request.init(deviceId: "")).send().subscribe(onNext: { (api) in
+            
+        }, onError: { (err) in
+            JPrint(items: err)
+        }).disposed(by: disposeBag)
         
     }
 }

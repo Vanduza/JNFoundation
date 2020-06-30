@@ -15,9 +15,17 @@ final class GetChargeDataAPI: DemoAPI, DemoAPIable {
     init(request: Request) {
         self.request = request
     }
+    
+    var net: Net {
+        return DemoPluginName.shared.getRrpcNet()
+    }
 
     func getUrl() -> String {
-        return ""
+        return "https://iot.eu-central-1.aliyuncs.com/"
+    }
+    
+    override var needToken: Bool {
+        return false
     }
 }
 

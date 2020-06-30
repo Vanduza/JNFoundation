@@ -22,7 +22,7 @@ struct ByteHelper {
         return bs
     }
 
-    static func bytes2String(_ bs: [UInt16]) -> String {
+    static func bytes2String(_ bs: [UInt8]) -> String {
         return Data.init(bytes: bs, count: bs.count).base64EncodedString()
     }
     
