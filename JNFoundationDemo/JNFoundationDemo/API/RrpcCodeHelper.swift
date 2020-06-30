@@ -32,99 +32,145 @@ struct RrpcCodeHelper {
      * 初始值
      */
     private static let INITIAL_VALUE: UInt16 = 0xFFFF
+    static func getNoParamsCommand(_ command: Command) -> String {
+        var result: String = ""
+        var bytes: [UInt8] = []
+        bytes.append(0xa5)
+        bytes.append(UInt8.random(in: 0...16))
+        bytes.append(UInt8.random(in: 0...16))
+        switch command {
+            case .start:
+                bytes.append(START_CHARGE)
+                bytes.append(0)
+                let key = generateSecurityCode(bytes: bytes)
+                bytes.append(UInt8(key & 0x00FF))
+                bytes.append(UInt8((key & 0xFF00) >> 8))
+                result = ByteHelper.bytes2String(bytes)
+            case .stop:
+                bytes.append(STOP_CHARGE)
+                bytes.append(0)
+                let key = generateSecurityCode(bytes: bytes)
+                bytes.append(UInt8(key & 0x00FF))
+                bytes.append(UInt8((key & 0xFF00) >> 8))
+                result = ByteHelper.bytes2String(bytes)
+            case .charge_data:
+                bytes.append(GET_CHARGE_DATA)
+                bytes.append(0)
+                let key = generateSecurityCode(bytes: bytes)
+                bytes.append(UInt8(key & 0x00FF))
+                bytes.append(UInt8((key & 0xFF00) >> 8))
+                result = ByteHelper.bytes2String(bytes)
+            case .warning_data:
+                bytes.append(GET_WARNING_DATA)
+                bytes.append(0)
+                let key = generateSecurityCode(bytes: bytes)
+                bytes.append(UInt8(((key & 0xFF00) >> 8)))
+                bytes.append(UInt8(((key & 0x00FF) << 8)))
+                result = ByteHelper.bytes2String(bytes)
+            case .device_data:
+                bytes.append(GET_DEVICE_DATA)
+                bytes.append(0)
+                let key = generateSecurityCode(bytes: bytes)
+                bytes.append(UInt8(((key & 0xFF00) >> 8)))
+                bytes.append(UInt8(((key & 0x00FF) << 8)))
+                result = ByteHelper.bytes2String(bytes)
+            default:
+            break
+        }
+        return result
+    }
+    
+    static func getChangeInput(current: UInt8) -> String {
+        var result: String = ""
+        var bytes: [UInt8] = []
+        bytes.append(0xa5)
+        bytes.append(UInt8.random(in: 0...16))
+        bytes.append(UInt8.random(in: 0...16))
+        bytes.append(CHANGE_INPUT_CHARGE)
+        bytes.append(0x01)
+        bytes.append(current)//电流值，单位A
+        let key = generateSecurityCode(bytes: bytes)
+        bytes.append(UInt8((key & 0xFF00) >> 8))
+        bytes.append(UInt8((key & 0x00FF) << 8))
+        result = ByteHelper.bytes2String(bytes)
+        return result
+    }
+    
+    static func getChangeTime() -> String {
+        var result: String = ""
+        var bytes: [UInt8] = []
+        bytes.append(0xa5)
+        bytes.append(UInt8.random(in: 0...16))
+        bytes.append(UInt8.random(in: 0...16))
+        bytes.append(CHANGE_WAITTIME_CHARGE)
+        bytes.append(0x02)
+        bytes.append(0)//低字节
+        bytes.append(0x06)//高字节
+        let key = generateSecurityCode(bytes: bytes)
+        bytes.append(UInt8(((key & 0xFF00) >> 8)))
+        bytes.append(UInt8(((key & 0x00FF) << 8)))
+        result = ByteHelper.bytes2String(bytes)
+        return result
+    }
     
     static func transformCommandToBase64code(command: Command) -> String {
         var result: String = ""
         var bytes: [UInt8] = []
-        //        bytes[0] = 0xa5
         bytes.append(0xa5)
-        //        bytes[1] = UInt8.random(in: 0...16)
-        bytes.append(0)//UInt8.random(in: 0...16)
-        //        bytes[2] = UInt8.random(in: 0...16)
-        bytes.append(1)//UInt8.random(in: 0...16)
+        bytes.append(UInt8.random(in: 0...16))
+        bytes.append(UInt8.random(in: 0...16))
         switch command {
             case .start:
-                //            bytes[3] = START_CHARGE
                 bytes.append(START_CHARGE)
-                //            bytes[4] = 0x00
                 bytes.append(0)
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[5] = UInt8(key & 0x00FF)
                 bytes.append(UInt8(key & 0x00FF))
-                //            bytes[6] = UInt8((key & 0xFF00) >> 8)
                 bytes.append(UInt8((key & 0xFF00) >> 8))
                 result = ByteHelper.bytes2String(bytes)
             case .stop:
-                //            bytes[3] = STOP_CHARGE
                 bytes.append(STOP_CHARGE)
-                //            bytes[4] = 0x00
                 bytes.append(0)
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[5] = UInt8(key & 0x00FF)
                 bytes.append(UInt8(key & 0x00FF))
-                //            bytes[6] = UInt8((key & 0xFF00) >> 8)
                 bytes.append(UInt8((key & 0xFF00) >> 8))
                 result = ByteHelper.bytes2String(bytes)
             case .change_input:
-                //            bytes[3] = CHANGE_INPUT_CHARGE
                 bytes.append(CHANGE_INPUT_CHARGE)
-                //            bytes[4] = 0x01
                 bytes.append(0x01)
-                //            bytes[5] = 0x08//电流值，单位A
                 bytes.append(8)//电流值，单位A
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[6] = UInt8((key & 0xFF00) >> 8)
                 bytes.append(UInt8((key & 0xFF00) >> 8))
-                //            bytes[7] = UInt8((key & 0x00FF) << 8)
                 bytes.append(UInt8((key & 0x00FF) << 8))
                 result = ByteHelper.bytes2String(bytes)
             case .change_time:
-                //            bytes[3] = CHANGE_WAITTIME_CHARGE
                 bytes.append(CHANGE_WAITTIME_CHARGE)
-                bytes.append(0)//第四位我们不关心
-                //            bytes[5] = 0x02
+                bytes.append(0)
                 bytes.append(0x02)
-                //            bytes[6] = 0x00;//低字节
                 bytes.append(0)//低字节
-                //            bytes[7] = 0x06;//高字节
                 bytes.append(0x06)//高字节
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[8] = UInt8(((key & 0xFF00) >> 8))
                 bytes.append(UInt8(((key & 0xFF00) >> 8)))
-                //            bytes[9] = UInt8(((key & 0x00FF) << 8))
                 bytes.append(UInt8(((key & 0x00FF) << 8)))
                 result = ByteHelper.bytes2String(bytes)
             case .charge_data:
-                //            bytes[3] = GET_CHARGE_DATA
                 bytes.append(GET_CHARGE_DATA)
-                //            bytes[4] = 0x00
                 bytes.append(0)
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[5] = UInt8(key & 0x00FF)
                 bytes.append(UInt8(key & 0x00FF))
-                //            bytes[6] = UInt8((key & 0xFF00) >> 8)
                 bytes.append(UInt8((key & 0xFF00) >> 8))
                 result = ByteHelper.bytes2String(bytes)
             case .warning_data:
-                //            bytes[3] = GET_WARNING_DATA
                 bytes.append(GET_WARNING_DATA)
-                //            bytes[4] = 0x00
                 bytes.append(0)
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[5] = UInt8(((key & 0xFF00) >> 8))
                 bytes.append(UInt8(((key & 0xFF00) >> 8)))
-                //            bytes[6] = UInt8(((key & 0x00FF) << 8))
                 bytes.append(UInt8(((key & 0x00FF) << 8)))
                 result = ByteHelper.bytes2String(bytes)
             case .device_data:
-                //            bytes[3] = GET_DEVICE_DATA
                 bytes.append(GET_DEVICE_DATA)
-                //            bytes[4] = 0x00
                 bytes.append(0)
                 let key = generateSecurityCode(bytes: bytes)
-                //            bytes[5] = UInt8(((key & 0xFF00) >> 8))
                 bytes.append(UInt8(((key & 0xFF00) >> 8)))
-                //            bytes[6] = UInt8(((key & 0x00FF) << 8))
                 bytes.append(UInt8(((key & 0x00FF) << 8)))
                 result = ByteHelper.bytes2String(bytes)
         }

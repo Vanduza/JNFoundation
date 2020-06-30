@@ -16,6 +16,7 @@
 		DC24292C24AA447F00AFA693 /* GetChargeDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC24292B24AA447F00AFA693 /* GetChargeDataAPI.swift */; };
 		DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B96A24935E06000613C0 /* StubConnect.swift */; };
 		DC73B99124A2E7980000528E /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC73B99024A2E7980000528E /* NetTool.swift */; };
+		DC7A71EA24AB198C005FB4CF /* RrpcParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7A71E924AB198C005FB4CF /* RrpcParseHelper.swift */; };
 		DC7F987A24A1E21B00A969FD /* String+hmac.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F987924A1E21B00A969FD /* String+hmac.swift */; };
 		DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */; };
 		DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */; };
@@ -51,6 +52,7 @@
 		DC24292B24AA447F00AFA693 /* GetChargeDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetChargeDataAPI.swift; sourceTree = "<group>"; };
 		DC43B96A24935E06000613C0 /* StubConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubConnect.swift; sourceTree = "<group>"; };
 		DC73B99024A2E7980000528E /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
+		DC7A71E924AB198C005FB4CF /* RrpcParseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RrpcParseHelper.swift; sourceTree = "<group>"; };
 		DC7F987924A1E21B00A969FD /* String+hmac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+hmac.swift"; sourceTree = "<group>"; };
 		DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAuthorAPI.swift; sourceTree = "<group>"; };
 		DCB53C8C2491191000E3F8BD /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 			children = (
 				DC73B99024A2E7980000528E /* NetTool.swift */,
 				DC7F987924A1E21B00A969FD /* String+hmac.swift */,
+				DC7A71E924AB198C005FB4CF /* RrpcParseHelper.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			files = (
 				DCCA782F24A1AC700024DE0A /* RrpcConnect.swift in Sources */,
 				DC73B99124A2E7980000528E /* NetTool.swift in Sources */,
+				DC7A71EA24AB198C005FB4CF /* RrpcParseHelper.swift in Sources */,
 				DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */,
 				DC24292C24AA447F00AFA693 /* GetChargeDataAPI.swift in Sources */,
 				DC0761A124A830B600C89A33 /* ByteHelper.swift in Sources */,
