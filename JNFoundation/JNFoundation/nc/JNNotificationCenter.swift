@@ -27,6 +27,7 @@ public class JNNotificationCenter {
     public func removeObserver<Observer>(_ observer: Observer, event: AnyClass) {
         guard let evt = event as? Event.Type else { return }
         let name = getNotificationNameOf(event: evt)
+        JPrint(items: name)
         guard let ob = _map[name.rawValue] else { return }
         _nc.removeObserver(ob)
         _map.removeValue(forKey: name.rawValue)
@@ -47,6 +48,7 @@ public class JNNotificationCenter {
             JPrint("plugin has been released!")
             return
         }
+        JPrint(items: name)
         event.setPlugin(plugin: plugin)
         _nc.post(name: name, object: nil, userInfo: [JNNotificationCenter.EventKey: event])
     }
