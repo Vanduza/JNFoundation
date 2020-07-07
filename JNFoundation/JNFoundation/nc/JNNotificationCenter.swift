@@ -43,7 +43,7 @@ public class JNNotificationCenter {
         guard Thread.current.isMainThread else {
             fatalError("post方法必须在主线程调用")
         }
-        let name: NSNotification.Name = getNotificationNameOf(event: T.self)
+        let name: NSNotification.Name = getNotificationNameOf(event: event.self)
         guard let plugin = _plugin else {
             JPrint("plugin has been released!")
             return
@@ -53,8 +53,8 @@ public class JNNotificationCenter {
         _nc.post(name: name, object: nil, userInfo: [JNNotificationCenter.EventKey: event])
     }
 
-    private func getNotificationNameOf<T: Event>(event: T.Type) -> NSNotification.Name {
-        return NSNotification.Name.init(String(describing: type(of: T.self)))
+    private func getNotificationNameOf(event: AnyObject) -> NSNotification.Name {
+        return NSNotification.Name.init(String(describing: type(of: event.self)))
     }
 
     private weak var _plugin: Plugin?
