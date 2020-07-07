@@ -20,7 +20,6 @@ public class JNNotificationCenter {
         let ob = _nc.addObserver(forName: name, object: nil, queue: nil) { (nt: Notification) in
             using(nt.userInfo![JNNotificationCenter.EventKey] as! T)
         }
-
         _map[name.rawValue] = ob
     }
 
@@ -43,18 +42,17 @@ public class JNNotificationCenter {
         guard Thread.current.isMainThread else {
             fatalError("post方法必须在主线程调用")
         }
-        let name: NSNotification.Name = getNotificationNameOf(event: event.self)
+        let name: NSNotification.Name = getNotificationNameOf(event: type(of: event).self)
         guard let plugin = _plugin else {
             JPrint("plugin has been released!")
             return
         }
-        JPrint(items: name)
         event.setPlugin(plugin: plugin)
         _nc.post(name: name, object: nil, userInfo: [JNNotificationCenter.EventKey: event])
     }
 
-    private func getNotificationNameOf(event: AnyObject) -> NSNotification.Name {
-        return NSNotification.Name.init(String(describing: type(of: event.self)))
+    private func getNotificationNameOf(event: AnyClass) -> NSNotification.Name {
+        return NSNotification.Name.init(event.description())
     }
 
     private weak var _plugin: Plugin?
