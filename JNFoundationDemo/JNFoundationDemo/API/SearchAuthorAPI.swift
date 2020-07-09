@@ -23,6 +23,11 @@ final class SearchAuthorAPI: DemoAPI, DemoAPIable {
         self.request = request
     }
     
+    func setModel(_ postModelEvent: Bool) -> Observable<Void> {
+        nc.post(SubEvent())
+        return Observable.just(())
+    }
+    
     func getUrl() -> String {
         return "searchAuthors"
     }
@@ -40,5 +45,8 @@ extension SearchAuthorAPI {
     
     class Response: APIResponse {
         var result: String?
+    }
+    class SubEvent: JNFoundation.Event {
+        
     }
 }

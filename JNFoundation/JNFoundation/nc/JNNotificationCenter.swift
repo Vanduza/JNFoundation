@@ -52,7 +52,8 @@ public class JNNotificationCenter {
     }
 
     private func getNotificationNameOf(event: AnyClass) -> NSNotification.Name {
-        return NSNotification.Name.init(event.description())
+        let eventName = event.description()
+        return NSNotification.Name.init(eventName)
     }
 
     private weak var _plugin: Plugin?
