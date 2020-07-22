@@ -28,11 +28,11 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "9.0"
 
   spec.author             = { "Vanduza" => "vanduza@163.com" }
-  spec.source  = {:svn => "https://github.com/Vanduza/JNFoundation.git", :tag => "#{spec.version}"}
+  spec.source  = {:svn => "https://github.com/Vanduza/JNFoundation.git", :tag => "V#{spec.version}"}
   spec.source_files  = "JNFoundation/JNFoundation/**/*.swift","JNFoundation/JNFoundation/*.h","JNFoundation/JNFoundation/**/**/*.swift"
 
-  spec.dependency "WCDB.swift","1.0.8.2"
-  spec.dependency "CleanJSON"
+  spec.dependency "WCDB.swift", "1.0.8.2"
+  spec.dependency "CleanJSON", "1.0.3"
   spec.dependency "RxSwift", "4.5.0"
   spec.dependency "RxCocoa", "4.5.0"
 end
