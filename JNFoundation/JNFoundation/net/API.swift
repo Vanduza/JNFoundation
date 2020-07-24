@@ -62,6 +62,7 @@ public protocol APIable: API {
 
     var needSetModel: Bool { get }
     var shouldPostModelEvent: Bool { get }
+    var extraHeader: [String: String] { get }
 
     var needToken: Bool { get }
     var disposebag: DisposeBag { get }
@@ -102,8 +103,9 @@ extension APIable {
         return Observable<Self>.create { (observer) in
             self.net.getHttpBuilder()
                 .setNeedToken(self.needToken)
+                .addHeader(keyValue: self.extraHeader)
                 .setMethod(self.getHttpMethod())
-            .setUrl(url)
+                .setUrl(url)
                 .setContent(JsonTool.toJson(fromObject: self.request)).build()
             .send().subscribe(onNext: { (response: String?) in
                 //此处不能弱引用self，避免API提前释放，API将在执行完请求的所有流程后释放

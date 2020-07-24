@@ -21,6 +21,7 @@ class StubConnect: HttpString {
         let combineHeaders = headersMap.merging(self._builder.getAllHeaders()) { $1 }
         
         let body = self._builder.getContent().data(using: .utf8)
+        
         var req = try! URLRequest.init(url: self._builder.getUrl(), method: .post, headers: combineHeaders)
         req.httpBody = body
         
@@ -79,8 +80,11 @@ class StubHttpBuilder: PostStringHttpBuilder {
         return _method
     }
     
-    func addHeader(key: String, value: String) -> PostStringHttpBuilder {
-        _header[key] = value
+    func addHeader(keyValue: [String: String]) -> PostStringHttpBuilder {
+        _header.removeAll()
+        for pair in keyValue {
+            _header[pair.key] = pair.value
+        }
         return self
     }
     

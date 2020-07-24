@@ -33,6 +33,10 @@ extension DemoAPIable {
         return true
     }
     
+    public var extraHeader: [String : String] {
+        return [:]
+    }
+    
     func parse(json: String) -> Observable<Void> {
         self.response = JsonTool.fromJson(json, toClass: Response.self)
         return Observable.just(())

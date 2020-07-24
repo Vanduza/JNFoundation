@@ -207,8 +207,11 @@ class RrpcHttpBuilder: PostStringHttpBuilder {
         return _method
     }
 
-    func addHeader(key: String, value: String) -> PostStringHttpBuilder {
-        _header[key] = value
+    func addHeader(keyValue: [String: String]) -> PostStringHttpBuilder {
+        _header.removeAll()
+        for pair in keyValue {
+            _header[pair.key] = pair.value
+        }
         return self
     }
 

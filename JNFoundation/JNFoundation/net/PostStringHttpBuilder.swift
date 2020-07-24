@@ -27,7 +27,7 @@ public protocol PostStringHttpBuilder {
     func setMethod(_ method: HttpMethod) -> PostStringHttpBuilder
     func getMethod() -> HttpMethod
 
-    func addHeader(key: String, value: String) -> PostStringHttpBuilder
+    func addHeader(keyValue: [String: String]) -> PostStringHttpBuilder
     func getHeader(key: String) -> String?
     func getAllHeaders() -> [String: String]
 
