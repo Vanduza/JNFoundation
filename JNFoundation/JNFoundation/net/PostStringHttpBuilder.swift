@@ -30,6 +30,7 @@ public protocol PostStringHttpBuilder {
     func addHeader(keyValue: [String: String]) -> PostStringHttpBuilder
     func getHeader(key: String) -> String?
     func getAllHeaders() -> [String: String]
+    func deleteAllHeaders()
 
     func setContent(_ content: String) -> PostStringHttpBuilder
     func getContent() -> String

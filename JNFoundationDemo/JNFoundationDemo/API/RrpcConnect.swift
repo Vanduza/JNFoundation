@@ -222,6 +222,10 @@ class RrpcHttpBuilder: PostStringHttpBuilder {
     func getAllHeaders() -> [String: String] {
         return _header
     }
+    
+    func deleteAllHeaders() {
+        _header.removeAll()
+    }
 
     func setContent(_ content: String) -> PostStringHttpBuilder {
         _body = content

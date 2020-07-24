@@ -96,6 +96,10 @@ class StubHttpBuilder: PostStringHttpBuilder {
         return _header
     }
     
+    func deleteAllHeaders() {
+        _header.removeAll()
+    }
+    
     func setContent(_ content: String) -> PostStringHttpBuilder {
         _body = content
         return self

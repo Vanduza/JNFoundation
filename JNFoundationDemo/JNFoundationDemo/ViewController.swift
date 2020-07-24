@@ -30,6 +30,8 @@ class ViewController: UIViewController {
 //        }, onError: { (err) in
 //            JPrint(items: err)
 //        }).disposed(by: disposeBag)
-        _ = SearchAuthorAPI.init(request: SearchAuthorAPI.Request.init(name: "libai")).send().subscribe()
+        SearchAuthorAPI.init(request: SearchAuthorAPI.Request.init(name: "libai")).send().subscribe(onNext: { (api) in
+            print(api.response?.result)
+            }).disposed(by: disposeBag)
     }
 }
