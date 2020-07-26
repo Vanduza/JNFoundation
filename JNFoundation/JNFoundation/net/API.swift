@@ -59,6 +59,8 @@ public protocol APIable: API {
     func parse(json: String) -> Observable<Void>
     func setModel(_ postModelEvent: Bool) -> Observable<Void>
     func processToken(_ response: String)
+    func netStart()
+    func netOver()
 
     var needSetModel: Bool { get }
     var shouldPostModelEvent: Bool { get }
@@ -72,11 +74,21 @@ extension APIable {
     public func getHttpMethod() -> HttpMethod {
         return .POST
     }
+    
+    public func netStart() {
+        
+    }
+    
+    public func netOver() {
+        
+    }
 }
 
 extension APIable {
     public func send() -> Observable<Self> {
-        return sendImpl()
+        let ret = sendImpl()
+        netStart()
+        return ret
     }
 
     private func sendImpl() -> Observable<Self> {
@@ -110,7 +122,8 @@ extension APIable {
             .send().subscribe(onNext: { (response: String?) in
                 //此处不能弱引用self，避免API提前释放，API将在执行完请求的所有流程后释放
                 let sself = self
-
+                //netover是一个很重要的时序点，必须与processToken这个时序点在一个同步执行过程，失败也要标记
+                sself.netOver()
                 guard let response = response else {
                     observer.onError(Net.NetError.responseEmpty)
                     return
@@ -164,7 +177,8 @@ extension APIable {
                 }, onCompleted: {
                     observer.onCompleted()
                 }).disposed(by: sself.disposebag)
-            }, onError: { (error) in
+            }, onError: { [weak self] (error) in
+                self?.netOver()
                 observer.onError(error)
             }, onCompleted: {
                 observer.onCompleted()

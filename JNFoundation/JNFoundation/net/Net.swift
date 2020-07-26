@@ -53,7 +53,7 @@ public final class Net {
         _has401 = false
     }
 
-    func setLogin(_ isLogin: Bool) {
+    public func setLogin(_ isLogin: Bool) {
         _isLogin = isLogin
     }
 
