@@ -51,6 +51,10 @@ public class Me: ModelAble {
 
         _uid = uid
         _table.set(value: uid, forKey: Key.uid.rawValue)
+        //同步切换数据库，避免异步获取错误
+        plugin.getDBManager().createSelfDB()
+        //清除Model缓存，重新载入更新SelfDB的Model
+        plugin.getMf().clearModelCache()
         //发送一系列通知uidchanged
         plugin.getNc().post(UidChanedEvent())
     }

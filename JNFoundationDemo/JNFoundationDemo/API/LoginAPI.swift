@@ -12,5 +12,6 @@ import JNFoundation
 class LoginAPI {
     func login() {
         DemoPluginName.shared.getPlugin().getMf().getModel(Me.self).setUid("fakeUid")
+        DemoPluginName.shared.getPlugin().getMf().getModel(Token.self).setToken("fakeToken", forUrl: DemoPluginName.BaseUrl)
     }
 }

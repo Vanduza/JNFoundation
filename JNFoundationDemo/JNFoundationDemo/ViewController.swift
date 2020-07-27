@@ -8,13 +8,17 @@
 
 import UIKit
 import RxSwift
+import JNFoundation
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        LoginAPI().login()
+        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
+        print("SelfDBPath:",selfDbPath)
+        let token = DemoPluginName.shared.getMf().getModel(Token.self).getToken(byUrl: DemoPluginName.BaseUrl)
+        print("originToken:",token)
         DemoPluginName.shared.getNc().addObserver(self) { (event:SearchAuthorAPI.SubEvent) in
             print("收到通知")
         }
@@ -25,13 +29,17 @@ class ViewController: UIViewController {
     private let disposeBag: DisposeBag = DisposeBag()
      
     @IBAction func sendRequest(_ sender: UIButton) {
-//        GetChargeDataAPI.init(request: GetChargeDataAPI.Request.init(deviceId: "")).send().subscribe(onNext: { (api) in
-//
-//        }, onError: { (err) in
-//            JPrint(items: err)
-//        }).disposed(by: disposeBag)
-        SearchAuthorAPI.init(request: SearchAuthorAPI.Request.init(name: "libai")).send().subscribe(onNext: { (api) in
-            print(api.response?.result)
-            }).disposed(by: disposeBag)
+        LoginAPI().login()
+        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
+        print("SelfDBPath:",selfDbPath)
+        let token = DemoPluginName.shared.getMf().getModel(Token.self).getToken(byUrl: DemoPluginName.BaseUrl)
+        print("originToken:",token)
+    }
+    @IBAction func changeUserAction(_ sender: UIButton) {
+        DemoPluginName.shared.getPlugin().getMf().getModel(Me.self).setUid("faUid")
+        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
+        print("SelfDBPath:",selfDbPath)
+        let token = DemoPluginName.shared.getMf().getModel(Token.self).getToken(byUrl: DemoPluginName.BaseUrl)
+        print("originToken:",token)
     }
 }
