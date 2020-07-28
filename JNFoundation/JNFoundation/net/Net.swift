@@ -32,17 +32,7 @@ public final class Net {
     }
 
     public func setToken(_ token: String) {
-        if !_isMainNet {
-            getPlugin().getMf().getModel(Token.self).setToken(token, forUrl: getBaseUrl())
-            return
-        }
-
-        getPlugin().getNc().removeObserver(self, event: Me.UidSetEvent.self)
-
-        getPlugin().getNc().addObserver(self) { [weak self] (_: Me.UidSetEvent) in
-            guard let sself = self else { return }
-            sself.getPlugin().getMf().getModel(Token.self).setToken(token, forUrl: sself.getBaseUrl())
-        }
+        getPlugin().getMf().getModel(Token.self).setToken(token, forUrl: getBaseUrl())
     }
 
     public func getToken() -> String {

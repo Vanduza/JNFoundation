@@ -8,19 +8,19 @@
 
 import Foundation
 
-public class Token: Model, ModelAble {
-    static public let empty = ""
+class Token: Model, ModelAble {
+    static let empty = ""
 
-    public func getAllTables() -> [Table] {
+    func getAllTables() -> [Table] {
         return [_table]
     }
 
-    public func setToken(_ token: String, forUrl url: String) {
+    func setToken(_ token: String, forUrl url: String) {
         _tokens[url] = token
         _table.set(value: token, forKey: url)
     }
 
-    public func getToken(byUrl url: String) -> String {
+    func getToken(byUrl url: String) -> String {
         if let token = _tokens[url] {
             return token
         }
