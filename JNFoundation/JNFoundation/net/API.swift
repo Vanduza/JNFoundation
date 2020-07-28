@@ -74,13 +74,13 @@ extension APIable {
     public func getHttpMethod() -> HttpMethod {
         return .POST
     }
-    
+
     public func netStart() {
-        
+
     }
-    
+
     public func netOver() {
-        
+
     }
 }
 

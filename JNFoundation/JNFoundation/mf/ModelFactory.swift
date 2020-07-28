@@ -11,9 +11,6 @@ import Foundation
 final public class ModelFactory {
     init(plugin: Plugin) {
         _plugin = plugin
-//        _plugin.getNotificationCenter().addObserver(self) { (event: Me.) in
-//            <#code#>
-//        }
     }
 
     public func getModel<T: ModelAble>(_ clazz: T.Type) -> T {
@@ -36,6 +33,10 @@ final public class ModelFactory {
         }
         _lock.unlock()
         return model
+    }
+
+    func clearModelCache() {
+        _allModel.removeAll()
     }
 
     private weak var _plugin: Plugin?
