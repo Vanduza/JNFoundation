@@ -33,6 +33,6 @@ Pod::Spec.new do |spec|
 
   spec.dependency "WCDB.swift", "1.0.8.2"
   spec.dependency "CleanJSON", "1.0.3"
-  spec.dependency "RxSwift", "4.5.0"
-  spec.dependency "RxCocoa", "4.5.0"
+  spec.dependency "RxSwift"
+  spec.dependency "RxCocoa"
 end
