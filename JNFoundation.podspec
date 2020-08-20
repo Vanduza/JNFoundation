@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "JNFoundation"
-  spec.version      = "0.1.0"
+  spec.version      = "0.2.0"
   spec.summary      = "A short description of JNFoundation."
   spec.summary      = "A short description of JNFoundation."
   spec.description  = <<-DESC
