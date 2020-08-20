@@ -17,8 +17,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
         print("SelfDBPath:",selfDbPath)
-        let token = DemoPluginName.shared.getMf().getModel(Token.self).getToken(byUrl: DemoPluginName.BaseUrl)
-        print("originToken:",token)
         DemoPluginName.shared.getNc().addObserver(self) { (event:SearchAuthorAPI.SubEvent) in
             print("收到通知")
         }
@@ -29,17 +27,9 @@ class ViewController: UIViewController {
     private let disposeBag: DisposeBag = DisposeBag()
      
     @IBAction func sendRequest(_ sender: UIButton) {
-        LoginAPI().login()
-        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
-        print("SelfDBPath:",selfDbPath)
-        let token = DemoPluginName.shared.getMf().getModel(Token.self).getToken(byUrl: DemoPluginName.BaseUrl)
-        print("originToken:",token)
+        
     }
     @IBAction func changeUserAction(_ sender: UIButton) {
-        DemoPluginName.shared.getPlugin().getMf().getModel(Me.self).setUid("faUid")
-        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
-        print("SelfDBPath:",selfDbPath)
-        let token = DemoPluginName.shared.getMf().getModel(Token.self).getToken(byUrl: DemoPluginName.BaseUrl)
-        print("originToken:",token)
+
     }
 }

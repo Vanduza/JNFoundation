@@ -23,8 +23,6 @@ class DemoPluginName: Plugin.Name {
         }
         let mainNet: Net = Net.init(plugin: self.getPlugin(), baseUrl: DemoPluginName.BaseUrl).setToMainNet().setHttpBuilder(StubHttpBuilder())
         self.getPlugin().setMainNet(mainNet)
-        let rrpcNet = Net.init(plugin: self.getPlugin(), baseUrl: DemoPluginName.RrpcBaseUrl).setHttpBuilder(RrpcHttpBuilder())
-        self.getPlugin().setNet(rrpcNet)
     }
     
     func getPlugin() -> Plugin {
