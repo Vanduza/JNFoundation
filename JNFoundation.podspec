@@ -25,14 +25,14 @@ Pod::Spec.new do |spec|
 
   spec.homepage     = "http://www.vanduza.com/JNFoundation"
   spec.license      = "MIT"
-  spec.platform     = :ios, "9.0"
+  spec.platform     = :ios, "10.0"
 
   spec.author             = { "Vanduza" => "vanduza@163.com" }
   spec.source  = {:git => "https://github.com/Vanduza/JNFoundation.git", :tag => "V#{spec.version}"}
   spec.source_files  = "JNFoundation/JNFoundation/**/*.swift","JNFoundation/JNFoundation/*.h","JNFoundation/JNFoundation/**/**/*.swift"
 
   spec.dependency "WCDB.swift", "1.0.8.2"
-  spec.dependency "CleanJSON", "1.0.3"
+  spec.dependency "CleanJSON", "1.0.6"
   spec.dependency "RxSwift"
   spec.dependency "RxCocoa"
 end

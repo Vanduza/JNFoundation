@@ -1,11 +1,14 @@
 PODS:
   - Alamofire (4.9.1)
-  - CleanJSON (1.0.1)
+  - CleanJSON (1.0.6)
   - CryptoSwift (0.15.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.5.0)
-  - SnapKit (4.2.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
   - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDB.swift (1.0.8.2):
@@ -15,11 +18,11 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
-  - CleanJSON (= 1.0.1)
+  - CleanJSON (= 1.0.6)
   - CryptoSwift (= 0.15.0)
-  - RxCocoa (= 4.5.0)
-  - RxSwift (= 4.5.0)
-  - SnapKit (= 4.2.0)
+  - RxCocoa (= 5.1.1)
+  - RxSwift (= 5.1.1)
+  - SnapKit (= 5.0.1)
   - WCDB.swift (= 1.0.8.2)
 
 SPEC REPOS:
@@ -28,6 +31,7 @@ SPEC REPOS:
     - CleanJSON
     - CryptoSwift
     - RxCocoa
+    - RxRelay
     - RxSwift
     - SnapKit
     - SQLiteRepairKit
@@ -36,15 +40,16 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  CleanJSON: 6fd9a37e489a673adf9c8ebd7b67aff21a582163
+  CleanJSON: fd25726a3f337077a93a006e55c85329662090e2
   CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 96d0298b283a4731275d30a91bb9f6bbc00e81a2
+PODFILE CHECKSUM: 4c59ec9a43cbc0e6ff8e2638ae68ce7cb13f0ece
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
