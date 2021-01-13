@@ -23,6 +23,8 @@
 		DCEDD465248E7FC10044C736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEDD464248E7FC10044C736 /* Assets.xcassets */; };
 		DCEDD468248E7FC10044C736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEDD466248E7FC10044C736 /* LaunchScreen.storyboard */; };
 		DCEDD473248E7FC10044C736 /* JNFoundationDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD472248E7FC10044C736 /* JNFoundationDemoTests.swift */; };
+		DCF464C325AF37CB00382923 /* RegisterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF464C225AF37CB00382923 /* RegisterAPI.swift */; };
+		DCF4652325AF3EE700382923 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF4652225AF3EE700382923 /* LoginAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		DCEDD46E248E7FC10044C736 /* JNFoundationDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JNFoundationDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEDD472248E7FC10044C736 /* JNFoundationDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNFoundationDemoTests.swift; sourceTree = "<group>"; };
 		DCEDD474248E7FC10044C736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCF464C225AF37CB00382923 /* RegisterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAPI.swift; sourceTree = "<group>"; };
+		DCF4652225AF3EE700382923 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		F8BD8971F7876D7E5E82A079 /* Pods-CommonPods-JNFoundationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo.release.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +118,8 @@
 				DC43B96A24935E06000613C0 /* StubConnect.swift */,
 				DCBEFCA024976554004C8E93 /* DemoAPIable.swift */,
 				DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */,
+				DCF464C225AF37CB00382923 /* RegisterAPI.swift */,
+				DCF4652225AF3EE700382923 /* LoginAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -334,8 +340,10 @@
 				DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */,
 				DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */,
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
+				DCF4652325AF3EE700382923 /* LoginAPI.swift in Sources */,
 				DC0761A324A84A7D00C89A33 /* UserModel.swift in Sources */,
 				DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */,
+				DCF464C325AF37CB00382923 /* RegisterAPI.swift in Sources */,
 				DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
 				DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */,
