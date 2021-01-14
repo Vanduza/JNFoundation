@@ -29,10 +29,10 @@ extension RegisterAPI {
         var uuid: String?
         
         private let mobile: String
-        private let step: Int
-        init(mobile: String, step: Int) {
+        private let code: String
+        init(mobile: String, code: String) {
             self.mobile = mobile
-            self.step = step
+            self.code = code
         }
     }
     

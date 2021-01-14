@@ -11,6 +11,7 @@
 		DC0761A324A84A7D00C89A33 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A224A84A7D00C89A33 /* UserModel.swift */; };
 		DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A424A84AFB00C89A33 /* UserTable.swift */; };
 		DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B96A24935E06000613C0 /* StubConnect.swift */; };
+		DC6A998225B04A5A00B28A07 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A998125B04A5A00B28A07 /* NextViewController.swift */; };
 		DC73B99124A2E7980000528E /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC73B99024A2E7980000528E /* NetTool.swift */; };
 		DC7F987A24A1E21B00A969FD /* String+hmac.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F987924A1E21B00A969FD /* String+hmac.swift */; };
 		DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */; };
@@ -43,6 +44,7 @@
 		DC0761A224A84A7D00C89A33 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DC0761A424A84AFB00C89A33 /* UserTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
 		DC43B96A24935E06000613C0 /* StubConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubConnect.swift; sourceTree = "<group>"; };
+		DC6A998125B04A5A00B28A07 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		DC73B99024A2E7980000528E /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
 		DC7F987924A1E21B00A969FD /* String+hmac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+hmac.swift"; sourceTree = "<group>"; };
 		DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAuthorAPI.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				DCEDD466248E7FC10044C736 /* LaunchScreen.storyboard */,
 				DCEDD469248E7FC10044C736 /* Info.plist */,
 				DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */,
+				DC6A998125B04A5A00B28A07 /* NextViewController.swift */,
 			);
 			path = JNFoundationDemo;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
 				DCF4652325AF3EE700382923 /* LoginAPI.swift in Sources */,
 				DC0761A324A84A7D00C89A33 /* UserModel.swift in Sources */,
+				DC6A998225B04A5A00B28A07 /* NextViewController.swift in Sources */,
 				DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */,
 				DCF464C325AF37CB00382923 /* RegisterAPI.swift in Sources */,
 				DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */,

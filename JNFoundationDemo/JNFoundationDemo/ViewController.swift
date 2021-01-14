@@ -17,9 +17,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
         print("SelfDBPath:",selfDbPath)
-        DemoPluginName.shared.getNc().addObserver(self) { (event:SearchAuthorAPI.SubEvent) in
-            print("收到通知")
-        }
+        
+        LoginAPI.init(req: .init(userName: "张三", pwd: "123456")).send().subscribe { [weak self] (api: LoginAPI) in
+            self?.configureLoginSuccess(response: api.response)
+        } onError: { (error) in
+            Toast.show(type: ToastType.error1(info: error))
+        }.disposed(by: disposeBag)
+    }
+    
+    func configureLoginSuccess(response: LoginAPI.Response?) {
+        
     }
 
     @IBOutlet weak var resultLabel: UILabel!
@@ -27,9 +34,19 @@ class ViewController: UIViewController {
     private let disposeBag: DisposeBag = DisposeBag()
      
     @IBAction func sendRequest(_ sender: UIButton) {
-        
+        self.navigationController?.pushViewController(NextViewController(), animated: true)
     }
     @IBAction func changeUserAction(_ sender: UIButton) {
 
     }
+}
+
+class Toast {
+    static func show(type: ToastType) {
+        
+    }
+}
+
+enum ToastType {
+    case error1(info: Error)
 }

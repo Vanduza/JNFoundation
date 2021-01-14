@@ -11,6 +11,7 @@ abstract_target 'CommonPods' do
   pod 'SnapKit', '5.0.1'
   
   pod 'WCDB.swift', '1.0.8.2'
+  pod 'CleanJSON', '1.0.6'
 
   target 'JNFoundationDemo' do
     project 'JNFoundationDemo/JNFoundationDemo.xcodeproj'

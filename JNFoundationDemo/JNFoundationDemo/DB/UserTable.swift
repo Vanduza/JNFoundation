@@ -16,6 +16,22 @@ class UserTable: TableAble {
         self.db = db
     }
     
+    func setItems(_ items: [Entity]) -> Bool {
+        if items.isEmpty { return true }
+        do {
+            try db.insertOrReplace(objects: items, intoTable: self.name)
+            return true
+        } catch let err {
+            JPrint(items: err)
+            return false
+        }
+    }
+
+    func getItem(by id: String) -> Entity? {
+        let item: Entity? = try! db.getObject(fromTable: self.name, where: Entity.Properties.id == id)
+        return item
+    }
+    
     struct Entity: TableCodable {
         var id: String
         var name: String
@@ -30,6 +46,11 @@ class UserTable: TableAble {
                     id: ColumnConstraintBinding.init(isPrimary: true),
                 ]
             }
+        }
+        
+        func toItem() -> UserModel.Item {
+            let item = UserModel.Item.init(id: id, name: name, gender: gender)
+            return item
         }
     }
 }

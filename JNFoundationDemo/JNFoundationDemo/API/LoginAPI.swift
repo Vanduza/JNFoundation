@@ -34,6 +34,10 @@ final class LoginAPI: DemoAPI, DemoAPIable {
     }
     
     class Response: APIResponse {
+        let data: UserEntity
+    }
+    
+    struct UserEntity: Decodable {
         let user_id: Int
         let account_id: Int
         var user_name: String?
