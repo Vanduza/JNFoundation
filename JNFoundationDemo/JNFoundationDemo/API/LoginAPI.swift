@@ -56,4 +56,11 @@ final class LoginAPI: DemoAPI, DemoAPIable {
         var registeer_way: Int
         let token: String
     }
+    
+    class LoginEvent: JNFoundation.Event {
+        let token: String
+        init(token: String) {
+            self.token = token
+        }
+    }
 }

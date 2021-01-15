@@ -15,8 +15,8 @@ class NextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DemoPluginName.shared.getPlugin().getNc().addObserver(self) { (_: SearchAuthorAPI.SubEvent) in
-            print("收到通知")
+        DemoPluginName.shared.getPlugin().getNc().addObserver(self) { (event: LoginAPI.LoginEvent) in
+            print("收到通知:", event.token)
         }.disposed(by: _disposeBag)
         
         SearchAuthorAPI.init(request: .init(name: "李白")).send().subscribe { (api: SearchAuthorAPI) in

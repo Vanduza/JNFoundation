@@ -24,7 +24,10 @@ final class SearchAuthorAPI: DemoAPI, DemoAPIable {
     }
     
     func setModel(_ postModelEvent: Bool) -> Observable<Void> {
-        nc.post(SubEvent())
+        
+        let event = LoginAPI.LoginEvent.init(token: "123")
+        nc.post(event)
+        
         return Observable.just(())
     }
     
@@ -45,8 +48,5 @@ extension SearchAuthorAPI {
     
     class Response: APIResponse {
         var result: String?
-    }
-    class SubEvent: JNFoundation.Event {
-        
     }
 }
