@@ -8,7 +8,7 @@
 
 import Foundation
 
-func JPrint(_ file: String = #file, _ line: Int = #line, items: Any...) {
+public func JPrint(_ file: String = #file, _ line: Int = #line, items: Any...) {
     #if DEBUG
     let file = (file as NSString).lastPathComponent
     print(file, line, items)
