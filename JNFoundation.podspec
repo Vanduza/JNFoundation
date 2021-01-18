@@ -17,15 +17,15 @@ Pod::Spec.new do |spec|
 
   spec.name         = "JNFoundation"
   spec.version      = "0.2.0"
-  spec.summary      = "A short description of JNFoundation."
-  spec.summary      = "A short description of JNFoundation."
+  spec.summary      = "一个集成网络和DB的便捷工具库"
   spec.description  = <<-DESC
-	JNFoundation
+	JNFoundation是业务模块化的前期解耦合设计方案，将Net、DB、Model职责划分，为独立业务模块提供底层支持
                    DESC
 
-  spec.homepage     = "http://www.vanduza.com/JNFoundation"
+  spec.homepage     = "https://github.com/Vanduza/JNFoundation"
   spec.license      = "MIT"
   spec.platform     = :ios, "10.0"
+  spec.swift_versions = "4.2"
 
   spec.author             = { "Vanduza" => "vanduza@163.com" }
   spec.source  = {:git => "https://github.com/Vanduza/JNFoundation.git", :tag => "V#{spec.version}"}
