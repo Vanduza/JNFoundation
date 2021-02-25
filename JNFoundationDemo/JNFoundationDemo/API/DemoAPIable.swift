@@ -65,5 +65,6 @@ class DemoAPI {
     }
     
     var code: APICode = .ELSE_ERROR
+    var token: String = ""
     var message: String?
 }

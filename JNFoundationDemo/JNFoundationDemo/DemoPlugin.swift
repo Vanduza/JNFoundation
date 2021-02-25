@@ -11,8 +11,7 @@ import JNFoundation
 
 class DemoPluginName: Plugin.Name {
     static let shared: DemoPluginName = DemoPluginName()
-    static let BaseUrl = "https://api.apiopen.top/"
-    static let RrpcBaseUrl = "https://iot.eu-central-1.aliyuncs.com/"//"https://iot.cn-shanghai.aliyuncs.com/"
+    static let BaseUrl = "https://www.wanandroid.com/"
     func setup() {
         do {
             try Plugin.register(pluginName: self)
@@ -35,14 +34,6 @@ class DemoPluginName: Plugin.Name {
     func getMainNet() -> Net {
         guard let net = getPlugin().getNet(byBaseUrl: DemoPluginName.BaseUrl) else {
             fatalError("初始化net时，调用一下setToMainNet")
-        }
-        
-        return net
-    }
-    
-    func getRrpcNet() -> Net {
-        guard let net = getPlugin().getNet(byBaseUrl: DemoPluginName.RrpcBaseUrl) else {
-            fatalError("请在 DemoPluginName.setup 方法中初始化Net")
         }
         
         return net

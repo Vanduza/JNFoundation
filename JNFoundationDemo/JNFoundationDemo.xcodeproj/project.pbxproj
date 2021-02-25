@@ -14,7 +14,6 @@
 		DC6A998225B04A5A00B28A07 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A998125B04A5A00B28A07 /* NextViewController.swift */; };
 		DC73B99124A2E7980000528E /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC73B99024A2E7980000528E /* NetTool.swift */; };
 		DC7F987A24A1E21B00A969FD /* String+hmac.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7F987924A1E21B00A969FD /* String+hmac.swift */; };
-		DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */; };
 		DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */; };
 		DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBEFCA024976554004C8E93 /* DemoAPIable.swift */; };
 		DCBEFCAC24977800004C8E93 /* JNFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBEFCAB24977800004C8E93 /* JNFoundation.framework */; };
@@ -47,7 +46,6 @@
 		DC6A998125B04A5A00B28A07 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		DC73B99024A2E7980000528E /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
 		DC7F987924A1E21B00A969FD /* String+hmac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+hmac.swift"; sourceTree = "<group>"; };
-		DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAuthorAPI.swift; sourceTree = "<group>"; };
 		DCB53C8C2491191000E3F8BD /* JNFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = JNFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB53C9224911B1100E3F8BD /* DemoPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoPlugin.swift; sourceTree = "<group>"; };
 		DCBEFCA024976554004C8E93 /* DemoAPIable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAPIable.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 			children = (
 				DC43B96A24935E06000613C0 /* StubConnect.swift */,
 				DCBEFCA024976554004C8E93 /* DemoAPIable.swift */,
-				DC7FF6E72499FF3F005FF542 /* SearchAuthorAPI.swift */,
 				DCF464C225AF37CB00382923 /* RegisterAPI.swift */,
 				DCF4652225AF3EE700382923 /* LoginAPI.swift */,
 			);
@@ -340,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC73B99124A2E7980000528E /* NetTool.swift in Sources */,
-				DC7FF6E82499FF3F005FF542 /* SearchAuthorAPI.swift in Sources */,
 				DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */,
 				DCEDD460248E7FC00044C736 /* ViewController.swift in Sources */,
 				DCF4652325AF3EE700382923 /* LoginAPI.swift in Sources */,

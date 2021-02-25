@@ -22,10 +22,7 @@ public protocol CodeResponsable: Decodable {
     var message: String? { get set }
 }
 
-public protocol APIRequest: class, Encodable {
-    var token: String? { get set }
-    var uuid: String? { get set }
-}
+public protocol APIRequest: class, Encodable {}
 
 public protocol APIResponse: class, Decodable {}
 
@@ -36,6 +33,7 @@ public protocol API: class {
     var response: Response? { get set }
     var code: APICode { get set }
     var message: String? { get set }
+    var token: String { get set }
 
     var nc: JNNotificationCenter { get }
     var mf: ModelFactory { get }
@@ -93,8 +91,7 @@ extension APIable {
 
     private func sendImpl() -> Observable<Self> {
         let token = net.getToken()
-        self.request.token = token
-        self.request.uuid = mf.getModel(Device.self).getUUID()
+        self.token = token
         //如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
             code = .TOKEN_EXPIRE_CODE
@@ -134,7 +131,7 @@ extension APIable {
                 sself.message = res?.message
                 if sself.code == .TOKEN_EXPIRE_CODE {
                     //返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
-                    let token = sself.request.token ?? Token.empty
+                    let token = sself.token
                     if token != sself.net.getToken() {
                         observer.onError(Net.NetError.tokenExpired)
                         return

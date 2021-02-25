@@ -19,9 +19,9 @@ class NextViewController: UIViewController {
             print("收到通知:", event.token)
         }.disposed(by: _disposeBag)
         
-        SearchAuthorAPI.init(request: .init(name: "李白")).send().subscribe { (api: SearchAuthorAPI) in
-            print(api.response?.result ?? "")
-        }.disposed(by: _disposeBag)
+//        SearchAuthorAPI.init(request: .init(name: "李白")).send().subscribe { (api: SearchAuthorAPI) in
+//            print(api.response?.result ?? "")
+//        }.disposed(by: _disposeBag)
     }
     
 
