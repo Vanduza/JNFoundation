@@ -9,7 +9,7 @@
 import Foundation
 import WCDBSwift
 
-public protocol Table: class {
+public protocol Table: AnyObject {
     func createIfNotExist()
     func clear()
 

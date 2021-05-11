@@ -22,11 +22,11 @@ public protocol CodeResponsable: Decodable {
     var message: String? { get set }
 }
 
-public protocol APIRequest: class, Encodable {}
+public protocol APIRequest: AnyObject, Encodable {}
 
-public protocol APIResponse: class, Decodable {}
+public protocol APIResponse: AnyObject, Decodable {}
 
-public protocol API: class {
+public protocol API: AnyObject {
     associatedtype Request: APIRequest
     associatedtype Response: APIResponse
     var request: Request { get }
@@ -95,7 +95,11 @@ extension APIable {
         //如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
             code = .TOKEN_EXPIRE_CODE
-            return Observable.just(self)
+            return Observable<Self>.create { observer in
+                observer.onError(Net.NetError.tokenExpired)
+                observer.onCompleted()
+                return Disposables.create()
+            }
         }
         //如果需要token的接口，token为空，不执行网络请求
         if token.isEmpty, needToken {
@@ -104,7 +108,11 @@ extension APIable {
             net.set401(true)
             nc.post(Net.Net401Event.init(net: net))
             JPrint("token is empty")
-            return Observable.just(self)
+            return Observable<Self>.create { observer in
+                observer.onError(Net.NetError.tokenEmpty)
+                observer.onCompleted()
+                return Disposables.create()
+            }
         }
 
         let url = net.getBaseUrl()+getUrl()

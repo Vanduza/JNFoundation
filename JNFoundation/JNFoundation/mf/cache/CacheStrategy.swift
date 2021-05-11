@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol CacheStrategy: class {
+public protocol CacheStrategy: AnyObject {
     func clear()
     func adjust(byNewData newData: [String]) -> [String]
 }

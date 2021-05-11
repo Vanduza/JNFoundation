@@ -85,6 +85,7 @@ public final class Net {
     }
 
     public enum NetError: Error {
-        case responseEmpty, tokenExpired, apiReleased, decodeJsonError
+        case responseEmpty, tokenExpired, apiReleased, decodeJsonError, tokenEmpty
+
     }
 }
