@@ -9,17 +9,12 @@
 import Foundation
 import RxSwift
 
-public enum APICode: Int {
-    case SUCCESS = 200
-    case TOKEN_EXPIRE_CODE = 401
-    case NOT_MODIFIED = 304
-    case SERVER_ERROR = 500
-    case ELSE_ERROR = 501
-}
-
 public protocol CodeResponsable: Decodable {
-    var code: APICode { get set }
+    var code: Int { get set }
     var message: String? { get set }
+
+    static var codeTokenExpired: Int { get }
+    static var codeSuccess: Int { get }
 }
 
 public protocol APIRequest: AnyObject, Encodable {}
@@ -31,7 +26,7 @@ public protocol API: AnyObject {
     associatedtype Response: APIResponse
     var request: Request { get }
     var response: Response? { get set }
-    var code: APICode { get set }
+    var code: Int { get set }
     var message: String? { get set }
     var token: String { get set }
 
@@ -94,7 +89,7 @@ extension APIable {
         self.token = token
         //如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
-            code = .TOKEN_EXPIRE_CODE
+            code = net.getHttpBuilder().codeResponseType.codeTokenExpired
             return Observable<Self>.create { observer in
                 observer.onError(Net.NetError.tokenExpired)
                 observer.onCompleted()
@@ -103,7 +98,7 @@ extension APIable {
         }
         //如果需要token的接口，token为空，不执行网络请求
         if token.isEmpty, needToken {
-            code = .TOKEN_EXPIRE_CODE
+            code = net.getHttpBuilder().codeResponseType.codeTokenExpired
             //这里考虑异步执行
             net.set401(true)
             nc.post(Net.Net401Event.init(net: net))
@@ -134,10 +129,13 @@ extension APIable {
                     return
                 }
                 let codeResponseType = sself.net.getHttpBuilder().codeResponseType
-                let res: CodeResponsable? = JsonTool.fromJson(response, toClass: codeResponseType)
-                sself.code = res?.code ?? APICode.ELSE_ERROR
-                sself.message = res?.message
-                if sself.code == .TOKEN_EXPIRE_CODE {
+                guard let res: CodeResponsable = JsonTool.fromJson(response, toClass: codeResponseType) else {
+                    observer.onError(Net.NetError.decodeJsonError)
+                    return
+                }
+                sself.code = res.code
+                sself.message = res.message
+                if sself.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired {
                     //返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
                     let token = sself.token
                     if token != sself.net.getToken() {
@@ -160,8 +158,8 @@ extension APIable {
                 //取消401
                 sself.net.set401(false)
 
-                if sself.code != .SUCCESS, sself.code != .NOT_MODIFIED {
-                    let err = NSError.init(domain: "", code: sself.code.rawValue, userInfo: [NSLocalizedDescriptionKey: sself.message ?? "no description"])
+                if sself.code != sself.net.getHttpBuilder().codeResponseType.codeSuccess {
+                    let err = NSError.init(domain: "", code: sself.code, userInfo: [NSLocalizedDescriptionKey: sself.message ?? "no description"])
                     observer.onError(err)
                     return
                 }
@@ -192,28 +190,16 @@ extension APIable {
     }
 }
 
-open class CodeResponse: CodeResponsable {
-    public required init(from decoder: Decoder) throws {}
-
-    public var code: APICode = .ELSE_ERROR
+open class CodeResponse: CodeResponsable, Codable {
+    public var code: Int = 200
 
     public var message: String?
-}
 
-public class ResponseCode: CodeResponse {
-    public required init(from decoder: Decoder) throws {
-        try super.init(from: decoder)
-        do {
-            let values = try decoder.container(keyedBy: CodingKeys.self)
-            let codeV = try values.decode(Int.self, forKey: .code)
-            code = APICode.init(rawValue: codeV) ?? APICode.ELSE_ERROR
-            message = try? values.decode(String.self, forKey: .message)
-        } catch let err as DecodingError {
-            JPrint(items: err)
-        }
+    public static var codeSuccess: Int {
+        return 200
     }
 
-    enum CodingKeys: String, CodingKey {
-        case code, message
+    public static var codeTokenExpired: Int {
+        return 401
     }
 }

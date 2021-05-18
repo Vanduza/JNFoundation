@@ -54,7 +54,7 @@ class StubConnect: HttpString {
 
 class StubHttpBuilder: PostStringHttpBuilder {
     var codeResponseType: CodeResponse.Type {
-        return ResponseCode.self
+        return CodeResponse.self
     }
     
     func build() -> HttpString {
