@@ -54,7 +54,7 @@ class StubConnect: HttpString {
 
 class StubHttpBuilder: PostStringHttpBuilder {
     var codeResponseType: CodeResponse.Type {
-        return CodeResponse.self
+        return DemoPluginResponseCode.self
     }
     
     func build() -> HttpString {
@@ -125,4 +125,27 @@ class StubHttpBuilder: PostStringHttpBuilder {
     private var _body: String = ""
     private var _method: HttpMethod = .POST
     private var _needToken = false
+}
+
+class DemoPluginResponseCode: CodeResponse {
+    
+    var status: Int = -1
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        code = try container.decodeIfPresent(Int.self, forKey: .status) ?? -1
+    }
+    
+    override class func codeSuccess() -> Int {
+        return 0
+    }
+    
+    override class func codeTokenExpired() -> Int {
+        return 201
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case code, message, status
+    }
 }

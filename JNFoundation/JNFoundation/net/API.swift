@@ -13,8 +13,8 @@ public protocol CodeResponsable: Decodable {
     var code: Int { get set }
     var message: String? { get set }
 
-    static var codeTokenExpired: Int { get }
-    static var codeSuccess: Int { get }
+    static func codeTokenExpired() -> Int
+    static func codeSuccess() -> Int
 }
 
 public protocol APIRequest: AnyObject, Encodable {}
@@ -89,7 +89,7 @@ extension APIable {
         self.token = token
         //如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
-            code = net.getHttpBuilder().codeResponseType.codeTokenExpired
+            code = net.getHttpBuilder().codeResponseType.codeTokenExpired()
             return Observable<Self>.create { observer in
                 observer.onError(Net.NetError.tokenExpired)
                 observer.onCompleted()
@@ -98,7 +98,7 @@ extension APIable {
         }
         //如果需要token的接口，token为空，不执行网络请求
         if token.isEmpty, needToken {
-            code = net.getHttpBuilder().codeResponseType.codeTokenExpired
+            code = net.getHttpBuilder().codeResponseType.codeTokenExpired()
             //这里考虑异步执行
             net.set401(true)
             nc.post(Net.Net401Event.init(net: net))
@@ -135,7 +135,7 @@ extension APIable {
                 }
                 sself.code = res.code
                 sself.message = res.message
-                if sself.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired {
+                if sself.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired() {
                     //返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
                     let token = sself.token
                     if token != sself.net.getToken() {
@@ -158,7 +158,7 @@ extension APIable {
                 //取消401
                 sself.net.set401(false)
 
-                if sself.code != sself.net.getHttpBuilder().codeResponseType.codeSuccess {
+                if sself.code != sself.net.getHttpBuilder().codeResponseType.codeSuccess() {
                     let err = NSError.init(domain: "", code: sself.code, userInfo: [NSLocalizedDescriptionKey: sself.message ?? "no description"])
                     observer.onError(err)
                     return
@@ -191,15 +191,15 @@ extension APIable {
 }
 
 open class CodeResponse: CodeResponsable, Codable {
-    public var code: Int = 200
+    open class func codeTokenExpired() -> Int {
+        return 401
+    }
 
-    public var message: String?
-
-    public static var codeSuccess: Int {
+    open class func codeSuccess() -> Int {
         return 200
     }
 
-    public static var codeTokenExpired: Int {
-        return 401
-    }
+    public var code: Int = 200
+
+    public var message: String?
 }
