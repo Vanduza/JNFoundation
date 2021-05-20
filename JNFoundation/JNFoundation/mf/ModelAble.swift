@@ -9,7 +9,7 @@
 import Foundation
 import WCDBSwift
 
-public protocol ModelAble: class {
+public protocol ModelAble: AnyObject {
     init(plugin: Plugin)
     var plugin: Plugin { get }
     func inited()

@@ -24,8 +24,8 @@ Pod::Spec.new do |spec|
 
   spec.homepage     = "https://github.com/Vanduza/JNFoundation"
   spec.license      = "MIT"
-  spec.platform     = :ios, "10.0"
-  spec.swift_versions = "4.2"
+  spec.platform     = :ios
+  spec.swift_versions = "5.1"
 
   spec.author             = { "Vanduza" => "vanduza@163.com" }
   spec.source  = {:git => "https://github.com/Vanduza/JNFoundation.git", :tag => "V#{spec.version}"}

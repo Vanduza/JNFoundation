@@ -84,7 +84,21 @@ public final class Net {
         public let net: Net
     }
 
-    public enum NetError: Error {
-        case responseEmpty, tokenExpired, apiReleased, decodeJsonError
+    public enum NetError: Error, LocalizedError {
+        case responseEmpty, tokenExpired, apiReleased, decodeJsonError, tokenEmpty
+        public var errorDescription: String? {
+            switch self {
+            case .responseEmpty:
+                return "响应为空"
+            case .tokenExpired:
+                return "Token已过期"
+            case .apiReleased:
+                return "API对象已被释放"
+            case .decodeJsonError:
+                return "JSON编码错误"
+            case .tokenEmpty:
+                return "Token为空"
+            }
+        }
     }
 }
