@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol HttpString {
     init(builder: PostStringHttpBuilder)
-    func send() -> Observable<String?>
+    func send() -> Observable<String>
 }
 
 public enum HttpMethod: String {

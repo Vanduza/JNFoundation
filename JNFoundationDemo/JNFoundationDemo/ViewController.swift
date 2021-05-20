@@ -19,13 +19,14 @@ class ViewController: UIViewController {
         print("SelfDBPath:",selfDbPath)
         
         LoginAPI.init(req: .init(userName: "张三", pwd: "123456")).send().subscribe { [weak self] (api: LoginAPI) in
-            self?.configureLoginSuccess(response: api.response)
+            guard let resp = api.response else { return }
+            self?.configureLoginSuccess(response: resp)
         } onError: { (error) in
             Toast.show(type: ToastType.error1(info: error))
         }.disposed(by: disposeBag)
     }
     
-    func configureLoginSuccess(response: LoginAPI.Response?) {
+    func configureLoginSuccess(response: LoginAPI.Response) {
         
     }
 

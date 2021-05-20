@@ -16,7 +16,7 @@ class StubConnect: HttpString {
         _builder = builder
     }
     
-    func send() -> Observable<String?> {
+    func send() -> Observable<String> {
         let headersMap = ["Content-Type":"application/json; charset=utf-8","Accept":"application/json,text/json,text/javascript,text/html"]
         let combineHeaders = headersMap.merging(self._builder.getAllHeaders()) { $1 }
         
@@ -25,16 +25,14 @@ class StubConnect: HttpString {
         var req = try! URLRequest.init(url: self._builder.getUrl(), method: .post, headers: combineHeaders)
         req.httpBody = body
         
-        return Observable<String?>.create { (observer) in
+        return Observable<String>.create { (observer) in
             let dataRequest = Alamofire.request(req).responseString { (response: DataResponse<String>) in
-                if let err = response.error {
+                switch response.result {
+                case .success(let result):
+                    observer.onNext(result)
+                    observer.onCompleted()
+                case .failure(let err):
                     observer.onError(err)
-                    return
-                }
-                
-                if let data = response.data {
-                    let json = String.init(data: data, encoding: .utf8)
-                    observer.onNext(json)
                 }
             }
             return Disposables.create {
