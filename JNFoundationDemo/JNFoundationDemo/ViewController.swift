@@ -24,6 +24,15 @@ class ViewController: UIViewController {
         } onError: { (error) in
             Toast.show(type: ToastType.error1(info: error))
         }.disposed(by: disposeBag)
+        
+        let json = """
+            {
+            "isMale": 1
+            }
+            """
+        
+        let p = JsonTool.fromJson(json, toClass: Person.self)
+        print(p?.isMale)
     }
     
     func configureLoginSuccess(response: LoginAPI.Response) {
@@ -50,4 +59,8 @@ class Toast {
 
 enum ToastType {
     case error1(info: Error)
+}
+
+class Person: Decodable {
+    let isMale: Bool
 }
