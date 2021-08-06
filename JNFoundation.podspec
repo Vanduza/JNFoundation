@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "JNFoundation"
-  spec.version      = "0.2.0"
+  spec.version      = "0.2.1"
   spec.summary      = "一个集成网络和DB的便捷工具库"
   spec.description  = <<-DESC
 	JNFoundation是业务模块化的前期解耦合设计方案，将Net、DB、Model职责划分，为独立业务模块提供底层支持
