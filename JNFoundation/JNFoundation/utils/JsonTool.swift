@@ -12,6 +12,7 @@ import CleanJSON
 public struct JsonTool {
     public static func fromJson<T: Decodable>(_ json: String, toClass: T.Type) -> T? {
         let decoder = CleanJSONDecoder()
+        decoder.valueNotFoundDecodingStrategy = .custom(CustomAdapter())
         do {
           let result = try decoder.decode(toClass, from: json.data(using: .utf8)!)
           return result
@@ -45,5 +46,24 @@ public struct JsonTool {
             JPrint(items: err)
             return ""
         }
+    }
+}
+
+struct CustomAdapter: JSONAdapter {
+
+    // 由于 Swift 布尔类型不是非 0 即 true，所以默认没有提供类型转换。
+    // 如果想实现 Int 转 Bool 可以自定义解码。
+    func adapt(_ decoder: CleanDecoder) throws -> Bool {
+        // 值为 null
+        if decoder.decodeNil() {
+            return false
+        }
+
+        if let intValue = try decoder.decodeIfPresent(Int.self) {
+            // 类型不匹配，期望 Bool 类型，实际是 Int 类型
+            return intValue != 0
+        }
+
+        return false
     }
 }

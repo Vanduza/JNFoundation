@@ -45,6 +45,9 @@ extension DemoAPIable {
     func setModel(_ postModelEvent: Bool) -> Observable<Void> {
         return Observable.just(())
     }
+    public var extraInfo: [String : Any] {
+        return [:]
+    }
 }
 
 class DemoAPI {

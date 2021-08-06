@@ -85,7 +85,13 @@ public final class Net {
     }
 
     public enum NetError: Error, LocalizedError {
-        case responseEmpty, tokenExpired, apiReleased, decodeJsonError, tokenEmpty
+        case responseEmpty
+        case tokenExpired
+        case apiReleased
+        case decodeJsonError
+        case tokenEmpty
+        case networkError(error: String, code: Int)
+
         public var errorDescription: String? {
             switch self {
             case .responseEmpty:
@@ -98,6 +104,8 @@ public final class Net {
                 return "JSON编码错误"
             case .tokenEmpty:
                 return "Token为空"
+            case .networkError(let error, let code):
+                return "网络错误 code:\(code), message:\(error)"
             }
         }
     }

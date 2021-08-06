@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol HttpString {
     init(builder: PostStringHttpBuilder)
-    func send() -> Observable<String?>
+    func send() -> Observable<String>
 }
 
 public enum HttpMethod: String {
@@ -27,9 +27,13 @@ public protocol PostStringHttpBuilder {
     func setMethod(_ method: HttpMethod) -> PostStringHttpBuilder
     func getMethod() -> HttpMethod
 
+    func setExtraInfo(_ info: [String: Any]) -> PostStringHttpBuilder
+    func getExtraInfo() -> [String: Any]
+
     func addHeader(keyValue: [String: String]) -> PostStringHttpBuilder
     func getHeader(key: String) -> String?
     func getAllHeaders() -> [String: String]
+    func deleteHeader(key: String)
     func deleteAllHeaders()
 
     func setContent(_ content: String) -> PostStringHttpBuilder

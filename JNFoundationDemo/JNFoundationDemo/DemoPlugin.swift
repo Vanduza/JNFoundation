@@ -52,4 +52,11 @@ class DemoPluginName: Plugin.Name {
     }
     
     private var _netMap: [String: Net] = [:]
+    
+    class DemoMockEvent: Event {
+        let id: Int
+        init(id: Int) {
+            self.id = id
+        }
+    }
 }

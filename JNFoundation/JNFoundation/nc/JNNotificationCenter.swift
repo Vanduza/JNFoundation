@@ -16,7 +16,7 @@ public class JNNotificationCenter {
 
     private static let EventKey = "event"
 
-    public func addObserver<T: Event, Observer>(_ observer: Observer, using: @escaping (T) -> Void) -> Disposable {
+    public func observeEvent<T: Event>(using: @escaping (T) -> Void) -> Disposable {
         let name: NSNotification.Name = getNotificationNameOf(event: T.self)
         let ob = _nc.addObserver(forName: name, object: nil, queue: nil) { (nt: Notification) in
             using(nt.userInfo![JNNotificationCenter.EventKey] as! T)
