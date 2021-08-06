@@ -27,8 +27,8 @@ public protocol PostStringHttpBuilder {
     func setMethod(_ method: HttpMethod) -> PostStringHttpBuilder
     func getMethod() -> HttpMethod
 
-    func setUseIpOrNot(_ useIp: Bool) -> PostStringHttpBuilder
-    func getUseIpOrNot() -> Bool
+    func setExtraInfo(_ info: [String: Any]) -> PostStringHttpBuilder
+    func getExtraInfo() -> [String: Any]
 
     func addHeader(keyValue: [String: String]) -> PostStringHttpBuilder
     func getHeader(key: String) -> String?

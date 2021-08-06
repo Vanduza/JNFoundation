@@ -15,28 +15,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
-        print("SelfDBPath:",selfDbPath)
+//        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
+//        print("SelfDBPath:",selfDbPath)
         
-        LoginAPI.init(req: .init(userName: "张三", pwd: "123456")).send().subscribe { [weak self] (api: LoginAPI) in
-            guard let resp = api.response else { return }
-            self?.configureLoginSuccess(response: resp)
-        } onError: { (error) in
-            Toast.show(type: ToastType.error1(info: error))
-        }.disposed(by: disposeBag)
-        
-        let json = """
-            {
-            "isMale": 1
-            }
-            """
-        
-        let p = JsonTool.fromJson(json, toClass: Person.self)
-        print(p?.isMale)
+//        LoginAPI.init(req: .init(userName: "张三", pwd: "123456")).send().subscribe { [weak self] (api: LoginAPI) in
+//            guard let resp = api.response else { return }
+//            self?.configureLoginSuccess(response: resp)
+//        } onError: { (error) in
+//            Toast.show(type: ToastType.error1(info: error))
+//        }.disposed(by: disposeBag)
+        let right = UIBarButtonItem.init(title: "Post", style: .plain, target: self, action: #selector(postNotification))
+        self.navigationItem.rightBarButtonItem = right
+        DemoPluginName.shared.getPlugin().getNc().observeEvent(using: { (event: DemoPluginName.DemoMockEvent) in
+            print("收到通知:", event.id)
+        }).disposed(by: disposeBag)
     }
     
     func configureLoginSuccess(response: LoginAPI.Response) {
         
+    }
+    
+    @objc func postNotification() {
+        let event = DemoPluginName.DemoMockEvent.init(id: 123)
+        DemoPluginName.shared.getNc().post(event)
     }
 
     @IBOutlet weak var resultLabel: UILabel!

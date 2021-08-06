@@ -55,10 +55,9 @@ public protocol APIable: API {
     func netOver()
 
     var needSetModel: Bool { get }
-    var useIpOrNot: Bool { get }
     var shouldPostModelEvent: Bool { get }
     var extraHeader: [String: String] { get }
-
+    var extraInfo: [String: Any] { get }
     var needToken: Bool { get }
     var disposebag: DisposeBag { get }
 }
@@ -115,7 +114,7 @@ extension APIable {
         return Observable<Self>.create { (observer) in
             self.net.getHttpBuilder()
                 .setNeedToken(self.needToken)
-                .setUseIpOrNot(self.useIpOrNot)
+                .setExtraInfo(self.extraInfo)
                 .addHeader(keyValue: self.extraHeader)
                 .setMethod(self.getHttpMethod())
                 .setUrl(url)

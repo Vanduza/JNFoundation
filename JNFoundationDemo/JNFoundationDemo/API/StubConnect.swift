@@ -51,6 +51,20 @@ class StubConnect: HttpString {
 }
 
 class StubHttpBuilder: PostStringHttpBuilder {
+    
+    func setExtraInfo(_ info: [String : Any]) -> PostStringHttpBuilder {
+        _extraInfo = info
+        return self
+    }
+    
+    func getExtraInfo() -> [String : Any] {
+        return _extraInfo
+    }
+    
+    func deleteHeader(key: String) {
+        _header.removeValue(forKey: key)
+    }
+    
     var codeResponseType: CodeResponse.Type {
         return DemoPluginResponseCode.self
     }
@@ -123,6 +137,8 @@ class StubHttpBuilder: PostStringHttpBuilder {
     private var _body: String = ""
     private var _method: HttpMethod = .POST
     private var _needToken = false
+    private var _useIpOrNot = false
+    private var _extraInfo: [String: Any] = [:]
 }
 
 class DemoPluginResponseCode: CodeResponse {
