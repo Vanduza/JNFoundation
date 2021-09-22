@@ -26,6 +26,22 @@ public class JNNotificationCenter {
         }
     }
 
+    public func observeEvents(_ events: [Event.Type], using: @escaping () -> Void) -> Disposable {
+        var observers: [AnyObject] = []
+        for event in events {
+            let name: NSNotification.Name = getNotificationNameOf(event: event.self)
+            let ob = _nc.addObserver(forName: name, object: nil, queue: nil) { (_) in
+                using()
+            }
+            observers.append(ob)
+        }
+        return Disposables.create { [weak self] in
+            for observer in observers {
+                self?._nc.removeObserver(observer)
+            }
+        }
+    }
+
     public func post<T: Event>(_ event: T) {
         guard Thread.current.isMainThread else {
             fatalError("post方法必须在主线程调用")

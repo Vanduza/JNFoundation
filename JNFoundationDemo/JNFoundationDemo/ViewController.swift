@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         DemoPluginName.shared.getPlugin().getNc().observeEvent(using: { (event: DemoPluginName.DemoMockEvent) in
             print("收到通知:", event.id)
         }).disposed(by: disposeBag)
+        
+        DemoPluginName.shared.getNc().observeEvents([DemoPluginName.DemoMockEvent.self, LoginAPI.LoginEvent.self]) {
+            print("收到通知2")
+        }.disposed(by: disposeBag)
     }
     
     func configureLoginSuccess(response: LoginAPI.Response) {

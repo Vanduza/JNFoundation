@@ -86,7 +86,7 @@ extension APIable {
     private func sendImpl() -> Observable<Self> {
         let token = net.getToken()
         self.token = token
-        //如果正在登录，不执行网络请求，也不执行401
+        // 如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
             code = net.getHttpBuilder().codeResponseType.codeTokenExpired()
             return Observable<Self>.create { observer in
@@ -95,10 +95,10 @@ extension APIable {
                 return Disposables.create()
             }
         }
-        //如果需要token的接口，token为空，不执行网络请求
+        // 如果需要token的接口，token为空，不执行网络请求
         if token.isEmpty, needToken {
             code = net.getHttpBuilder().codeResponseType.codeTokenExpired()
-            //这里考虑异步执行
+            // 这里考虑异步执行
             net.set401(true)
             nc.post(Net.Net401Event.init(net: net))
             JPrint("token is empty")
@@ -120,9 +120,9 @@ extension APIable {
                 .setUrl(url)
                 .setContent(JsonTool.toJson(fromObject: self.request)).build()
             .send().subscribe(onNext: { (response: String) in
-                //此处不能弱引用self，避免API提前释放，API将在执行完请求的所有流程后释放
+                // 此处不能弱引用self，避免API提前释放，API将在执行完请求的所有流程后释放
                 let sself = self
-                //netover是一个很重要的时序点，必须与processToken这个时序点在一个同步执行过程，失败也要标记
+                // netover是一个很重要的时序点，必须与processToken这个时序点在一个同步执行过程，失败也要标记
                 sself.netOver()
                 let codeResponseType = sself.net.getHttpBuilder().codeResponseType
                 guard let res: CodeResponsable = JsonTool.fromJson(response, toClass: codeResponseType) else {
@@ -131,7 +131,7 @@ extension APIable {
                 }
                 sself.code = res.code
                 if sself.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired() {
-                    //返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
+                    // 返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
                     let token = sself.token
                     if token != sself.net.getToken() {
                         observer.onError(Net.NetError.tokenExpired)
@@ -150,7 +150,7 @@ extension APIable {
                     return
                 }
 
-                //取消401
+                // 取消401
                 sself.net.set401(false)
 
                 if sself.code != sself.net.getHttpBuilder().codeResponseType.codeSuccess() {
@@ -159,7 +159,7 @@ extension APIable {
                     return
                 }
 
-                //给上层一次处理token的机会，解析数据时可能需要token
+                // 给上层一次处理token的机会，解析数据时可能需要token
                 sself.processToken(token)
                 sself.parse(json: response).subscribe(onNext: { [weak sself] (_) in
                     guard let wself = sself else {

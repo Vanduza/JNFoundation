@@ -65,11 +65,9 @@ class StubHttpBuilder: PostStringHttpBuilder {
         _header.removeValue(forKey: key)
     }
     
-    var codeResponseType: CodeResponse.Type {
-        return DemoPluginResponseCode.self
-    }
-    
     func build() -> HttpString {
+        /*builder被持有，connect每次都会新建和释放
+         *如果SessionManager未使用default单例时，manager可被builder持有*/
         let connect = StubConnect.init(builder: self)
         return connect
     }
@@ -132,12 +130,15 @@ class StubHttpBuilder: PostStringHttpBuilder {
     
     init() {}
     
+    var codeResponseType: CodeResponse.Type {
+        return DemoPluginResponseCode.self
+    }
+    
     private var _url: String = ""
     private var _header: [String: String] = [:]
     private var _body: String = ""
     private var _method: HttpMethod = .POST
     private var _needToken = false
-    private var _useIpOrNot = false
     private var _extraInfo: [String: Any] = [:]
 }
 

@@ -37,7 +37,7 @@ extension Table {
     }
 
     public var name: String {
-        //将"."替换成"_"避免部分关键字识别错误
+        // 将"."替换成"_"避免部分关键字识别错误
         let name = String.init(describing: Self.self).replacingOccurrences(of: ".", with: "_")
         return name
     }
@@ -64,7 +64,7 @@ extension TableAble {
             }
 
             if version != old {
-                //数据库升级
+                // 数据库升级
             }
 
             VersionTable.set(version: version, onDB: db, forTable: name)

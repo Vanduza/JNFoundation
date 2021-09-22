@@ -10,7 +10,7 @@ import Foundation
 
 public class NoCacheStrategy: CacheStrategy {
     public func clear() {
-        //do nothing
+        // do nothing
     }
 
     public func adjust(byNewData newData: [String]) -> [String] {

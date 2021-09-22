@@ -44,18 +44,18 @@ public class Me: ModelAble {
 
     public func setUid(_ uid: String) {
         if _uid == uid {
-            //发送uid初始化的通知
+            // 发送uid初始化的通知
             plugin.getNc().post(UidSetEvent())
             return
         }
 
         _uid = uid
         _table.set(value: uid, forKey: Key.uid.rawValue)
-        //同步切换数据库，避免异步获取错误
+        // 同步切换数据库，避免异步获取错误
         plugin.getDBManager().createSelfDB()
-        //清除Model缓存，重新载入更新SelfDB的Model
+        // 清除Model缓存，重新载入更新SelfDB的Model
         plugin.getMf().clearModelCache()
-        //发送一系列通知uidchanged
+        // 发送一系列通知uidchanged
         plugin.getNc().post(UidChanedEvent())
     }
 
