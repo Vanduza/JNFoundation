@@ -39,21 +39,6 @@ final class LoginAPI: DemoAPI, DemoAPIable {
     
     struct UserEntity: Decodable {
         let user_id: Int
-        let account_id: Int
-        var user_name: String?
-        var avatar: String?
-        var nickname: String?
-        var mobile: String?
-        var first_name: String?
-        var last_name: String?
-        var email: String?
-        var age: Int
-        var gender: String?
-        var birthday: Int
-        var is_qq: Bool
-        var is_weibo: Bool
-        var is_wechat: Bool
-        var registeer_way: Int
         let token: String
     }
     

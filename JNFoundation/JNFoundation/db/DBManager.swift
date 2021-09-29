@@ -32,7 +32,7 @@ public class DBManager {
         self._selfDB?.close()
         let selfDB = Database(withPath: self.getSelfDBPath())
         self._selfDB = selfDB
-        //数据库加密, 暂不需要加密
+        // 数据库加密, 暂不需要加密
         if let pwd = getSelfDBPwd() {
             self._selfDB?.setCipher(key: pwd.data(using: .ascii))
         }
@@ -115,6 +115,6 @@ class Builder {
     }
 
     private var _password: String?
-    //避免Plugin-DBManager-Builder-Plugin循环引用
+    // 避免Plugin-DBManager-Builder-Plugin循环引用
     private weak var _plugin: Plugin?
 }

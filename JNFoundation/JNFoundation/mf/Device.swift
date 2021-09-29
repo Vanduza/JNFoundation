@@ -56,7 +56,7 @@ open class Device: Model, ModelAble {
 
     public func getDeviceInfo() -> String {
         let device: UIDevice = UIDevice.current
-        //设备名称
+        // 设备名称
         let name: String = device.name
         // 设备所有者
         let deviceModel: String = device.modelName

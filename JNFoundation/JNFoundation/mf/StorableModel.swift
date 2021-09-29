@@ -237,7 +237,7 @@ extension StorableModel {
             oldMap.removeValue(forKey: id)
         }
 
-        //adjust cache
+        // adjust cache
         self.lock.lock()
         let elimi = self.cacheStrategy.adjust(byNewData: ids)
         for id in elimi {
