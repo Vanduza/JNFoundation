@@ -51,6 +51,7 @@ public protocol APIable: API {
     func parse(json: String) -> Observable<Void>
     func setModel(_ postModelEvent: Bool) -> Observable<Void>
     func processToken(_ response: String)
+    func processCode()
     func netStart()
     func netOver()
 
@@ -130,6 +131,8 @@ extension APIable {
                     return
                 }
                 sself.code = res.code
+                // 给上层一次处理code的机会
+                sself.processCode()
                 if sself.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired() {
                     // 返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
                     let token = sself.token

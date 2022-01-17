@@ -52,6 +52,7 @@ extension DemoAPIable {
 
 class DemoAPI {
     func processToken(_ response: String) { }
+    func processCode() { }
     
     var needSetModel: Bool {
         return true
