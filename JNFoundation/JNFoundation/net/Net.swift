@@ -104,8 +104,8 @@ public final class Net {
                 return "JSON编码错误"
             case .tokenEmpty:
                 return "Token为空"
-            case .networkError(let error, let code):
-                return "网络错误 code:\(code), message:\(error)"
+            case .networkError(let error, _):
+                return error
             }
         }
     }
