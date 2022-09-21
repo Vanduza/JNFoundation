@@ -26,7 +26,6 @@ public protocol API: AnyObject {
     associatedtype Response: APIResponse
     var request: Request { get }
     var response: Response? { get set }
-    var code: Int { get set }
     var token: String { get set }
 
     var nc: JNNotificationCenter { get }
@@ -50,8 +49,11 @@ public protocol APIable: API {
     func getHttpMethod() -> HttpMethod
     func parse(json: String) -> Observable<Void>
     func setModel(_ postModelEvent: Bool) -> Observable<Void>
-    func processToken(_ response: String)
-    func processCode()
+    
+    /// 预处理响应请求
+    /// - Parameter response: 响应的原始文本
+    /// - Returns: 是否继续处理请求（转换成Response）
+    func preprocess(response: String) -> Bool
     func netStart()
     func netOver()
 
@@ -89,7 +91,6 @@ extension APIable {
         self.token = token
         // 如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
-            code = net.getHttpBuilder().codeResponseType.codeTokenExpired()
             return Observable<Self>.create { observer in
                 observer.onError(Net.NetError.tokenExpired)
                 observer.onCompleted()
@@ -98,7 +99,6 @@ extension APIable {
         }
         // 如果需要token的接口，token为空，不执行网络请求
         if token.isEmpty, needToken {
-            code = net.getHttpBuilder().codeResponseType.codeTokenExpired()
             // 这里考虑异步执行
             net.set401(true)
             nc.post(Net.Net401Event.init(net: net))
@@ -125,15 +125,19 @@ extension APIable {
                 let sself = self
                 // netover是一个很重要的时序点，必须与processToken这个时序点在一个同步执行过程，失败也要标记
                 sself.netOver()
+                // 上层预处理response，可能需要处理code, token, message的对应逻辑
+                let isContinue = sself.preprocess(response: response)
+                if !isContinue {
+                    return
+                }
+                
                 let codeResponseType = sself.net.getHttpBuilder().codeResponseType
                 guard let res: CodeResponsable = JsonTool.fromJson(response, toClass: codeResponseType) else {
                     observer.onError(Net.NetError.decodeJsonError)
                     return
                 }
-                sself.code = res.code
-                // 给上层一次处理code的机会
-                sself.processCode()
-                if sself.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired() {
+                
+                if res.code == sself.net.getHttpBuilder().codeResponseType.codeTokenExpired() {
                     // 返回401时，请求的token和现存token不一样，有登录接口修改，无法判断最新token是否过期，不能执行真正的401操作
                     let token = sself.token
                     if token != sself.net.getToken() {
@@ -156,14 +160,6 @@ extension APIable {
                 // 取消401
                 sself.net.set401(false)
 
-                if sself.code != sself.net.getHttpBuilder().codeResponseType.codeSuccess() {
-                    let err = Net.NetError.networkError(error: res.message, code: sself.code)
-                    observer.onError(err)
-                    return
-                }
-
-                // 给上层一次处理token的机会，解析数据时可能需要token
-                sself.processToken(token)
                 sself.parse(json: response).subscribe(onNext: { [weak sself] (_) in
                     guard let wself = sself else {
                         observer.onError(Net.NetError.apiReleased)

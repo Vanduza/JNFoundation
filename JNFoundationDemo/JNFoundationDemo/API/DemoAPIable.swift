@@ -48,11 +48,13 @@ extension DemoAPIable {
     public var extraInfo: [String : Any] {
         return [:]
     }
+    
+    public func preprocess(response: String) -> Bool {
+        return true
+    }
 }
 
 class DemoAPI {
-    func processToken(_ response: String) { }
-    func processCode() { }
     
     var needSetModel: Bool {
         return true
