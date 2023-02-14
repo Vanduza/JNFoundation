@@ -21,6 +21,10 @@ final class LoginAPI: DemoAPI, DemoAPIable {
         self.request = req
     }
     
+    override var needToken: Bool {
+        return false
+    }
+    
     class Request: APIRequest {
         var token: String?
         var uuid: String?

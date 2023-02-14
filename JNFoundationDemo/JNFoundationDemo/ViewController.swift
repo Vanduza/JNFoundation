@@ -18,12 +18,12 @@ class ViewController: UIViewController {
 //        let selfDbPath = DemoPluginName.shared.getDB().getSelfDB().path
 //        print("SelfDBPath:",selfDbPath)
         
-//        LoginAPI.init(req: .init(userName: "张三", pwd: "123456")).send().subscribe { [weak self] (api: LoginAPI) in
-//            guard let resp = api.response else { return }
-//            self?.configureLoginSuccess(response: resp)
-//        } onError: { (error) in
-//            Toast.show(type: ToastType.error1(info: error))
-//        }.disposed(by: disposeBag)
+        LoginAPI.init(req: .init(userName: "张三", pwd: "123456")).send().subscribe { [weak self] (api: LoginAPI) in
+            guard let resp = api.response else { return }
+            self?.configureLoginSuccess(response: resp)
+        } onError: { (error) in
+            Toast.show(type: ToastType.error1(info: error))
+        }.disposed(by: disposeBag)
         let right = UIBarButtonItem.init(title: "Post", style: .plain, target: self, action: #selector(postNotification))
         self.navigationItem.rightBarButtonItem = right
         DemoPluginName.shared.getPlugin().getNc().observeEvent(using: { (event: DemoPluginName.DemoMockEvent) in

@@ -24,10 +24,6 @@ final public class ModelFactory {
             model = type as! T
         } else {
             model = T.init(plugin: plugin)
-            let tables = model.getAllTables()
-            for table in tables {
-                table.createIfNotExist()
-            }
             model.inited()
             _allModel[clazzName] = model
         }

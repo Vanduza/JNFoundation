@@ -47,10 +47,6 @@ class DemoPluginName: Plugin.Name {
         return getPlugin().getNc()
     }
     
-    func getDB() -> DBManager {
-        return getPlugin().getDBManager()
-    }
-    
     private var _netMap: [String: Net] = [:]
     
     class DemoMockEvent: Event {

@@ -37,10 +37,6 @@ public class Plugin {
         return _allPlugins[name]
     }
 
-    public func getDBManager() -> DBManager {
-        return _dbManager
-    }
-
     public func getNc() -> JNNotificationCenter {
         return _nc
     }
@@ -71,17 +67,10 @@ public class Plugin {
 
     private init(name: Name) {
         _name = name
-        _dbManager.createShareDB()
-        _dbManager.createSelfDB()
     }
 
     private lazy var _nc: JNNotificationCenter = JNNotificationCenter.init(plugin: self)
     private lazy var _mf: ModelFactory = ModelFactory.init(plugin: self)
-    private lazy var _dbManager: DBManager = {
-        let builder = Builder.init(plugin: self)
-        let dbm: DBManager = DBManager.init(builder: builder)
-        return dbm
-    }()
     private var _nets: [String: Net] = [:]
     private var _mainNet: Net?
     private let _name: Name

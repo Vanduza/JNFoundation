@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3216BC3C1A66BBFC4CB20A33 /* Pods_CommonPods_JNFoundationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */; };
 		DC0761A324A84A7D00C89A33 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A224A84A7D00C89A33 /* UserModel.swift */; };
-		DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0761A424A84AFB00C89A33 /* UserTable.swift */; };
 		DC43B96B24935E06000613C0 /* StubConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC43B96A24935E06000613C0 /* StubConnect.swift */; };
 		DC6A998225B04A5A00B28A07 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6A998125B04A5A00B28A07 /* NextViewController.swift */; };
 		DC73B99124A2E7980000528E /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC73B99024A2E7980000528E /* NetTool.swift */; };
@@ -41,7 +40,6 @@
 		73A08427F3CE235A51F0F468 /* Pods-CommonPods-JNFoundationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; path = "Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		B5AAC8A18CF93E666AC12F7A /* Pods_CommonPods_JNFoundationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonPods_JNFoundationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0761A224A84A7D00C89A33 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		DC0761A424A84AFB00C89A33 /* UserTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTable.swift; sourceTree = "<group>"; };
 		DC43B96A24935E06000613C0 /* StubConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubConnect.swift; sourceTree = "<group>"; };
 		DC6A998125B04A5A00B28A07 /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
 		DC73B99024A2E7980000528E /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
@@ -104,14 +102,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DC07619B24A82C5100C89A33 /* DB */ = {
-			isa = PBXGroup;
-			children = (
-				DC0761A424A84AFB00C89A33 /* UserTable.swift */,
-			);
-			path = DB;
-			sourceTree = "<group>";
-		};
 		DC43B96924935DAC000613C0 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +145,6 @@
 		DCEDD45A248E7FC00044C736 /* JNFoundationDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DC07619B24A82C5100C89A33 /* DB */,
 				DC07619A24A82C4900C89A33 /* Model */,
 				DC7F987824A1E20B00A969FD /* Other */,
 				DC43B96924935DAC000613C0 /* API */,
@@ -344,7 +333,6 @@
 				DC6A998225B04A5A00B28A07 /* NextViewController.swift in Sources */,
 				DCBEFCA124976554004C8E93 /* DemoAPIable.swift in Sources */,
 				DCF464C325AF37CB00382923 /* RegisterAPI.swift in Sources */,
-				DC0761A524A84AFB00C89A33 /* UserTable.swift in Sources */,
 				DCEDD45C248E7FC00044C736 /* AppDelegate.swift in Sources */,
 				DCB53C9324911B1100E3F8BD /* DemoPlugin.swift in Sources */,
 				DC7F987A24A1E21B00A969FD /* String+hmac.swift in Sources */,

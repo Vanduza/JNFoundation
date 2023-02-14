@@ -32,11 +32,11 @@ public final class Net {
     }
 
     public func setToken(_ token: String) {
-        getPlugin().getMf().getModel(Token.self).setToken(token, forUrl: getBaseUrl())
+        _token = token
     }
 
     public func getToken() -> String {
-        return getPlugin().getMf().getModel(Token.self).getToken(byUrl: getBaseUrl())
+        return _token
     }
 
     public func clear401() {
@@ -76,6 +76,7 @@ public final class Net {
     private var _isMainNet: Bool = false
     private var _isLogin: Bool = false
     private var _has401: Bool = false
+    private var _token: String = ""
 
     public class Net401Event: Event {
         init(net: Net) {

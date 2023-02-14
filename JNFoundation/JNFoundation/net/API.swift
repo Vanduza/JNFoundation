@@ -144,7 +144,7 @@ extension APIable {
                     * 1.清除token，防止其他接口再发起需要token的请求
                      2.设置401状态，直到下次登录时或其他不需要token的接口返回时取消401
                      */
-                    sself.net.setToken(Token.empty)
+                    sself.net.setToken("")
                     sself.net.set401(true)
                     if !sself.net.isLogin() {
                         sself.nc.post(Net.Net401Event.init(net: sself.net))
