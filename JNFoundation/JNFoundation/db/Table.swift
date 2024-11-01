@@ -50,24 +50,25 @@ public protocol TableAble: Table {
 
 extension TableAble {
     public func createIfNotExist() {
-        try? db.run(embeddedTransaction: {
-            try? db.create(table: name, of: Self.Entity.self)
+        try? db.run { [weak self] _ in
+            guard let sself = self else { return }
+            try? sself.db.create(table: sself.name, of: Self.Entity.self)
 
-            var old = VersionTable.getVersion(onDB: db, ofTable: name)
+            var old = VersionTable.getVersion(onDB: sself.db, ofTable: sself.name)
             if old == 0 {
-                old = firstVersion
-                VersionTable.set(version: old, onDB: db, forTable: name)
+                old = sself.firstVersion
+                VersionTable.set(version: old, onDB: sself.db, forTable: sself.name)
             }
 
-            guard version >= 1 else {
-                fatalError("table:\(name) version must be >= 1, but set \(version)")
+            guard sself.version >= 1 else {
+                fatalError("table:\(sself.name) version must be >= 1, but set \(sself.version)")
             }
 
-            if version != old {
+            if sself.version != old {
                 // 数据库升级
             }
 
-            VersionTable.set(version: version, onDB: db, forTable: name)
-        })
+            VersionTable.set(version: sself.version, onDB: sself.db, forTable: sself.name)
+        }
     }
 }

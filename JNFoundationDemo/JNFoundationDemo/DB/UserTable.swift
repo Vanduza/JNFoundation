@@ -19,7 +19,7 @@ class UserTable: TableAble {
     func setItems(_ items: [Entity]) -> Bool {
         if items.isEmpty { return true }
         do {
-            try db.insertOrReplace(objects: items, intoTable: self.name)
+            try db.insertOrReplace(items, intoTable: self.name)
             return true
         } catch let err {
             JPrint(items: err)
@@ -39,13 +39,10 @@ class UserTable: TableAble {
         
         enum CodingKeys: String, CodingTableKey {
             typealias Root = Entity
-            static let objectRelationalMapping: TableBinding<UserTable.Entity.CodingKeys> = TableBinding.init(CodingKeys.self)
-            case id, name, gender
-            static var columnConstraintBindings: [UserTable.Entity.CodingKeys : ColumnConstraintBinding]? {
-                return [
-                    id: ColumnConstraintBinding.init(isPrimary: true),
-                ]
+            static let objectRelationalMapping = TableBinding.init(CodingKeys.self) {
+                BindColumnConstraint(id, isPrimary: true)
             }
+            case id, name, gender
         }
         
         func toItem() -> UserModel.Item {

@@ -16,13 +16,10 @@ public class KeyValueStringTable: TableAble {
 
         public enum CodingKeys: String, CodingTableKey {
             public typealias Root = Entity
-            public static let objectRelationalMapping = TableBinding(CodingKeys.self)
-
-            case key, value
-
-            public static var columnConstraintBindings: [CodingKeys: ColumnConstraintBinding]? {
-                return [key: ColumnConstraintBinding(isPrimary: true)]
+            public static let objectRelationalMapping = TableBinding(CodingKeys.self) {
+                BindColumnConstraint(key, isPrimary: true)
             }
+            case key, value
         }
     }
 
@@ -38,7 +35,7 @@ public class KeyValueStringTable: TableAble {
     }
 
     public func set(value: String, forKey: String) {
-        try? db.insertOrReplace(objects: Entity(key: forKey, value: value), intoTable: name)
+        try? db.insertOrReplace([Entity(key: forKey, value: value)], intoTable: name)
     }
 
     public func delete(key: String) {
