@@ -2,7 +2,8 @@ workspace 'JNFoundationDemo.xcworkspace'
 project 'JNFoundationDemo/JNFoundationDemo.xcodeproj'
 project 'JNFoundation/JNFoundation.xcodeproj'
 
-platform :ios, '10.0'
+inhibit_all_warnings!
+platform :ios, '12.0'
 
 abstract_target 'CommonPods' do
   inhibit_all_warnings!
@@ -11,7 +12,7 @@ abstract_target 'CommonPods' do
   pod 'RxCocoa', '5.1.1'
   pod 'SnapKit', '5.0.1'
   
-  pod 'WCDB.swift', '1.0.8.2'
+  pod 'WCDB.swift', '2.0.4'
   pod 'CleanJSON', '1.0.6'
 
   target 'JNFoundationDemo' do

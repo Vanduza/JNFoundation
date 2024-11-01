@@ -92,7 +92,7 @@ extension APIable {
         // 如果正在登录，不执行网络请求，也不执行401
         if net.isLogin() {
             return Observable<Self>.create { observer in
-                observer.onError(Net.NetError.tokenExpired)
+                //登录前的请求直接扔掉，不再通知上层
                 observer.onCompleted()
                 return Disposables.create()
             }

@@ -30,7 +30,7 @@ public class DBManager {
 
     func createSelfDB() {
         self._selfDB?.close()
-        let selfDB = Database(withPath: self.getSelfDBPath())
+        let selfDB = Database(at: self.getSelfDBPath())
         self._selfDB = selfDB
         // 数据库加密, 暂不需要加密
         if let pwd = getSelfDBPwd() {
@@ -42,7 +42,7 @@ public class DBManager {
 
     func createShareDB() {
         self._shareDB?.close()
-        let shareDB = Database(withPath: self.getShareDBPath())
+        let shareDB = Database(at: self.getShareDBPath())
         self._shareDB = shareDB
         VersionTable.createAt(db: shareDB)
     }

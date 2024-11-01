@@ -16,13 +16,11 @@ public class KeyValueLongTable: TableAble {
 
         public enum CodingKeys: String, CodingTableKey {
             public typealias Root = Entity
-            public static let objectRelationalMapping = TableBinding(CodingKeys.self)
+            public static let objectRelationalMapping = TableBinding(CodingKeys.self) {
+                BindColumnConstraint(key, isPrimary: true)
+            }
 
             case key, value
-
-            public static var columnConstraintBindings: [CodingKeys: ColumnConstraintBinding]? {
-                return [key: ColumnConstraintBinding(isPrimary: true)]
-            }
         }
     }
 
@@ -38,7 +36,7 @@ public class KeyValueLongTable: TableAble {
     }
 
     public func set(value: Int, forKey: String) {
-        try? db.insertOrReplace(objects: Entity(key: forKey, value: value), intoTable: name)
+        try? db.insertOrReplace([Entity.init(key: forKey, value: value)], intoTable: name)
     }
 
     public func delete(key: String) {
