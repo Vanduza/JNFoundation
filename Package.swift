@@ -20,9 +20,15 @@ let package = Package(
         .package(url: "https://github.com/Tencent/wcdb.git", from: "2.1.10"),
         ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "JNFoundation")
+            name: "JNFoundation",
+            dependencies: [
+                .product(name: "CleanJSON", package: "CleanJSON"),
+                .product(name: "Alamofire", package: "Alamofire"),
+                .product(name: "RxSwift", package: "RxSwift"),
+                .product(name: "WCDBSwift", package: "wcdb")
+            ],
+            path: "Sources",
+        )
     ]
 )
