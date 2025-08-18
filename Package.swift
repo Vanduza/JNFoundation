@@ -15,7 +15,6 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Pircate/CleanJSON.git", from: "1.0.9"),
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.0.0"),
         .package(url: "https://github.com/ReactiveX/RxSwift.git", from: "6.0.0"),
         .package(url: "https://github.com/Tencent/wcdb.git", from: "2.1.10"),
         ],
@@ -24,7 +23,6 @@ let package = Package(
             name: "JNFoundation",
             dependencies: [
                 .product(name: "CleanJSON", package: "CleanJSON"),
-                .product(name: "Alamofire", package: "Alamofire"),
                 .product(name: "RxSwift", package: "RxSwift"),
                 .product(name: "WCDBSwift", package: "wcdb")
             ],

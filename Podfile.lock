@@ -3,7 +3,6 @@ PODS:
   - CleanJSON (1.0.6)
   - JNFoundation (0.2.1):
     - CleanJSON
-    - RxCocoa
     - RxSwift
     - WCDB.swift
   - RxCocoa (5.1.1):
@@ -44,7 +43,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   CleanJSON: fd25726a3f337077a93a006e55c85329662090e2
-  JNFoundation: 8f804f3c69fec6e3b6a0fea4bbd61d93ac9adb8f
+  JNFoundation: 64c87adbf548dc84a41d05bf20dfbe9a11bd3ca2
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
