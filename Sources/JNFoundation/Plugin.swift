@@ -24,17 +24,26 @@ public class Plugin {
     }
 
     static private var _allPlugins: [Name: Plugin] = [:]
+    static private let _registryQueue: DispatchQueue = DispatchQueue(label: "jnfoundation.plugin.registry", attributes: .concurrent)
 
     public class func register(pluginName: Name) throws {
-        if _allPlugins.contains(where: { $0.key == pluginName }) {
-            throw PluginError.duplicatedRegister
+        var thrownError: PluginError? = nil
+        _registryQueue.sync(flags: .barrier) {
+            if _allPlugins[pluginName] != nil {
+                thrownError = .duplicatedRegister
+                return
+            }
+            _allPlugins[pluginName] = Plugin.init(name: pluginName)
         }
-
-        _allPlugins[pluginName] = Plugin.init(name: pluginName)
+        if let err = thrownError { throw err }
     }
 
     public class func getBy(name: Name) -> Plugin? {
-        return _allPlugins[name]
+        var result: Plugin?
+        _registryQueue.sync {
+            result = _allPlugins[name]
+        }
+        return result
     }
 
     public func getDBManager() -> DBManager {
