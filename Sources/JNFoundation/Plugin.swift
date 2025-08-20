@@ -23,7 +23,7 @@ public class Plugin {
         case duplicatedRegister, notRegister
     }
 
-    static private var _allPlugins: [Name: Plugin] = [:]
+    nonisolated(unsafe) static private var _allPlugins: [Name: Plugin] = [:]
     static private let _registryQueue: DispatchQueue = DispatchQueue(label: "jnfoundation.plugin.registry", attributes: .concurrent)
 
     public class func register(pluginName: Name) throws {

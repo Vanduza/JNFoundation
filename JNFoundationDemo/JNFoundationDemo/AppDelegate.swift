@@ -15,7 +15,7 @@ func JPrint(_ file: String = #file, _ line: Int = #line, items: Any...) {
     #endif
 }
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

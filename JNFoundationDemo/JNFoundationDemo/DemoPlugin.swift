@@ -10,7 +10,7 @@ import Foundation
 import JNFoundation
 
 class DemoPluginName: Plugin.Name {
-    static let shared: DemoPluginName = DemoPluginName()
+    nonisolated(unsafe) static let shared: DemoPluginName = DemoPluginName()
     static let BaseUrl = "https://www.wanandroid.com/"
     func setup() {
         do {

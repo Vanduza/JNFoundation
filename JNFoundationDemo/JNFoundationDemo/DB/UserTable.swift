@@ -8,7 +8,7 @@
 
 import Foundation
 import JNFoundation
-import WCDBSwift
+@preconcurrency import WCDBSwift
 
 class UserTable: TableAble {
     var db: Database

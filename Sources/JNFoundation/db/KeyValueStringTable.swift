@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import WCDBSwift
+@preconcurrency import WCDBSwift
 
 public class KeyValueStringTable: TableAble {
     public struct Entity: TableCodable {
