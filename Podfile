@@ -11,7 +11,7 @@ abstract_target 'CommonPods' do
   pod 'RxCocoa', '5.1.1'
   pod 'SnapKit', '5.0.1'
   
-  pod 'WCDB.swift', '2.1.13'
+  pod 'WCDB.swift', '2.1.15'
   pod 'CleanJSON', '1.0.6'
   
   pod 'JNFoundation', path: "./"

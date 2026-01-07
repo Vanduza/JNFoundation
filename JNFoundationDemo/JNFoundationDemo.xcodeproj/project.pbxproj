@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -251,7 +251,6 @@
 				};
 			};
 			buildConfigurationList = DCEDD453248E7FBF0044C736 /* Build configuration list for PBXProject "JNFoundationDemo" */;
-			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -259,6 +258,7 @@
 				Base,
 			);
 			mainGroup = DCEDD44F248E7FBF0044C736;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = DCEDD459248E7FC00044C736 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,13 +320,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CommonPods-JNFoundationDemo/Pods-CommonPods-JNFoundationDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

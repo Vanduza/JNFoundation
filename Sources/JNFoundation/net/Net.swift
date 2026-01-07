@@ -91,6 +91,7 @@ public final class Net {
         case decodeJsonError
         case tokenEmpty
         case networkError(error: String, code: Int)
+        case requestCached(cacheId: String) // 新增：请求被缓存
 
         public var errorDescription: String? {
             switch self {
@@ -106,6 +107,8 @@ public final class Net {
                 return "Token为空"
             case .networkError(let error, _):
                 return error
+            case .requestCached(let cacheId):
+                return "网络不可用，请求已被缓存，缓存ID: \(cacheId)"
             }
         }
     }

@@ -63,6 +63,10 @@ public protocol APIable: API {
     var extraInfo: [String: Any] { get }
     var needToken: Bool { get }
     var disposebag: DisposeBag { get }
+    
+    // 新增：网络缓存相关属性
+    var shouldCacheWhenOffline: Bool { get }
+    var requestPriority: Int { get }
 }
 
 extension APIable {
@@ -77,13 +81,87 @@ extension APIable {
     public func netOver() {
 
     }
+    
+    // 默认实现：所有请求都支持离线缓存
+    public var shouldCacheWhenOffline: Bool {
+        return true
+    }
+    
+    // 默认优先级
+    public var requestPriority: Int {
+        return 0
+    }
 }
 
 extension APIable {
     public func send() -> Observable<Self> {
-        let ret = sendImpl()
-        netStart()
-        return ret
+        // 使用支持缓存的发送实现
+        return Observable.create { observer in
+            let requestId = UUID().uuidString
+            
+            // 创建响应 Subject
+            let responseSubject = RequestResponseManager.shared.createResponseSubject(forRequestId: requestId)
+            
+            // 订阅响应 Subject
+            let disposable = responseSubject.subscribe(
+                onNext: { result in
+                    switch result {
+                    case .success(let api):
+                        observer.onNext(api as! Self)
+                    case .failure(let error):
+                        observer.onError(error)
+                    }
+                },
+                onError: { error in
+                    observer.onError(error)
+                },
+                onCompleted: {
+                    observer.onCompleted()
+                }
+            )
+            
+            // 发送实际请求
+            let sendDisposable = self.sendImpl().subscribe(
+                onNext: { api in
+                    // 发送成功响应
+                    RequestResponseManager.shared.sendResponse(forRequestId: requestId, result: .success(api))
+                },
+                onError: { [weak self] error in
+                    guard let self = self else {
+                        RequestResponseManager.shared.sendResponse(forRequestId: requestId, result: .failure(Net.NetError.apiReleased))
+                        return
+                    }
+                    
+                    // 如果是网络错误且支持缓存，则缓存请求
+                    if let netError = error as? Net.NetError,
+                       case .networkError = netError,
+                       self.shouldCacheWhenOffline {
+                        
+                        // 缓存请求
+                        let cacheItem = RequestQueueManager.shared.addRequest(self, priority: self.requestPriority)
+                        
+                        // 将响应 Subject 与缓存项关联
+                        let handler: RequestCompletionHandler = { result in
+                            RequestResponseManager.shared.sendResponse(forRequestId: requestId, result: result)
+                        }
+                        
+                        // 添加回调处理器
+                        RequestQueueManager.shared.addCompletionHandler(forRequestId: cacheItem.id, handler: handler)
+                        
+                        // 通知调用者请求已被缓存
+                        observer.onError(Net.NetError.requestCached(cacheId: cacheItem.id))
+                    } else {
+                        // 其他错误，直接传递
+                        RequestResponseManager.shared.sendResponse(forRequestId: requestId, result: .failure(error))
+                    }
+                }
+            )
+            
+            return Disposables.create {
+                disposable.dispose()
+                sendDisposable.dispose()
+            }
+        }
     }
 
     private func sendImpl() -> Observable<Self> {
